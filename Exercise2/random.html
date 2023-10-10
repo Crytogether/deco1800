@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" 
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" 
+      crossorigin="" />
+<title>Plant Details and Map</title>
+</head>
+<body>
+
+<!-- Section for displaying plant details -->
+<div class="plant-details">
+  <!-- Individual plant elements should be added here with class 'plant' -->
+  <!-- For example: -->
+  <!--
+  <div class="plant">
+    <img src="path/to/image.jpg" alt="Plant Image">
+    <p></p>
+  </div>
+  -->
+</div>
+
+<div class="plant-details">
+    <!-- The details of each plant will be populated here dynamically using JavaScript -->
+
+</div>
+ 
+ 
+<!-- Section for displaying the map -->
+<article id="map"></article>
+
+
+<!-- Section for the congratulations modal -->
+<div id="congratulations-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <img id="congrats-image" src="water.png" alt="Congratulations Image" />
+    <p id="congrats-message"></p>
+  </div>
+</div>
+
+<div id="content">
+
+    <!-- Info Section -->
+    <section id="info-section">
+        <h2>Plant Info</h2>
+        <div id="info-container">
+            <!-- Data from API will be displayed here -->
+        </div>
+    </section>
+</div>
+
+<!-- Footer section with logo and button -->
+<div class="footer">
+  <img id="logo" src="water.jpeg" alt="Logo">
+  <button id="BUTTON_ID_HERE" onclick="window.location.href='tree.html'">Home page</button>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" 
+        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" 
+        crossorigin=""></script>
+<script src="js/html.js"></script>
+
+</body>
+</html>

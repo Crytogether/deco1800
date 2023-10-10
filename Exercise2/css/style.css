@@ -1,0 +1,189 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial, sans-serif';
+    background-color: #f0f0f0;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.leaflet-popup-content-wrapper {
+    /* Style the popup wrapper */
+    background-color: #fff;
+}
+
+.leaflet-popup-content {
+    /* Style the popup content */
+    color: #333;
+}
+
+.leaflet-control-zoom {
+    /* Style the zoom controls */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.plant {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    width: 30%;
+    box-sizing: border-box;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    transition: transform 0.2s;
+}
+
+.plant:hover {
+    transform: scale(1.02);
+}
+
+.plant img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.plant p {
+    font-size: 1em;
+    margin: 10px 0 0;
+}
+
+.light-up {
+    background-color: #ccd5ae; 
+}
+
+#message-container {
+    background-color: #f2dede; /* Red background color for error message */
+    color: #a94442; /* Text color for error message */
+    padding: 10px;
+    border: 1px solid #ebccd1; /* Border color for error message */
+    display: none; /* Initially hidden */
+    margin-top: 10px; /* Add spacing below the logo */
+}
+
+#message-container.error {
+    display: block; /* Show the message when there's an error */
+}
+
+#map {
+    width: 80vw;
+    height: 80vh;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px;
+    z-index: 500;
+}
+/* Customize the Leaflet controls */
+.leaflet-control {
+    background-color: #fff; /* Sets a background color to control elements */
+    border-radius: 5px; /* Rounds the corners of the control elements */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Adds a shadow to the control elements */
+}
+
+/* Customize the Leaflet popup */
+.leaflet-popup-content-wrapper {
+    background-color: #fff;
+    border-radius: 5px; /* Rounds the corners of the popup */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Adds a shadow to the popup */
+}
+
+/* Customize the Leaflet popup content */
+.leaflet-popup-content {
+    color: #333;
+    font-size: 0.9em; /* Adjusts the font size inside the popup */
+}
+
+/* Customize the Leaflet zoom control */
+.leaflet-control-zoom {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.footer {
+    background-color: #FEFAE0; /* Light gray background */
+    padding: 20px; /* Padding around the content */
+    display: flex; /* Flex container to align items horizontally */
+    justify-content: center; /* Center align the items */
+    align-items: center; /* Vertically center align the items */
+    border-top: 1px solid #dee2e6; /* A border at the top to separate it from the section above */
+    bottom: 0;
+    width: 100%;
+    z-index: 500; /* Set to a value lower than the z-index of .modal */
+}
+
+
+.footer img {
+    width: 50px; 
+    height: auto;
+}
+
+.footer button {
+    padding: 10px 20px; 
+    font-size: 16px; 
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1000; /* High z-index to ensure it appears above other elements */
+    display: none; /* Initially hidden */
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation: animatetop 0.4s;
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+.close-btn {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
