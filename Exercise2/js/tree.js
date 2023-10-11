@@ -18,6 +18,20 @@ $(document).ready(function() {
 
 });
 
+const audio = document.getElementById('myAudio');
+
+function playAudio() {
+  audio.play();
+}
+
+function pauseAudio() {
+  audio.pause();
+}
+
+function stopAudio() {
+  audio.pause();
+  audio.currentTime = 0;
+}
 
 
 function updatePlantDetails(records) {
@@ -25,22 +39,39 @@ function updatePlantDetails(records) {
 
     $(".plant").each(function(index) {
         var plantElement = $(this);
+        var detailLink = plantElement.find('a');
+     
 
-        if(records[index]) {
+        if (records[index]) {
+            var plantInfo = records[index]['Common Name'] + " in " + records[index]["Climate Zones"];
+            
+            // Display plant info and link on hover
+            plantElement.on('mouseenter', function() {
+                plantElement.find('p').text(plantInfo);
+                detailLink.attr('href', 'random2.html?id=' + records[index]['ID']);
+                detailLink.text('Click here to view more details');
+            });
+
+            var detailLink = $('<a>', {
+                text: 'View in details',
+                href: 'random.html?id=' + records[index]['ID'], // Replace with the actual link structure and unique identifier if necessary
+                target: '_self' // This will open the link in the same tab
+            });
+            plantElement.append(detailLink);
+
+
+
+            // Hide plant info and link on hover out
+            plantElement.on('mouseleave', function() {
+                plantElement.find('p').text('');
+
+                detailLink.text('');
+            });
+
+            // Toggle the visibility on click
             plantElement.find('img').on('click', function() {
-                plantElement.find('p').text(records[index]['Common Name'] + " in " + records[index]["Climate Zones"]);
-
-                // Create a new link element
-                var detailLink = $('<a>', {
-                    text: 'View in details',
-                    href: 'random.html?id=' + records[index]['ID'], // Replace with the actual link structure and unique identifier if necessary
-                    target: '_self' // This will open the link in the same tab
-                });
-
-
-
-                // Append the link to the plantElement, you might want to change the location based on your layout
-                plantElement.append(detailLink);
+                plantElement.find('p').toggleClass('info-visible');
+                detailLink.toggleClass('info-visible');
             });
         }
     });

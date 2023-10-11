@@ -41,6 +41,24 @@ body {
     border-radius: 5px;
 }
 
+.water-consumption {
+    background-color: #f0f0f0;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.water-consumption h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.water-consumption p {
+    font-size: 1.2em;
+    margin: 0;
+}
+
 .plant {
     border: 1px solid #ccc;
     padding: 20px;

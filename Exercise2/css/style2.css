@@ -1,0 +1,151 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+    background: url('path/to/your/lighter_green_image.jpg') repeat; /* Replace with your image path */
+}
+
+.water-consumption {
+    background-color: rgba(0, 123, 255, 0.8); /* Semi-transparent blue background */
+    border-radius: 50px; /* Make the corners round */
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-bottom: 20px;
+    width: 80%; /* Adjust width as needed */
+    margin: 0 auto; /* Center the bubble */
+}
+
+.water-consumption h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #fff; /* White text color */
+}
+
+.water-consumption p {
+    font-size: 1.2em;
+    margin: 0;
+    color: #fff; /* White text color */
+}
+
+
+.notice {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2em;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.plant {
+    border: 2px solid #2ecc71; /* Change the border color to a nice green */
+    padding: 20px;
+    margin: 10px;
+    width: 30%;
+    box-sizing: border-box;
+    background-color: #fff;
+    transition: background-color 0.3s ease;
+    border-radius: 15px; /* Add rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+.plant:hover {
+    background-color: #f0f0f0;
+}
+
+/* Style the buttons */
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+
+.plant img {
+    width: 100%;
+    height: auto;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #f0f0f0;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+}
+
+.footer img {
+    width: 50px; /* Adjust the width of the logo */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    box-sizing: border-box;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#BUTTON_ID_HERE {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#BUTTON_ID_HERE:hover {
+    background-color: #0056b3;
+}

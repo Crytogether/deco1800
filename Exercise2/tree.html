@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style2.css">
 <style>
     body {
         display: flex;
@@ -52,14 +52,29 @@
     }
 </style>
 <title>Plant Gallery</title>
+<button onclick="playAudio()">Play</button>
+      <button onclick="pauseAudio()">Pause</button>
+      <button onclick="stopAudio()">Stop</button>
 </head>
 <body>
 
-<div class="notice">
-    Interested in these plants? Click on the images to explore more!
-</div>
+    <div class="water-consumption">
+        <h2>Water Consumption</h2>
+        <p id="water-amount">0 ml</p>
+    </div>
+
+
+    <audio id="myAudio">
+        <source src="musics2.MP3" type="audio/mp3">
+        Your browser does not support the audio element.
+      </audio>
+    
+      
+
+
 </head>
     <body>
+      
 
     <div class="plant">
         <img src="chinese amerlia.jpeg" alt="Plant 1">
@@ -154,5 +169,8 @@
     <script src="js/common.js"></script>
 
     </body>
+    <footer>
+      
+    </footer>
 </html>
 
