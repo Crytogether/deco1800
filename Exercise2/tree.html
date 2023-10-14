@@ -1,63 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/style2.css">
-<style>
-    body {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-    .plant {
-        border: 1px solid #000;
-        padding: 20px;
-        margin: 10px;
-        width: 30%;
-        box-sizing: border-box;
-    }
-    .plant img {
-        width: 100%;
-        height: auto;
-    }
-</style>
-<title>Plant Gallery</title>
-<style>
-    body {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-    .plant {
-        border: 1px solid #000;
-        padding: 20px;
-        margin: 10px;
-        width: 30%;
-        box-sizing: border-box;
-    }
-    .plant img {
-        width: 100%;
-        height: auto;
-    }
-    .notice {
-        background-color: #f8f9fa;
-        border: 1px solid #e9ecef;
-        padding: 10px;
-        text-align: center;
-        font-size: 1.2em;
-        margin: 10px;
-        width: 100%;
-        box-sizing: border-box;
-    }
-</style>
-<title>Plant Gallery</title>
-<button onclick="playAudio()">Play</button>
-      <button onclick="pauseAudio()">Pause</button>
-      <button onclick="stopAudio()">Stop</button>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/tree.css">
+        <title>Plant Gallery</title>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="js/tree.js"></script>
+        <script src="js/common.js"></script>
+    </head>
 <body>
-
+    <header>
+        <div class="clickbutton">
+            <button class="play-button" onclick="playAudio()">Play</button>
+            <button class="play-button" onclick="pauseAudio()">Pause</button>
+            <button class="play-button" onclick="stopAudio()">Stop</button>
+        </div>
+    </header>
     <div class="water-consumption">
         <h2>Water Consumption</h2>
         <p id="water-amount">0 ml</p>
@@ -65,7 +24,7 @@
 
 
     <audio id="myAudio">
-        <source src="musics2.MP3" type="audio/mp3">
+        <source src="./soundtrack/musics.MP3" type="audio/mp3">
         Your browser does not support the audio element.
       </audio>
     
@@ -135,63 +94,63 @@
     
 
     <div class="plant">
-        <img src="chinese amerlia.jpeg" alt="Plant 1">
+        <img src="./images/plants/chinese amerlia.jpeg" alt="Plant 1">
         <p>Plant 1 Description</p>
         
     </div>
 
     <div class="plant">
-        <img src="Mexican Abelia.jpeg" alt="Plant 2">
+        <img src="./images/plants/Mexican Abelia.jpeg" alt="Plant 2">
         <p>Plant 2 Description</p>
     </div>
 
     <div class="plant">
-        <img src="Abelia x grandiflora.jpeg" alt="plant 3">
+        <img src="./images/plants/Abelia x grandiflora.jpeg" alt="plant 3">
         <p>Plant 3 Description</p>
     </div>
 
     <div class="plant">
-        <img src="golden abelia 1 .jpeg" alt="Plant 4">
+        <img src="./images/plants/golden abelia 1 .jpeg" alt="Plant 4">
         <p>Plant 4 Description</p>
     </div>
 
     <div class="plant">
-        <img src="Goldsport.jpeg" alt="Plant 5">
+        <img src="./images/plants/Goldsport.jpeg" alt="Plant 5">
         <p>Plant 5 Description</p>
     </div>
 
     <div class="plant">
-        <img src="download.jpeg" alt="Plant 6">
+        <img src="./images/plants/download.jpeg" alt="Plant 6">
         <p>Plant 6 Description</p>
     </div>
 
     <div class="plant">
-        <img src="okra.jpeg" alt="Plant 7">
+        <img src="./images/plants/okra.jpeg" alt="Plant 7">
         <p>Plant 7 Description</p>
     </div>
 
     <div class="plant">
-        <img src="Abelmoschus manihot.jpeg" alt="Plant 8">
+        <img src="./images/plants/Abelmoschus manihot.jpeg" alt="Plant 8">
         <p>Plant 8 Description</p>
     </div>
 
     <div class="plant">
-        <img src="Palm Leaf Abika.jpeg" alt="Plant 9">
+        <img src="./images/plants/Palm Leaf Abika.jpeg" alt="Plant 9">
         <p>Plant 9 Description</p>
     </div>
 
     <div class="plant">
-        <img src="Musk Mallow.jpeg" alt="Plant 10">
+        <img src="./images/plants/Musk Mallow.jpeg" alt="Plant 10">
         <p>Plant 10 Description</p>
     </div>
 
     <div class="plant">
-        <img src="Abelmoschus rugosus 'Mischief'.jpeg" alt="Plant 11">
+        <img src="./images/plants/abelia.jpeg" alt="Plant 11">
         <p>Plant 11 Description</p>
     </div>
 
     <div class="plant">
-        <img src="Abelmoschus rugosus 'Evergreen'.jpeg"Plant 12">
+        <img src="./images/plants/Abelmoschus rugosus 'Evergreen'.jpeg"Plant 12">
         <p>Plant 12 Description</p>
     </div>
 
@@ -214,33 +173,18 @@
             <button onclick="recordWaterConsumption()">Record</button>
         </div>
     </div>
-    
-    <div class="footer">
-        <img id="logo" src="water.jpeg" alt="Logo" onclick="openWaterModal()">
+    <footer class="footer"> 
+        <img id="logo" class="waterimg" src="./images/icon/water-bottle.png" alt="Logo" onclick="openWaterModal()">
 			  <div id="congratulations-modal" class="modal">
                 <img id="congrats-image">
 				<div class="modal-content">
 				  <span class="close-btn">&times;</span>
-				  <img id="congrats-image" src="water.jpeg" alt="Congratulations Image" />
+				  <img id="congrats-image" src="./images/icon/water-bottle.png" alt="Congratulations Image" />
 				  <p id="congrats-message"></p>
 				</div>
 			  </div>
-        </a>
-        <button id="BUTTON_ID_HERE" onclick="window.location.href='index.html'">Map</button>
-
-    
-    
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="js/tree.js"></script>
-
-    <script src="js/common.js"></script>
-
-    </body>
-    <footer>
-    
+        <img class="mapimg" src="./images/icon/map.png" alt="map" onclick="window.location.href='index.html'">
     </footer>
-      
-    </footer>
+</body>
 </html>
 
