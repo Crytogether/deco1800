@@ -1,21 +1,27 @@
-welcome.html 
 <!DOCTYPE html>
-<html>
-<head>
-  <link rel="stylesheet" type="text/css" href="welcome.css">
-</head>
-<body>
-  <div class="welcome-container">
-    <h1>Welcome to the Water Reminder Program</h1>
-    <p>Stay hydrated, <span id="username"></span>!</p>
-    <button class="start-button" onclick="redirectToExternalPage()">Get Started</button>
-  </div>
-
-  <script>
-    function redirectToExternalPage() {
-      // Redirect to an external page
-      window.location.href = 'tree.html';
-    }
-  </script>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="uft-8">
+    <meta name="viewpoint" content="width=device-width", initial-scale="1">
+    <link rel="stylesheet" href="./css/welcome.css">
+    <script>
+      function redirectToExternalPage() {
+        // Redirect to an external page
+        window.location.href = 'tree.html';
+      }
+    </script>
+  </head>
+  <body>
+    <div class="flex-container">
+      <header class="flex-header-menu header-menu">
+        <span>LOGO</span>
+      </header>
+    </div>
+      <div class="flex-welcome-content main-content">
+        <h1>Welcome to the Aqua Botanics</h1>
+        <p>Stay hydrated ! <span id="username"></span></p>
+          <button class="start-button" onclick="redirectToExternalPage()">Get Started</button>
+      </div>
+    </div>
+  </body>
 </html>

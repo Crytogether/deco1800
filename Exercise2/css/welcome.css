@@ -1,46 +1,70 @@
-body {
-    font-family: Arial, sans-serif;
+html,body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
+    min-height: 100vh;
+    background-color: #ccd5ae;
   }
+
+body
+{
+  font-family: Arial, sans-serif;
+}
+
+:root{
+  --green: #606c38;
+  --darkgreen: #283618;
+  --white: #fefae0;
+  --yellow: #dda25e;
+  --brown: #bc6c25;
+  --green: #ccd5ae;
+  --lightgreen: #e9edc9;
+  --lightyellow: #faedcd;
+  --lightbrown: #d4a373;
+}
   
-  .welcome-container {
-    text-align: center;
-  }
+h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: var(--darkgreen);
+}
   
-  h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-    color: #333333;
-  }
+p {
+  font-size: 18px;
+  color:  var(--darkgreen);
+  justify-self: center;
+}
+
+.flex-welcome-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
   
-  p {
-    font-size: 18px;
-    color: #555555;
-  }
+.start-button {
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: #bc6c25;
+  color: #fefae0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
   
-  .start-button {
-    padding: 15px 30px;
-    font-size: 18px;
-    background-color: #3498db;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
+.start-button:hover {
+  background-color: #d4a373;
+}
   
-  .start-button:hover {
-    background-color: #2980b9;
-  }
-  
-  /* Optional: Adjust the button style based on your preference */
-  .start-button:active {
-    background-color: #1f618d;
-  }
+/* Optional: Adjust the button style based on your preference */
+.start-button:active {
+  background-color: #dda25e;
+}
+
   
