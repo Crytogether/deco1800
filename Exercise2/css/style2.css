@@ -149,3 +149,283 @@ button {
 #BUTTON_ID_HERE:hover {
     background-color: #0056b3;
 }
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+.modal-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Close button */
+.modal-content input[type="button"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.modal-content input[type="button"]:hover {
+    background-color: #45a049;
+}
+
+/* Additional styling as needed */
+
+/* CSS for the light-up effect */
+.light-up {
+    background-color: yellow; /* Adjust the background color to your preference */
+}
+
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    margin: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  select {
+    padding: 5px;
+    font-size: 16px;
+  }
+  
+  button {
+    padding: 6px 12px;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    cursor: pointer;
+  }
+  
+  /* ... existing styles ... */
+
+.footer {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .footer-buttons button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  
+  /* ... existing styles ... */
+  
+  .background-option-1 {
+    background-color: #40E0D0; /* Turquoise */
+}
+
+.background-option-2 {
+    background-color: #DA70D6; /* Orchid */
+}
+
+.background-option-3 {
+    background-color: #6495ED; /* Cornflower Blue */
+}
+
+.background-option-4 {
+    background-color: #00FA9A; /* Medium Spring Green */
+}
+
+.gradient-morning {
+    background: linear-gradient(to bottom, #FDFD96, #FFE47A);
+}
+
+.gradient-afternoon {
+    background: linear-gradient(to bottom, #FFD700, #FF6347);
+}
+
+.gradient-evening {
+    background: linear-gradient(to bottom, #FF4500, #FFA500);
+}
+
+.gradient-night {
+    background: linear-gradient(to bottom, #000022, #020025);
+}
+
+/* Style for the "Change Background Gradient by Time" button */
+button {
+    padding: 10px;
+    margin: 10px;
+    font-size: 16px;
+}
+
+/* Style for the dropdown button */
+.dropbtn {
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Style for the dropdown container (hidden by default) */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Style for the dropdown content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Style for the links inside the dropdown */
+.dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Style for the links on hover */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* Add styles for the modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* Add styles for the congratulations message */
+#congratulations {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .hidden {
+    display: none;
+  }
+
+  /* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-height: 80%;
+    overflow-y: auto;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-message {
+    text-align: center;
+    font-size: 18px;
+  }
+  
+  .modal-message .congrats {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .modal-message .feedback {
+    color: red;
+    font-weight: bold;
+  }

@@ -69,12 +69,70 @@
         Your browser does not support the audio element.
       </audio>
     
-      
+      <button onclick="changeBackgroundByTime()">Change Background Gradient by Time</button>
+
+      <div class="dropdown">
+        <button onclick="toggleDropdown()" class="dropbtn">Continents</button>
+        <div id="continentDropdown" class="dropdown-content">
+            <a href="#" onclick="getClimateZones('North America')">North America</a>
+            <a href="#" onclick="getClimateZones('Europe')">Europe</a>
+            <!-- Add more continents as needed -->
+        </div>
+    </div>
+    <div class="quiz-container">
+        <button onclick="startQuiz()">Start Quiz</button>
+    
+        <!-- The modal -->
+        <div id="quizModal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="questionContainer"></div>
+            <div id="optionsContainer"></div>
+            <div id="feedback"></div>
+            <button onclick="nextQuestion()">Next</button>
+          </div>
+        </div>
+      </div>
+    <div id="checkModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeCheckModal()">&times;</span>
+          <p>Climate in North America varies across different regions. Some of the climate zones you can find in North America include:</p>
+
+        </div>
+      </div>
 
 
 </head>
     <body>
-      
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div id="modal-content"></div>
+                <input type="button" value="Close" onclick="closePopup()">
+            </div>
+        </div>
+        <label for="waterLevel">Water Level:</label>
+        <div class="container">
+            <label for="waterLevel">Water Level:</label>
+            <select id="waterLevel">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+            <button onclick="submitWaterLevel()">Submit</button>
+          </div>
+          
+        
+          <div id="questionModal" class="modal">
+            <div class="modal-content">
+              <span class="close" onclick="closeModal()">&times;</span>
+              <button onclick="displayQuestion(1)">Question 1</button>
+              <button onclick="displayQuestion(2)">Question 2</button>
+              <button onclick="displayQuestion(3)">Question 3</button>
+            </div>
+          </div>
+        
+    
 
     <div class="plant">
         <img src="chinese amerlia.jpeg" alt="Plant 1">
@@ -140,16 +198,25 @@
     <div id="plant-gallery">
         <!-- The plant details will be dynamically inserted here -->
     </div>
+
+    
     
     <div id="overlay">
         <div id="message-container">
             <p id="message"></p>
         </div>
     </div>
+    <div id="water-consumption-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Enter Water Consumption</h2>
+            <input type="number" id="water-amount-input" placeholder="Enter water consumption in ml">
+            <button onclick="recordWaterConsumption()">Record</button>
+        </div>
+    </div>
     
-
     <div class="footer">
-            <img id="logo" src="water.jpeg" alt="Logo">
+        <img id="logo" src="water.jpeg" alt="Logo" onclick="openWaterModal()">
 			  <div id="congratulations-modal" class="modal">
                 <img id="congrats-image">
 				<div class="modal-content">
@@ -161,15 +228,18 @@
         </a>
         <button id="BUTTON_ID_HERE" onclick="window.location.href='index.html'">Map</button>
 
-    </div>
+    
     
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="js/tree.js"></script>
+
     <script src="js/common.js"></script>
 
     </body>
     <footer>
+    
+    </footer>
       
     </footer>
 </html>

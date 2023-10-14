@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  .welcome-container {
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #333333;
+  }
+  
+  p {
+    font-size: 18px;
+    color: #555555;
+  }
+  
+  .start-button {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .start-button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Optional: Adjust the button style based on your preference */
+  .start-button:active {
+    background-color: #1f618d;
+  }
+  

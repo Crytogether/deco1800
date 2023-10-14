@@ -1,0 +1,34 @@
+/* Apply some basic styles to the plant detail container */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9; /* Background color */
+    margin: 0;
+    padding: 20px;
+}
+
+#plant-detail {
+    background-color: white; /* Background color for the plant detail box */
+    border: 1px solid #ccc; /* Border */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle effect */
+    max-width: 600px; /* Maximum width of the detail box */
+    margin: 0 auto; /* Center the box */
+}
+
+/* Style headings */
+#plant-detail h2 {
+    color: #333; /* Heading color */
+}
+
+/* Style paragraphs */
+#plant-detail p {
+    margin-bottom: 10px; /* Margin between paragraphs */
+}
+
+/* Style images */
+#plant-detail img {
+    max-width: 100%; /* Ensure images don't exceed their container */
+    display: block; /* Remove extra spacing below images */
+    margin-top: 10px; /* Margin on top of images */
+}

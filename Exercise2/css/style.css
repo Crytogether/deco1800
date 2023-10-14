@@ -205,3 +205,8 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
+
+/* Add this to your CSS file */
+.light-up {
+    background-color: yellow; /* Change to the desired color for the light-up effect */
+}

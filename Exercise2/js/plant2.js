@@ -101,3 +101,18 @@ function displayInfo(records) {
     }
 }
 
+function fetchPlantDetails(commonName) {
+    // TODO: Implement the function to fetch plant details based on common name
+    // Return a Promise that resolves with the detailed information
+    return new Promise((resolve, reject) => {
+        // Simulated data fetching (replace with actual API call or data retrieval)
+        const plantDetails = {
+            scientificName: 'Plant Scientific Name',
+            description: 'Plant description goes here...',
+            // Add more details as needed
+        };
+
+        // Resolve with the plant details
+        resolve(plantDetails);
+    });
+}
