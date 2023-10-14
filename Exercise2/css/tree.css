@@ -42,19 +42,9 @@ body {
   width: 100%;
 }
 
-.clickbutton{
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  height: auto;
-  width: 100%;
-  background-color: #dda25e;
-}
 
-.clickbutton > img{
-  height:30px;
-  width: 30px;
-}
+
+
 
 .play-button{
   margin-right: 50px;

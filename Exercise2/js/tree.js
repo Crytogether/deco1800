@@ -101,29 +101,48 @@ function displayInfo(records) {
     }
 }
 
-// Open the water consumption modal on hover
-$("#logo").on("mouseover", function() {
-    $("#water-consumption-modal").css('display', 'block');
+$(document).ready(function() {
+    // Rest of your existing code...
+
+    // Open the water consumption modal on hover
+    $("#logo").on("mouseover", function() {
+        openWaterModal();
+    });
+
+    // Function to open the water consumption modal
+    function openWaterModal() {
+        $("#water-consumption-modal").css('display', 'block');
+    }
+
+    // Close the water consumption modal when clicking the close button
+    $(".close-btn").on("click", function() {
+        closeWaterModal();
+    });
+
+    // Function to close the water consumption modal
+    function closeWaterModal() {
+        $("#water-consumption-modal").css('display', 'none');
+    }
 });
 
-// Close the water consumption modal when clicking the close button
-$(".close-btn").on("click", function() {
-    $("#water-consumption-modal").css('display', 'none');
-});
+var userGoal = 0;  // Variable to store the user's goal
 
+function setWaterGoal() {
+    var goalAmount = parseInt($("#goal-amount").val(), 10);
+    if (!isNaN(goalAmount) && goalAmount > 0) {
+        userGoal = goalAmount;  // Store the user's goal
+        alert("Your goal is set to: " + userGoal + " ml");
 
+        // Update the displayed goal
+        $("#goal-amount-display").text(userGoal + " ml");
 
-// Function to open the water consumption modal
-function openWaterModal() {
-    $("#water-consumption-modal").css('display', 'block');
+        // Hide the goal setting section and display the water consumption recording section
+        $("#goal-setting-section").css('display', 'none');
+        $("#water-recording-section").css('display', 'block');
+    } else {
+        alert("Please enter a valid goal amount.");
+    }
 }
-
-// Function to close the water consumption modal
-function closeWaterModal() {
-    $("#water-consumption-modal").css('display', 'none');
-}
-
-
 
 var cumulativeWaterConsumption = 0;
 
@@ -136,26 +155,50 @@ function recordWaterConsumption() {
     // Update the water consumption display
     $("#water-amount").text(cumulativeWaterConsumption + " ml");
 
-    // Check for consumption milestones (300, 600, 900, ...)
-    var milestones = [300, 600, 900]; // Add more milestones as needed
-    for (var i = 0; i < milestones.length; i++) {
-        if (cumulativeWaterConsumption >= milestones[i]) {
-            // Light up each plant consecutively
-            setTimeout(lightUpPlant.bind(null, i + 1), (i + 1) * 1000);  // Light up plants with a delay
-        }
-    }
-
-    // Check if cumulative consumption reaches 2500 ml
-    if (cumulativeWaterConsumption >= 2500) {
-        $("#congrats-message").text("Congratulations! You've reached 2500 ml of water consumption.");
+    // Check if cumulative consumption exceeds the goal
+    if (cumulativeWaterConsumption >= userGoal) {
+        $("#congrats-message").text("Congratulations! You've reached your goal of " + userGoal + " ml of water consumption.");
         $("#congratulations-modal").css('display', 'block');
-        cumulativeWaterConsumption = 0; // Reset the cumulative consumption
-        $("#water-amount").text("0 ml"); // Reset the display to 0 ml
+        
     }
 
     // Close the modal after recording
     closeWaterModal();
 }
+
+function resetWaterConsumption() {
+    // Show a confirmation dialog before resetting
+    var confirmReset = confirm("Are you sure you want to finish the day and reset your water consumption?");
+    
+    if (confirmReset) {
+        userGoal = 0;
+        // Store the consumed water before resetting
+        var previousConsumption = cumulativeWaterConsumption;
+        cumulativeWaterConsumption = 0;
+
+        // Update the displayed goal and consumed water
+        $("#goal-amount-display").text(userGoal + " ml");
+        $("#water-amount").text(cumulativeWaterConsumption + " ml");
+
+        // Display a message with the previous day's consumption
+        alert("You finished the day. Your total water consumption for the day was " + previousConsumption + " ml. ");
+
+        // Close the congratulations modal if it's open
+        $("#congratulations-modal").css('display', 'none');
+    }
+}
+
+
+
+
+
+
+
+
+function closeWaterModal() {
+    $("#water-consumption-modal").css('display', 'none');
+}
+
 
 function lightUpPlant(plantIndex) {
     $(".plant:nth-child(" + plantIndex + ")").addClass('light-up');

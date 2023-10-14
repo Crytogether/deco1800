@@ -11,20 +11,16 @@
     </head>
 <body>
     <header class="header">
-        <div class="clickbutton">
-            <img class="play-button" SRC="./images/icon/play-button-arrowhead.png" onclick="playAudio()">
-            <img class="play-button" src="./images/icon/play-button-arrowhead.png" onclick="pauseAudio()">
-            <IMG class="play-button" src="./images/icon/play-button-arrowhead.png" onclick="stopAudio()">
-        </div>
+        
     </header>
     <div class="water-consumption">
         <h2>Water Consumption</h2>
         <p id="water-amount">0 ml</p>
+        <h2>Your Goal: <span id="goal-amount-display">0 ml</span></h2>
+        <button onclick="resetWaterConsumption()">Finish the Day</button>
+
     </div>
-    <audio id="myAudio">
-        <source src="./soundtrack/musics.MP3" type="audio/mp3">
-        Your browser does not support the audio element.
-      </audio>
+    
       <button onclick="changeBackgroundByTime()">Change Background Gradient by Time</button>
       <div class="dropdown">
         <button onclick="toggleDropdown()" class="dropbtn">Continents</button>
@@ -132,6 +128,29 @@
         <img src="./images/plants/Abelmoschus rugosus 'Evergreen'.jpeg"Plant 12">
         <p>Plant 12 Description</p>
     </div>
+
+    <div id="water-consumption-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+    
+            <!-- Goal Setting Section -->
+            <div id="goal-setting-section">
+                <h2>Set Your Water Consumption Goal</h2>
+                <!-- Add input fields or controls for goal setting -->
+                <input type="number" id="goal-amount" placeholder="Enter your goal in ml">
+                <button onclick="setWaterGoal()">Set Goal</button>
+            </div>
+    
+            <!-- Water Consumption Recording Section -->
+            <div id="water-recording-section" style="display: none;">
+                <h2>Record Your Water Consumption</h2>
+                <!-- Add input fields or controls for water consumption recording -->
+                <input type="number" id="water-amount-input" placeholder="Enter water consumption in ml">
+                <button onclick="recordWaterConsumption()">Record</button>
+            </div>
+        </div>
+    </div>
+    
 
     <div id="plant-gallery">
         <!-- The plant details will be dynamically inserted here -->
