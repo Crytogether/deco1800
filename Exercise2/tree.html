@@ -10,26 +10,22 @@
         <script src="js/common.js"></script>
     </head>
 <body>
-    <header>
+    <header class="header">
         <div class="clickbutton">
-            <button class="play-button" onclick="playAudio()">Play</button>
-            <button class="play-button" onclick="pauseAudio()">Pause</button>
-            <button class="play-button" onclick="stopAudio()">Stop</button>
+            <img class="play-button" SRC="./images/icon/play-button-arrowhead.png" onclick="playAudio()">
+            <img class="play-button" src="./images/icon/play-button-arrowhead.png" onclick="pauseAudio()">
+            <IMG class="play-button" src="./images/icon/play-button-arrowhead.png" onclick="stopAudio()">
         </div>
     </header>
     <div class="water-consumption">
         <h2>Water Consumption</h2>
         <p id="water-amount">0 ml</p>
     </div>
-
-
     <audio id="myAudio">
         <source src="./soundtrack/musics.MP3" type="audio/mp3">
         Your browser does not support the audio element.
       </audio>
-    
       <button onclick="changeBackgroundByTime()">Change Background Gradient by Time</button>
-
       <div class="dropdown">
         <button onclick="toggleDropdown()" class="dropbtn">Continents</button>
         <div id="continentDropdown" class="dropdown-content">
@@ -40,7 +36,6 @@
     </div>
     <div class="quiz-container">
         <button onclick="startQuiz()">Start Quiz</button>
-    
         <!-- The modal -->
         <div id="quizModal" class="modal">
           <div class="modal-content">
@@ -56,12 +51,8 @@
         <div class="modal-content">
           <span class="close" onclick="closeCheckModal()">&times;</span>
           <p>Climate in North America varies across different regions. Some of the climate zones you can find in North America include:</p>
-
         </div>
       </div>
-
-
-</head>
     <body>
         <div id="myModal" class="modal">
             <div class="modal-content">
@@ -80,8 +71,6 @@
             </select>
             <button onclick="submitWaterLevel()">Submit</button>
           </div>
-          
-        
           <div id="questionModal" class="modal">
             <div class="modal-content">
               <span class="close" onclick="closeModal()">&times;</span>
@@ -90,25 +79,18 @@
               <button onclick="displayQuestion(3)">Question 3</button>
             </div>
           </div>
-        
-    
-
     <div class="plant">
         <img src="./images/plants/chinese amerlia.jpeg" alt="Plant 1">
         <p>Plant 1 Description</p>
-        
     </div>
-
     <div class="plant">
         <img src="./images/plants/Mexican Abelia.jpeg" alt="Plant 2">
         <p>Plant 2 Description</p>
     </div>
-
     <div class="plant">
         <img src="./images/plants/Abelia x grandiflora.jpeg" alt="plant 3">
         <p>Plant 3 Description</p>
     </div>
-
     <div class="plant">
         <img src="./images/plants/golden abelia 1 .jpeg" alt="Plant 4">
         <p>Plant 4 Description</p>
@@ -138,17 +120,14 @@
         <img src="./images/plants/Palm Leaf Abika.jpeg" alt="Plant 9">
         <p>Plant 9 Description</p>
     </div>
-
     <div class="plant">
         <img src="./images/plants/Musk Mallow.jpeg" alt="Plant 10">
         <p>Plant 10 Description</p>
     </div>
-
     <div class="plant">
         <img src="./images/plants/abelia.jpeg" alt="Plant 11">
         <p>Plant 11 Description</p>
     </div>
-
     <div class="plant">
         <img src="./images/plants/Abelmoschus rugosus 'Evergreen'.jpeg"Plant 12">
         <p>Plant 12 Description</p>
@@ -157,9 +136,6 @@
     <div id="plant-gallery">
         <!-- The plant details will be dynamically inserted here -->
     </div>
-
-    
-    
     <div id="overlay">
         <div id="message-container">
             <p id="message"></p>

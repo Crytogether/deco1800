@@ -37,12 +37,23 @@ body {
 --lightbrown: #d4a373;
 }
 
+.header{
+  background-color: #dda25e;
+  width: 100%;
+}
+
 .clickbutton{
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   height: auto;
   width: 100%;
+  background-color: #dda25e;
+}
+
+.clickbutton > img{
+  height:30px;
+  width: 30px;
 }
 
 .play-button{
@@ -82,8 +93,6 @@ body {
   width: 100%;
   box-sizing: border-box;
 }
-
-
 
 .water-consumption {
     background-color: #ccd5ae; /* Semi-transparent blue background */
@@ -477,27 +486,27 @@ button {
 }
 
 .modal-message {
-    text-align: center;
-    font-size: 18px;
-  }
-  
-  .modal-message .congrats {
-    color: green;
-    font-weight: bold;
-  }
-  
-  .modal-message .feedback {
-    color: red;
-    font-weight: bold;
-  }
+  text-align: center;
+  font-size: 18px;
+}
 
-  .waterimg{
-    height: 30px;
-    width: 30px;
-  }
+.modal-message .congrats {
+  color: green;
+  font-weight: bold;
+}
 
-  .mapimg{
-    height: 30px;
-    width: 30px;
-  }
+.modal-message .feedback {
+  color: red;
+  font-weight: bold;
+}
+
+.waterimg{
+  height: 30px;
+  width: 30px;
+}
+
+.mapimg{
+  height: 30px;
+  width: 30px;
+}
 
