@@ -42,10 +42,6 @@ body {
   width: 100%;
 }
 
-
-
-
-
 .play-button{
   margin-right: 50px;
   align-items: center;
@@ -92,20 +88,87 @@ body {
     margin-bottom: 20px;
     width: 100%; /* Adjust width as needed */
     margin: 0 auto; /* Center the bubble */
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    height: 300px;
+    position: relative;
 }
 
-.water-consumption h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #fff; /* White text color */
+.left-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
 }
 
-.water-consumption p {
-    font-size: 1.2em;
-    margin: 0;
-    color: #fff; /* White text color */
+.right-section {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  margin-right: 5px;
 }
 
+.left-section img, .right-section img {
+  width: 20px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.water-btn {
+  width: 180px; /* 根据你的需求调整大小 */
+  height: 180px;
+  border-radius: 50%; /* 使其成为一个圆形 */
+  background-color: rgba(0, 125, 48, 0.3); /* 半透明的白色背景，你可以根据需要调整 */
+  border: none; /* 移除边框 */
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 40%;      
+  left: 50%;     
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.watering {
+  max-width: 100px;  /* 图片的最大宽度 */
+  max-height: 100px;  /* 图片的最大高度 */
+  height: auto;
+}
+
+.button-group {
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 250px;  /* 根据需要调整间距 */
+    bottom: 10px;  /* 根据需要调整距离底部的距离 */
+    left: 0;  /* 确保组是左对齐的 */
+}
+
+.button-group button {
+  width: 40px; /* 根据你的图标实际尺寸调整 */
+  height: 40px; /* 根据你的图标实际尺寸调整 */
+  border: none; /* 移除边框 */
+  padding: 0; /* 移除内边距 */
+  margin: 0 5px; /* 为按钮添加左右的外边距，确保它们之间有一些间隔 */
+  background: none; /* 移除背景色 */
+  display: flex; /* 使用 Flexbox 使内容居中 */
+  align-items: center; /* 垂直居中按钮内的内容 */
+  justify-content: center; /* 水平居中按钮内的内容 */
+}
+
+.button-group img {
+  max-width: 100%; /* 使图片不超出按钮尺寸 */
+    height: auto; /* 保持图像的宽高比 */
+}
 
 .notice {
     background-color: #f8f9fa;
@@ -776,11 +839,6 @@ button {
 .modal-message .feedback {
   color: red;
   font-weight: bold;
-}
-
-.waterimg{
-  height: 30px;
-  width: 30px;
 }
 
 .mapimg{
