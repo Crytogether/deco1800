@@ -195,6 +195,7 @@ function resetWaterConsumption() {
 
 
 
+
 function closeWaterModal() {
     $("#water-consumption-modal").css('display', 'none');
 }
@@ -221,92 +222,222 @@ function addOption() {
   
   
   
+  document.addEventListener('click', function(event) {
+    const dropdown = document.getElementById('waterLevel');
+    const button = document.getElementById('showWaterLevelButton');
+    
+    // If the click is outside the dropdown and not on the button, hide the dropdown
+    if (event.target !== dropdown && event.target !== button) {
+        dropdown.style.display = 'none';
+    }
+});
 
-  function submitWaterLevel() {
-    var selectedLevel = document.getElementById('waterLevel').value;
-    changeBackgroundColor(selectedLevel);
-  }
-  
+function showWaterLevelDropdown() {
+    const dropdown = document.getElementById("waterLevel");
+    dropdown.style.display = "inline-block"; 
+    dropdown.focus(); // This will open the dropdown options
+}
+
+
+
   function changeBackgroundColor(level) {
     var colorClass;
+
+    // Hide all plants initially
+    $(".plant").hide();
+
     switch (level) {
         case '1':
             colorClass = 'background-option-1';
-             // Remove previous color classes from the first three plant divs
-       $(".plant:lt(3)").removeClass("background-option-1 background-option-2 background-option-3 background-option-4");
-
-       // Add the appropriate color class to the first three plant divs
-       $(".plant:lt(3)").addClass(colorClass);
+            // Show the first 3 plants
+            $(".plant:lt(3)").show().addClass(colorClass);
             break;
         case '2':
             colorClass = 'background-option-2';
-             // Remove previous color classes from the first three plant divs
-       $(".plant:lt(6)").removeClass("background-option-1 background-option-2 background-option-3 background-option-4");
-
-       // Add the appropriate color class to the first three plant divs
-       $(".plant:lt(6)").addClass(colorClass);
-   
+            // Show the first 6 plants
+            $(".plant:lt(6)").show().addClass(colorClass);
             break;
         case '3':
             colorClass = 'background-option-3';
-            $(".plant:lt(9)").removeClass("background-option-1 background-option-2 background-option-3 background-option-4");
-
-            // Add the appropriate color class to the first three plant divs
-            $(".plant:lt(9)").addClass(colorClass);
+            // Show the first 9 plants
+            $(".plant:lt(9)").show().addClass(colorClass);
             break;
         case '4':
             colorClass = 'background-option-4';
-            $(".plant:lt(12)").removeClass("background-option-1 background-option-2 background-option-3 background-option-4");
-
-            // Add the appropriate color class to the first three plant divs
-            $(".plant:lt(12)").addClass(colorClass);
+            // Show the first 12 plants
+            $(".plant:lt(12)").show().addClass(colorClass);
             break;
         default:
             colorClass = '';
+            // If no valid level is provided, you can choose to show all plants or none.
+            // The line below shows none. If you want to show all, replace with $(".plant").show();
+            $(".plant").hide();
+            break;
     }
 
-       // Remove previous color classes from the first three plant divs
-       $(".plant:lt(3)").removeClass("background-option-1 background-option-2 background-option-3 background-option-4");
+    // Clear out any previous background color classes to ensure consistency
+    $(".plant").removeClass("background-option-1 background-option-2 background-option-3 background-option-4");
 
-       // Add the appropriate color class to the first three plant divs
-       $(".plant:lt(3)").addClass(colorClass);
-   }
-
-  
-   function changeBackgroundByTime() {
-    const timeOptions = ['12am-6am', '6am-12pm', '12pm-6pm', '6pm-12am'];
-    const userInput = prompt('Select a time range:\n1. 12am-6am\n2. 6am-12pm\n3. 12pm-6pm\n4. 6pm-12am');
-
-    if (!userInput || isNaN(userInput) || userInput < 1 || userInput > 4) {
-        alert('Invalid input. Please select a valid option.');
-        return;
+    // Add the background color to the displayed plants
+    if (colorClass) {
+        $(".plant:visible").addClass(colorClass);
     }
+}
 
-    let gradientClass;
+function adjustPlantsByWaterLevel(level) {
+    // Hide all plants initially
+    $(".plant").hide();
 
-    switch (parseInt(userInput)) {
-        case 1:
-            gradientClass = 'gradient-morning';
+    let plantsToShow = [];
+    let heightFactor = 1; // Default full height
+
+    switch (level) {
+        case '1':
+            plantsToShow = $(".plant:lt(3)");
+            heightFactor = 0.5; // 50% height
             break;
-        case 2:
-            gradientClass = 'gradient-afternoon';
+        case '2':
+            plantsToShow = $(".plant:lt(6)");
+            heightFactor = 0.75; // 75% height
             break;
-        case 3:
-            gradientClass = 'gradient-evening';
+        case '3':
+            plantsToShow = $(".plant:lt(9)");
+            heightFactor = 1; // 100% height
             break;
-        case 4:
-            gradientClass = 'gradient-night';
+        case '4':
+            plantsToShow = $(".plant:lt(12)");
+            heightFactor = 1.25; // 125% height (well-watered, so they grow taller!)
             break;
         default:
+            plantsToShow = $();
             break;
     }
+    
 
-    // Remove previous gradient classes
-    $("body").removeClass("gradient-morning gradient-afternoon gradient-evening gradient-night");
+    // Display and animate the plants
+    plantsToShow.show().each(function() {
+        const originalHeight = $(this).data('original-height');
 
-    // Add the appropriate gradient class
-    $("body").addClass(gradientClass);
+        // If the original height isn't set, set it now
+        if (!originalHeight) {
+            $(this).data('original-height', $(this).height());
+        }
+
+        $(this).animate({
+            height: originalHeight * heightFactor
+        }, 500); // Duration of animation is 500ms
+    });
 }
+
+function showWaterLevelModal() {
+    document.getElementById('waterLevelModal').style.display = "block";
+}
+
+function closeWaterLevelModal() {
+    document.getElementById('waterLevelModal').style.display = "none";
+}
+
+
+// Call this once on page load to ensure each plant has its original height stored
+$(document).ready(function() {
+    $(".plant").each(function() {
+        $(this).data('original-height', $(this).height());
+    });
+});
+
+
+
+   $(document).ready(function() {
+    console.log("Document ready!");
+
+    let hasPrompted = false;
+
+    $("#timeSelectorButton").hover(function() {
+        console.log("Button hovered over!");
+        
+        if (!hasPrompted) {
+            console.log("Calling changeBackgroundByTime function.");
+            changeBackgroundByTime();
+            hasPrompted = true;
+        }
+    }, function() {
+        console.log("Hover ended.");
+        hasPrompted = false;
+    });
+});
+
+
+ 
+
+function changeBackgroundByTime() {
+    let modal = document.getElementById('timeSelectionModal');
+    let span = document.getElementsByClassName("close")[0];
+
+    // Display the modal
+    modal.style.display = "block";
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
+    
+    $('.time-option').on('click', function() {
+        let userInput = $(this).data('time');
+        modal.style.display = "none"; // Close the modal when an option is chosen
+        
+        let gradientClass;
+        let message;
+
+        switch (parseInt(userInput)) {
+            case 1:
+                gradientClass = 'gradient-morning';
+                message = 'At 12am-6am, the plants are resting and rejuvenating for the day ahead.';
+                break;
+            case 2:
+                gradientClass = 'gradient-afternoon';
+                message = 'At 6am-12pm, the plants are waking up and stretching towards the sun.';
+                break;
+            case 3:
+                gradientClass = 'gradient-evening';
+                message = 'At 12pm-6pm, the plants are basking in the midday sun and swaying with the wind.';
+                break;
+            case 4:
+                gradientClass = 'gradient-night';
+                message = 'At 6pm-12am, the plants are beginning to settle and prepare for the night.';
+                break;
+            default:
+                break;
+        }
+
+        // Remove previous gradient classes
+        $("body").removeClass("gradient-morning gradient-afternoon gradient-evening gradient-night");
+
+        // Add the appropriate gradient class
+        $("body").addClass(gradientClass);
+
+        // Display the message
+        $('#message').text(message);
+
+         // Remove any existing message so we don't duplicate messages
+    $('#message').remove();
+
+    // Create a new message div
+    let messageDiv = $('<div id="message"></div>').text(message);
+
+    // Insert the message just before the specific .plant div
+    messageDiv.insertBefore('div.plant[data-common-name="Chinese Amerlia"]');
+
+    });
+}
+
+
 
 
 function toggleDropdown() {
@@ -346,83 +477,63 @@ function closeCheckModal() {
     checkModal.style.display = 'none';
 }
 
+
+
 let currentQuestion = 0;
 let correctAnswers = 0;
 
-function startQuiz() {
-  currentQuestion = 1;
-  correctAnswers = 0;
-  displayQuestion(currentQuestion);
-  openModal();
-}
+function displayQuestion() {
+    // Get a random plant from the available ones
+    let plants = document.querySelectorAll(".plant");
+    let randomIndex = Math.floor(Math.random() * plants.length);
+    let selectedPlant = plants[randomIndex];
 
-function displayQuestion(questionNumber) {
-  let question, options, correctAnswer;
-  
-  if (questionNumber === 1) {
-    question = "Which one of the below options is the capital of France?";
-    options = ["A. Paris", "B. London", "C. Berlin", "D. Rome"];
-    correctAnswer = "A";
-  } else if (questionNumber === 2) {
-    question = "Which one of the below options is the tallest mountain in the world?";
-    options = ["A. Mount Everest", "B. K2", "C. Kangchenjunga", "D. Lhotse"];
-    correctAnswer = "A";
-  } else if (questionNumber === 3) {
-    question = "Which one of the below options is a programming language?";
-    options = ["A. Python", "B. Photoshop", "C. Microsoft Word", "D. Excel"];
-    correctAnswer = "A";
-  } else {
-    closeModal();
-    return;
-  }
+    // Extract common name and image source
+    let commonName = selectedPlant.getAttribute('data-common-name');
+    let imgSrc = selectedPlant.querySelector('img').src;
 
-  let questionContainer = document.getElementById("questionContainer");
-  questionContainer.innerHTML = "<strong>Question " + questionNumber + ":</strong> " + question;
+    let questionContainer = document.getElementById("questionContainer");
+    questionContainer.innerHTML = `<img src="${imgSrc}" alt="${commonName}" width="200px"><br><strong>Which plant is this?</strong>`;
 
-  let optionsContainer = document.getElementById("optionsContainer");
-  optionsContainer.innerHTML = options.map(option => "<button onclick='checkAnswer(\"" + option.charAt(0) + "\", \"" + correctAnswer + "\")'>" + option + "</button>").join('');
-
-  let feedback = document.getElementById("feedback");
-  feedback.innerHTML = "";
-}
-
-function checkAnswer(selectedAnswer, correctAnswer) {
-  if (selectedAnswer === correctAnswer) {
-    correctAnswers++;
-    alert("You chose the correct answer: " + selectedAnswer);
-  } else {
-    alert("You chose the wrong answer. The correct answer is: " + correctAnswer);
-  }
-}
-
-function nextQuestion() {
-  currentQuestion++;
-  displayQuestion(currentQuestion);
-}
-
-function openModal() {
-  document.getElementById("quizModal").style.display = "block";
-}
-
-function checkAnswer(selectedAnswer, correctAnswer) {
-    let feedback = document.getElementById("feedback");
-    
-    if (selectedAnswer === correctAnswer) {
-      correctAnswers++;
-      feedback.innerHTML = `<div class="modal-message congrats">You chose the correct answer: ${selectedAnswer}</div>`;
-    } else {
-      feedback.innerHTML = `<div class="modal-message feedback">You chose the wrong answer. The correct answer is: ${correctAnswer}</div>`;
+    // Display options 
+    let shuffledPlants = [...plants].sort(() => 0.5 - Math.random());
+    if (!shuffledPlants.includes(selectedPlant)) {
+        shuffledPlants.pop();
+        shuffledPlants.push(selectedPlant);
     }
-  }
-  
-  function closeModal() {
-    let modalContent = document.getElementById("quizModal").querySelector(".modal-content");
-    modalContent.innerHTML = `
-      <span class="close" onclick="document.getElementById('quizModal').style.display = 'none'">&times;</span>
-      <div class="modal-message">
-        ${correctAnswers === 3 ? `<p class="congrats">Congratulations! You got all questions correct (3/3). You must be an expert!</p>` : ''}
-        <p>You got <span class="score">${correctAnswers}</span> out of 3 questions correct.</p>
-      </div>
-    `;
-    document.getElementById("quizModal").style.display = "block";
-  }
+    let optionsContainer = document.getElementById("optionsContainer");
+    optionsContainer.innerHTML = shuffledPlants.slice(0, 4).map(plant => {
+        let optionName = plant.getAttribute('data-common-name');
+        return `<button onclick='checkAnswer("${optionName}", "${commonName}")'>${optionName}</button>`;
+    }).join('');
+    // Hide the message div
+    $('#message').fadeOut();
+}
+
+function checkAnswer(selectedAnswer, correctAnswer) {
+    if (selectedAnswer === correctAnswer) {
+        correctAnswers++;
+        alert("Correct! It is " + correctAnswer + ".");
+    } else {
+        alert("Wrong. The correct plant is: " + correctAnswer + ".");
+    }
+
+    // Reset quiz and show all plants
+    resetQuiz();
+}
+
+function resetQuiz() {
+    let plants = document.querySelectorAll(".plant");
+    plants.forEach(plant => plant.style.display = "block");
+
+    document.getElementById("quizContainer").style.display = "none";
+    document.getElementById("questionContainer").innerHTML = "";
+    document.getElementById("optionsContainer").innerHTML = "";
+}
+
+function startQuiz() {
+    let plants = document.querySelectorAll(".plant");
+    plants.forEach(plant => plant.style.display = "none");
+    document.getElementById("quizContainer").style.display = "block";
+    displayQuestion();
+}

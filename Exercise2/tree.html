@@ -5,9 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/tree.css">
         <title>Plant Gallery</title>
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script src="js/tree.js"></script>
-        <script src="js/common.js"></script>
+        
     </head>
 <body>
     <header class="header">
@@ -21,28 +19,19 @@
 
     </div>
     
-      <button onclick="changeBackgroundByTime()">Change Background Gradient by Time</button>
-      <div class="dropdown">
-        <button onclick="toggleDropdown()" class="dropbtn">Continents</button>
-        <div id="continentDropdown" class="dropdown-content">
-            <a href="#" onclick="getClimateZones('North America')">North America</a>
-            <a href="#" onclick="getClimateZones('Europe')">Europe</a>
-            <!-- Add more continents as needed -->
-        </div>
-    </div>
-    <div class="quiz-container">
-        <button onclick="startQuiz()">Start Quiz</button>
-        <!-- The modal -->
-        <div id="quizModal" class="modal">
-          <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <div id="questionContainer"></div>
-            <div id="optionsContainer"></div>
-            <div id="feedback"></div>
-            <button onclick="nextQuestion()">Next</button>
-          </div>
-        </div>
-      </div>
+    <button id="timeSelectorButton">Select Time</button>
+      
+      
+ <!-- Main Quiz Button -->
+<button onclick="startQuiz()" class="hideBtn">Start Quiz</button>
+
+<!-- Quiz Container -->
+<div id="quizContainer" style="display:none;">
+    <div id="questionContainer"></div>
+    <div id="optionsContainer"></div>
+    <button onclick="resetQuiz()">Back to Plants</button>
+</div>
+</div>
     <div id="checkModal" class="modal">
         <div class="modal-content">
           <span class="close" onclick="closeCheckModal()">&times;</span>
@@ -56,16 +45,18 @@
                 <input type="button" value="Close" onclick="closePopup()">
             </div>
         </div>
-        <label for="waterLevel">Water Level:</label>
+        
         <div class="container">
-            <label for="waterLevel">Water Level:</label>
-            <select id="waterLevel">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
+            
+            <button id="showWaterLevelButton" onclick="showWaterLevelDropdown()">Water Level</button>
+            <select id="waterLevel" onchange="changeBackgroundColor(this.value)" style="display: none;">
+                <option value="1">0-600ml</option>
+                <option value="2">600-9000ml</option>
+                <option value="3">900-1400ml</option>
+                <option value="4">1400-3000ml</option>
             </select>
-            <button onclick="submitWaterLevel()">Submit</button>
+            
+            
           </div>
           <div id="questionModal" class="modal">
             <div class="modal-content">
@@ -75,59 +66,72 @@
               <button onclick="displayQuestion(3)">Question 3</button>
             </div>
           </div>
-    <div class="plant">
-        <img src="./images/plants/chinese amerlia.jpeg" alt="Plant 1">
-        <p>Plant 1 Description</p>
-    </div>
-    <div class="plant">
-        <img src="./images/plants/Mexican Abelia.jpeg" alt="Plant 2">
-        <p>Plant 2 Description</p>
-    </div>
-    <div class="plant">
-        <img src="./images/plants/Abelia x grandiflora.jpeg" alt="plant 3">
-        <p>Plant 3 Description</p>
-    </div>
-    <div class="plant">
-        <img src="./images/plants/golden abelia 1 .jpeg" alt="Plant 4">
-        <p>Plant 4 Description</p>
-    </div>
 
-    <div class="plant">
-        <img src="./images/plants/Goldsport.jpeg" alt="Plant 5">
-        <p>Plant 5 Description</p>
-    </div>
+          <div id="timeSelectionModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Select a time range:</p>
+                <div id="timeOptions">
+                    <button class="time-option" data-time="1">12am-6am</button>
+                    <button class="time-option" data-time="2">6am-12pm</button>
+                    <button class="time-option" data-time="3">12pm-6pm</button>
+                    <button class="time-option" data-time="4">6pm-12am</button>
+                </div>
+            </div>
+        </div>
+        
+        
 
-    <div class="plant">
-        <img src="./images/plants/download.jpeg" alt="Plant 6">
-        <p>Plant 6 Description</p>
-    </div>
-
-    <div class="plant">
-        <img src="./images/plants/okra.jpeg" alt="Plant 7">
-        <p>Plant 7 Description</p>
-    </div>
-
-    <div class="plant">
-        <img src="./images/plants/Abelmoschus manihot.jpeg" alt="Plant 8">
-        <p>Plant 8 Description</p>
-    </div>
-
-    <div class="plant">
-        <img src="./images/plants/Palm Leaf Abika.jpeg" alt="Plant 9">
-        <p>Plant 9 Description</p>
-    </div>
-    <div class="plant">
-        <img src="./images/plants/Musk Mallow.jpeg" alt="Plant 10">
-        <p>Plant 10 Description</p>
-    </div>
-    <div class="plant">
-        <img src="./images/plants/abelia.jpeg" alt="Plant 11">
-        <p>Plant 11 Description</p>
-    </div>
-    <div class="plant">
-        <img src="./images/plants/Abelmoschus rugosus 'Evergreen'.jpeg"Plant 12">
-        <p>Plant 12 Description</p>
-    </div>
+    
+        <div class="plant" data-common-name="Chinese Amerlia">
+            <img src="./images/plants/chinese amerlia.jpeg" alt="Chinese Amerlia">
+            <p>Chinese Amerlia Description</p>
+        </div>
+        <div class="plant" data-common-name="Mexican Abelia">
+            <img src="./images/plants/Mexican Abelia.jpeg" alt="Mexican Abelia">
+            <p>Mexican Abelia Description</p>
+        </div>
+        <div class="plant" data-common-name="Abelia x grandiflora">
+            <img src="./images/plants/Abelia x grandiflora.jpeg" alt="Abelia x grandiflora">
+            <p>Abelia x grandiflora Description</p>
+        </div>
+        <div class="plant" data-common-name="Golden Abelia">
+            <img src="./images/plants/golden abelia 1 .jpeg" alt="Golden Abelia">
+            <p>Golden Abelia Description</p>
+        </div>
+        <div class="plant" data-common-name="Goldsport">
+            <img src="./images/plants/Goldsport.jpeg" alt="Goldsport">
+            <p>Goldsport Description</p>
+        </div>
+        <div class="plant" data-common-name="Okra">
+            <img src="./images/plants/download.jpeg" alt="Unknown Plant 6">
+            <p>Unknown Plant 6 Description</p>
+        </div>
+        <div class="plant" data-common-name="Okra">
+            <img src="./images/plants/okra.jpeg" alt="Okra">
+            <p>Okra Description</p>
+        </div>
+        <div class="plant" data-common-name="Abelmoschus manihot">
+            <img src="./images/plants/Abelmoschus manihot.jpeg" alt="Abelmoschus manihot">
+            <p>Abelmoschus manihot Description</p>
+        </div>
+        <div class="plant" data-common-name="Palm Leaf Abika">
+            <img src="./images/plants/Palm Leaf Abika.jpeg" alt="Palm Leaf Abika">
+            <p>Palm Leaf Abika Description</p>
+        </div>
+        <div class="plant" data-common-name="Musk Mallow">
+            <img src="./images/plants/Musk Mallow.jpeg" alt="Musk Mallow">
+            <p>Musk Mallow Description</p>
+        </div>
+        <div class="plant" data-common-name="Abelia">
+            <img src="./images/plants/abelia.jpeg" alt="Abelia">
+            <p>Abelia Description</p>
+        </div>
+        <div class="plant" data-common-name="Abelmoschus rugosus 'Evergreen'">
+            <img src="./images/plants/Abelmoschus rugosus 'Evergreen'.jpeg" alt="Abelmoschus rugosus 'Evergreen'">
+            <p>Abelmoschus rugosus 'Evergreen' Description</p>
+        </div>
+        
 
     <div id="water-consumption-modal" class="modal">
         <div class="modal-content">
@@ -180,6 +184,9 @@
 			  </div>
         <img class="mapimg" src="./images/icon/map.png" alt="map" onclick="window.location.href='index.html'">
     </footer>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="js/tree.js"></script>
+        <script src="js/common.js"></script>
 </body>
 </html>
 

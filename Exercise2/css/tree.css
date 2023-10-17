@@ -302,25 +302,154 @@ button:hover {
   font-size: 16px;
 }
   
-  /* ... existing styles ... */
-  
+.plant::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0%; /* Initial water level */
+  background: linear-gradient(to top, #1E90FF, transparent); /* Water gradient */
+  animation: ripple 5s infinite; /* Ripple effect */
+  z-index: -1;
+}
+
+@keyframes ripple {
+  0% { background-position: left 0%; }
+  50% { background-position: right 0%; }
+  100% { background-position: left 0%; }
+}
+
+
+
+/* Styling when the plant is visible */
+.plant.visible {
+  transform: scale(1);
+  opacity: 1;
+  box-shadow: 3px 3px 15px rgba(0,0,0,0.2); /* Adjust shadow as needed */
+}
+
+
+.plant {
+  transition: height 0.5s; /* Smooth transition for height changes */
+  height: 350px;          /* Initial height adjusted */
+  overflow: hidden;       /* To hide overflowing content */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  padding: 10px;
+  border: 2px solid black;
+  margin: 10px 0;
+  display: flex;          /* Added to align the content */
+  flex-direction: column; /* Organize content in a column */
+  align-items: center;    /* Horizontally align content */
+  justify-content: space-between; /* Distribute space evenly between the image and text */
+}
+
+.plant img {
+  max-width: 100%;       /* Ensure image doesn't overflow the container width */
+  max-height: calc(70% - 40px);  /* Dedicate around 70% of container's height to image */
+  object-fit: cover;     /* Ensures the image covers the full width/height specified without distorting its aspect ratio */
+  margin-bottom: 10px;   /* Margin to give space between image and text */
+}
+
+.plant p {
+  text-align: center;   /* Center align the text */
+  max-height: 30%;      /* Dedicate around 30% of container's height to text */
+  overflow: hidden;     /* Clip any overflowing text */
+}
+
+
+
+/* Different classes for the backgrounds with gradients and height changes */
+
+/* Representing a low water level with cooler, more subdued colors */
 .background-option-1 {
-  background-color: #40E0D0; /* Turquoise */
+  background: linear-gradient(to bottom, #D5E4F2, #A2BFD6);
 }
 
+.plant.background-option-1 {
+  height: 200px;  /* Adjust plant container height for this water level */
+}
+
+/* A bit more color, representing a slightly higher water level */
 .background-option-2 {
-  background-color: #DA70D6; /* Orchid */
+  background: linear-gradient(to bottom, #FFDFBA, #FFC793);
 }
 
+.plant.background-option-2 {
+  height: 250px;  /* Adjust plant container height for this water level */
+}
+
+/* A fresh and vibrant color for a well-watered plant */
 .background-option-3 {
-    background-color: #6495ED; /* Cornflower Blue */
+  background: linear-gradient(to bottom, #A7E9AF, #6BD27D);
 }
 
+.plant.background-option-3 {
+  height: 300px;  /* Adjust plant container height for this water level */
+}
+
+/* A rich and intense color representing the highest water level */
 .background-option-4 {
-    background-color: #00FA9A; /* Medium Spring Green */
+  background: linear-gradient(to bottom, #FFA6C8, #FF6FA3);
 }
 
-.gradient-morning {
+.plant.background-option-4 {
+  height: 350px;  /* Adjust plant container height for this water level */
+}
+
+#showWaterLevelButton {
+  background: linear-gradient(45deg, #4CAF50, #2f8f57);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 25px;
+  font-weight: 600;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+}
+
+#showWaterLevelButton:hover {
+  background: linear-gradient(45deg, #2f8f57, #4CAF50);
+  box-shadow: 0px 15px 20px rgba(76, 175, 80, 0.4);
+  transform: translateY(-7px);
+}
+
+#waterLevel {
+  display: none;
+  width: 200px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 25px;
+  margin-top: 10px;
+  font-size: 16px;
+  background: linear-gradient(45deg, #e0eafc, #cfd8fc);
+  box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.2), 0 9px 20px 0 rgba(0, 0, 0, 0.19);
+  appearance: none;
+  cursor: pointer;
+}
+
+#waterLevel:focus {
+  outline: none;
+  box-shadow: 0 0 5px #4CAF50, 0 8px 10px 0 rgba(0, 0, 0, 0.2), 0 9px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#waterLevel option {
+  padding: 10px;
+  background: #f7f8fc;  /* Light background color */
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#waterLevel option:hover {
+  background: #e6e8f0;  /* Slightly darker on hover */
+}
+
+
+
+
+
+/* .gradient-morning {
     background: linear-gradient(to bottom, #FDFD96, #FFE47A);
 }
 
@@ -334,7 +463,166 @@ button:hover {
 
 .gradient-night {
     background: linear-gradient(to bottom, #000022, #020025);
+} */
+
+/* Default Plant Styles */
+.plant {
+  transition: all 1s ease-in-out;
 }
+
+/* Morning */
+.gradient-morning .plant {
+  transform: translateY(-10px) scale(1.05); /* Plants slightly rise and grow */
+}
+
+/* Afternoon */
+.gradient-afternoon .plant {
+  animation: wiggle 1s infinite; /* Plants wiggle a bit */
+}
+
+@keyframes wiggle {
+  0% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+  100% { transform: rotate(-5deg); }
+}
+
+/* Evening */
+.gradient-evening .plant {
+  transform: scale(0.95); /* Plants shrink slightly */
+  filter: brightness(80%); /* Plants darken a bit */
+}
+
+/* Night */
+.gradient-night .plant {
+  transform: scale(0.9); /* Plants are smaller */
+  filter: grayscale(100%); /* Plants are desaturated */
+}
+
+#message {
+  font-size: 24px;
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  margin: 20px;
+  transition: opacity 1s ease;
+  opacity: 0;
+}
+
+/* Ensuring our message is readable on all backgrounds */
+.gradient-morning #message, .gradient-afternoon #message, .gradient-evening #message, .gradient-night #message {
+  opacity: 1;
+}
+
+@keyframes lightUp {
+  0% {
+      background-image: linear-gradient(rgba(0, 128, 0, 0.5), transparent);
+  }
+  100% {
+      background-image: linear-gradient(transparent, rgba(0, 128, 0, 0.5));
+  }
+}
+
+.gradient-evening .plant {
+  animation: lightUp 2s infinite alternate;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-2px, 0px) rotate(1deg); }
+  30% { transform: translate(0px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-2px, 1px) rotate(0deg); }
+  70% { transform: translate(2px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(2px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.gradient-evening .grid {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) infinite;
+}
+
+.gradient-evening .grid {
+  clip-path: polygon(
+      50% 0%,
+      61% 35%,
+      50% 75%,
+      39% 35%
+  );
+}
+
+@keyframes sunriseEffect {
+  0% { filter: brightness(0.5); }
+  100% { filter: brightness(1); }
+}
+
+.gradient-morning .plant {
+  animation: sunriseEffect 5s infinite alternate;
+}
+
+.modal-content {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff;
+    margin: 10% auto;
+    padding: 40px;
+    border: 1px solid #ccc;
+    width: 300px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close:hover {
+    color: #777;
+}
+
+#timeOptions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.time-option {
+    background-color: #2e8b57;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.time-option:hover {
+    background-color: #1c5a38;
+    transform: scale(1.05);
+}
+
+#message {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8); /* semi-transparent white background */
+  text-align: center;
+  padding: 10px;
+  z-index: 1000; /* to ensure it's above other content */
+}
+
+
 
 /* Style for the "Change Background Gradient by Time" button */
 button {
@@ -500,3 +788,32 @@ button {
   width: 30px;
 }
 
+.container {
+  display: flex;
+  align-items: center;  /* Vertically aligns items to the center */
+  justify-content: space-between;  /* Spaces the buttons evenly */
+  flex-wrap: nowrap;  /* Prevents items from wrapping to the next line */
+}
+
+/* Override the display for the select dropdown */
+#waterLevel {
+  display: inline-block; /* Allows it to be on the same line as other inline or inline-block elements */
+}
+
+/* Ensures any button within the container doesn't expand to full width */
+.container button {
+  white-space: nowrap;  /* Prevents the text inside the button from breaking into multiple lines */
+}
+.plant {
+  border: 1px solid #000;
+  padding: 20px;
+  margin: 10px;
+  width: 30%;
+  box-sizing: border-box;
+  clear: both; /* Ensures the plant div always starts on a new line */
+}
+
+.plant img {
+  width: 100%;
+  height: auto;
+}
