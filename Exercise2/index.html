@@ -1,46 +1,35 @@
 <!doctype html>
 <html lang="en">
-
 <head>
 	<meta charset="utf-8">
-	<title>DECO1800/7180 Week 3 Workshop Example 2</title>
-	<link rel="stylesheet" href="css/style.css">
+	<title>Plants Map</title>
+	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
 		integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
 		crossorigin="" />
 	<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
 		integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
 		crossorigin=""></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/common.js"></script>	
 </head>
-
 <body>
-
-	<article id="map"></article>
-	<div class="record-bar"
-		style="position: fixed; bottom: 0; width: 100%; background-color: #f8f9fa; padding: 10px; box-shadow: 0 -2px 10px rgba(0,0,0,0.1);">
+	<article id="map" class="map"></article>
+	<div class="record-bar">
 	</div>
-	
-	
-
-	<div class="footer">
-		<img id="logo" src="water.jpeg" alt="Logo">
+	<footer>
+		<div class="footer-content">
+		<img id="logo"  class="bottleimg" src="./images/icon/water-bottle.png" alt="Logo">
 		<div id="congratulations-modal" class="modal">
 			<div class="modal-content">
 				<span class="close-btn">&times;</span>
-				<img id="congrats-image" src="path/to/your/image.jpg" alt="Congratulations Image" />
+				<img id="congrats-image" src="./images/icon/party-popper.png" alt="Congratulations Image" />
 				<p id="congrats-message"></p>
 			</div>
 		</div>
-		<button id="BUTTON_ID_HERE" onclick="window.location.href='tree.html'">Trees</button>
-	</div>
-
-
-
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script src="js/script.js"></script>
-	<script src="js/common.js"></script>
-
-
+		<button id="BUTTON_ID_HERE" onclick="window.location.href='tree.html'">Plants</button>
+		</div>
+	</footer>
 </body>
-
 </html>

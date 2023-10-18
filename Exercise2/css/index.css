@@ -4,14 +4,24 @@
 
 body {
     font-family: 'Arial, sans-serif';
-    background-color: #f0f0f0;
-    color: #333;
+    background-color: #ccd5ae;
     margin: 0;
     padding: 0;
 }
 
+map{
+    display: flex;
+    justify-content: center;
+}
 
-
+.record-bar{
+    position: fixed; 
+    bottom: 0; 
+    width: 100%; 
+    background-color: #f8f9fa; 
+    padding: 10px; 
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -112,7 +122,9 @@ body {
     border: 1px solid #ccc;
     box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px;
     z-index: 500;
+    justify-content: center;
 }
+
 /* Customize the Leaflet controls */
 .leaflet-control {
     background-color: #fff; /* Sets a background color to control elements */
@@ -141,7 +153,7 @@ body {
 }
 
 .footer {
-    background-color: #FEFAE0; /* Light gray background */
+    background-color: #dda25e; /* Light gray background */
     padding: 20px; /* Padding around the content */
     display: flex; /* Flex container to align items horizontally */
     justify-content: center; /* Center align the items */
@@ -152,15 +164,22 @@ body {
     z-index: 500; /* Set to a value lower than the z-index of .modal */
 }
 
+.footer-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #dda25e;
+    padding: 10px 40px;
+}
 
-.footer img {
-    width: 50px; 
+.bottleimg {
+    width: 30px; 
     height: auto;
 }
 
-.footer button {
+.footer > button {
     padding: 10px 20px; 
-    font-size: 16px; 
+    font-size: 16px;
 }
 
 .modal {
@@ -210,3 +229,5 @@ body {
 .light-up {
     background-color: yellow; /* Change to the desired color for the light-up effect */
 }
+
+
