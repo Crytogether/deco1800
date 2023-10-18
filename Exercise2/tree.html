@@ -9,8 +9,8 @@
     </head>
 <body>
     <header class="header">
-        fjkdlfjldks
     </header>
+    
     
     <div class="water-consumption">
         <!-- /* the water-amount on the left top */ -->
@@ -34,13 +34,17 @@
             </button>
             <button onclick="startQuiz()" class="hideBtn">
                 <img src="./images/icon/quiz.png" alt="Start Quiz">
+
             </button>
             <button id="timeSelectorButton">
                 <img src="./images/icon/select-time.png" alt="Time Selector">
             </button>
+
         </div>
+        
 
     </div>
+    
     
     <div id="timeSelectionModal" class="modal">
         <div class="modal-content">
@@ -60,10 +64,14 @@
 
 
 <!-- Quiz Container -->
+
 <div id="quizContainer" style="display:none;">
+    <div id="messageBox"></div>
     <div id="questionContainer"></div>
     <div id="optionsContainer"></div>
     <button onclick="resetQuiz()">Back to Plants</button>
+    <div id="plant-message"></div>
+
 </div>
 </div>
     <div id="checkModal" class="modal">
@@ -79,6 +87,7 @@
                 <input type="button" value="Close" onclick="closePopup()">
             </div>
         </div>
+        
         
         <div class="container">
             
@@ -105,7 +114,7 @@
         
         
 
-    
+         
         <div class="plant" data-common-name="Chinese Amerlia">
             <img src="./images/plants/chinese amerlia.jpeg" alt="Chinese Amerlia">
             <p>Chinese Amerlia Description</p>
@@ -174,9 +183,11 @@
                 <!-- Add input fields or controls for water consumption recording -->
                 <input type="number" id="water-amount-input" placeholder="Enter water consumption in ml">
                 <button onclick="recordWaterConsumption()">Record</button>
+                
             </div>
         </div>
     </div>
+    
     
 
     <div id="plant-gallery">

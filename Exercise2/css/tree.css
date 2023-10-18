@@ -866,3 +866,59 @@ button {
   width: 100%;
   height: auto;
 }
+
+
+.draggable-plant {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.droppable {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  border: 2px dashed #ccc;
+  line-height: 200px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.draggable-plant img, .droppable .draggable-plant img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This ensures the image covers the entire box without distorting its aspect ratio */
+}
+
+#messageBox {
+  padding: 10px;
+  margin: 20px 0;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Animation for when plants live */
+@keyframes plantLive {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.plant-live-animation {
+  animation: plantLive 1s forwards;
+}
+
+/* Animation for when plants die */
+@keyframes plantDie {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.plant-die-animation {
+  animation: plantDie 1s forwards;
+}

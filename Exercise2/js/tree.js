@@ -104,8 +104,8 @@ function displayInfo(records) {
 $(document).ready(function() {
     // Rest of your existing code...
 
-    // Open the water consumption modal on hover
-    $("#logo").on("mouseover", function() {
+    // Open the water consumption modal on click
+    $("#logo").on("click", function() {
         openWaterModal();
     });
 
@@ -123,6 +123,10 @@ $(document).ready(function() {
     function closeWaterModal() {
         $("#water-consumption-modal").css('display', 'none');
     }
+
+    $(".congrats-close-btn").on("click", function() {
+        $("#congratulations-modal").css('display', 'none');
+    });
 });
 
 var userGoal = 0;  // Variable to store the user's goal
@@ -131,16 +135,15 @@ function setWaterGoal() {
     var goalAmount = parseInt($("#goal-amount").val(), 10);
     if (!isNaN(goalAmount) && goalAmount > 0) {
         userGoal = goalAmount;  // Store the user's goal
-        alert("Your goal is set to: " + userGoal + " ml");
 
         // Update the displayed goal
-        $("#goal-amount-display").text(userGoal + " ml");
+        $("#goal-amount-display").text("Your goal is set to: " + userGoal + " ml");
 
         // Hide the goal setting section and display the water consumption recording section
         $("#goal-setting-section").css('display', 'none');
         $("#water-recording-section").css('display', 'block');
     } else {
-        alert("Please enter a valid goal amount.");
+        $("#goal-amount-display").text("Please enter a valid goal amount.");
     }
 }
 
@@ -159,26 +162,31 @@ function recordWaterConsumption() {
     if (cumulativeWaterConsumption >= userGoal) {
         $("#congrats-message").text("Congratulations! You've reached your goal of " + userGoal + " ml of water consumption.");
         $("#congratulations-modal").css('display', 'block');
-        
     }
 
     // Close the modal after recording
     closeWaterModal();
 }
 
+
 function resetWaterConsumption() {
     // Show a confirmation dialog before resetting
     var confirmReset = confirm("Are you sure you want to finish the day and reset your water consumption?");
     
     if (confirmReset) {
-        userGoal = 0;
         // Store the consumed water before resetting
         var previousConsumption = cumulativeWaterConsumption;
-        cumulativeWaterConsumption = 0;
 
         // Update the displayed goal and consumed water
         $("#goal-amount-display").text(userGoal + " ml");
         $("#water-amount").text(cumulativeWaterConsumption + " ml");
+
+        // Check if the user met their goal
+        if (previousConsumption >= userGoal) {
+            $("#plant-message").text("plants will live").addClass("plant-live-animation");
+        } else {
+            $("#plant-message").text("plants will die").addClass("plant-die-animation");
+        }
 
         // Display a message with the previous day's consumption
         alert("You finished the day. Your total water consumption for the day was " + previousConsumption + " ml. ");
@@ -187,6 +195,7 @@ function resetWaterConsumption() {
         $("#congratulations-modal").css('display', 'none');
     }
 }
+
 
 
 
@@ -422,20 +431,17 @@ function changeBackgroundByTime() {
         // Add the appropriate gradient class
         $("body").addClass(gradientClass);
 
-        // Display the message
-        $('#message').text(message);
+        // Remove any existing message
+        $('#message').remove();
 
-         // Remove any existing message so we don't duplicate messages
-    $('#message').remove();
+        // Create a new message div
+        let messageDiv = $('<div id="message"></div>').text(message);
 
-    // Create a new message div
-    let messageDiv = $('<div id="message"></div>').text(message);
-
-    // Insert the message just before the specific .plant div
-    messageDiv.insertBefore('div.plant[data-common-name="Chinese Amerlia"]');
-
+        // Insert the message at the beginning of the body
+        $('body').prepend(messageDiv);
     });
 }
+
 
 
 
@@ -479,48 +485,8 @@ function closeCheckModal() {
 
 
 
-let currentQuestion = 0;
-let correctAnswers = 0;
+let correctAnswersCount = 0;
 
-function displayQuestion() {
-    // Get a random plant from the available ones
-    let plants = document.querySelectorAll(".plant");
-    let randomIndex = Math.floor(Math.random() * plants.length);
-    let selectedPlant = plants[randomIndex];
-
-    // Extract common name and image source
-    let commonName = selectedPlant.getAttribute('data-common-name');
-    let imgSrc = selectedPlant.querySelector('img').src;
-
-    let questionContainer = document.getElementById("questionContainer");
-    questionContainer.innerHTML = `<img src="${imgSrc}" alt="${commonName}" width="200px"><br><strong>Which plant is this?</strong>`;
-
-    // Display options 
-    let shuffledPlants = [...plants].sort(() => 0.5 - Math.random());
-    if (!shuffledPlants.includes(selectedPlant)) {
-        shuffledPlants.pop();
-        shuffledPlants.push(selectedPlant);
-    }
-    let optionsContainer = document.getElementById("optionsContainer");
-    optionsContainer.innerHTML = shuffledPlants.slice(0, 4).map(plant => {
-        let optionName = plant.getAttribute('data-common-name');
-        return `<button onclick='checkAnswer("${optionName}", "${commonName}")'>${optionName}</button>`;
-    }).join('');
-    // Hide the message div
-    $('#message').fadeOut();
-}
-
-function checkAnswer(selectedAnswer, correctAnswer) {
-    if (selectedAnswer === correctAnswer) {
-        correctAnswers++;
-        alert("Correct! It is " + correctAnswer + ".");
-    } else {
-        alert("Wrong. The correct plant is: " + correctAnswer + ".");
-    }
-
-    // Reset quiz and show all plants
-    resetQuiz();
-}
 
 function resetQuiz() {
     let plants = document.querySelectorAll(".plant");
@@ -531,9 +497,62 @@ function resetQuiz() {
     document.getElementById("optionsContainer").innerHTML = "";
 }
 
+
+
 function startQuiz() {
     let plants = document.querySelectorAll(".plant");
     plants.forEach(plant => plant.style.display = "none");
     document.getElementById("quizContainer").style.display = "block";
     displayQuestion();
+}
+
+function displayQuestion() {
+    let plants = document.querySelectorAll(".plant");
+    let shuffledPlants = [...plants].sort(() => 0.5 - Math.random());
+    let selectedPlants = shuffledPlants.slice(0, 3);
+
+    let questionContainer = document.getElementById("questionContainer");
+    questionContainer.innerHTML = selectedPlants.map((plant, index) => {
+        let imgSrc = plant.querySelector('img').src;
+        return `<div class="draggable-plant" id="draggable-plant-${index}" draggable="true" ondragstart="drag(event)" data-common-name="${plant.getAttribute('data-common-name')}"><img src="${imgSrc}" alt="${plant.getAttribute('data-common-name')}" width="200px"></div>`;
+    }).join('');
+    
+
+    let optionsContainer = document.getElementById("optionsContainer");
+    optionsContainer.innerHTML = selectedPlants.sort(() => 0.5 - Math.random()).map(plant => {
+        return `<div class="droppable" ondrop="drop(event, '${plant.getAttribute('data-common-name')}')" ondragover="allowDrop(event)">${plant.getAttribute('data-common-name')}</div>`;
+    }).join('');
+}
+
+function drag(event) {
+    event.dataTransfer.setData("text", event.target.closest('.draggable-plant').getAttribute('data-common-name'));
+    event.dataTransfer.setData("element-id", event.target.closest('.draggable-plant').id);
+}
+
+function allowDrop(event) {
+    event.preventDefault();
+}
+
+function drop(event, targetName) {
+    event.preventDefault();
+    let draggedName = event.dataTransfer.getData("text");
+    let draggedElementId = event.dataTransfer.getData("element-id");
+    let draggedElement = document.getElementById(draggedElementId);
+    let dropTarget = event.target.closest('.droppable'); // Ensure we're referencing the .droppable div
+    let messageBox = document.getElementById("messageBox");
+
+    if (draggedName === targetName) {
+        messageBox.textContent = "Correct! It is " + targetName + ".";
+        dropTarget.innerHTML = ""; // Clear the name
+        dropTarget.appendChild(draggedElement); // Append the dragged element to the target box
+        draggedElement.querySelector('img').style.width = "100%"; // Make the image fit the box
+
+        correctAnswersCount++;
+        if (correctAnswersCount === 3) {
+            messageBox.textContent = "Congratulations! Now you understand these plants better!";
+            correctAnswersCount = 0; // Reset the count for the next quiz
+        }
+    } else {
+        messageBox.textContent = "Wrong match. Try again.";
+    }
 }
