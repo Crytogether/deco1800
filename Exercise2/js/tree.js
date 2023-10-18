@@ -163,6 +163,12 @@ function recordWaterConsumption() {
         $("#congrats-message").text("Congratulations! You've reached your goal of " + userGoal + " ml of water consumption.");
         $("#congratulations-modal").css('display', 'block');
     }
+    // Close the congratulations modal when clicking its close button
+$("#congratulations-modal .close-btn").on("click", function() {
+    $("#congratulations-modal").css('display', 'none');
+});
+
+
 
     // Close the modal after recording
     closeWaterModal();
@@ -183,18 +189,28 @@ function resetWaterConsumption() {
 
         // Check if the user met their goal
         if (previousConsumption >= userGoal) {
-            $("#plant-message").text("plants will live").addClass("plant-live-animation");
+            $(".plants").removeClass("plants-goal-not-met").addClass("plants-goal-met");
+            $("#congrats-message").text("Congratulations! You've reached your goal of " + userGoal + " ml of water consumption.");
+            $("#congratulations-modal").css('display', 'block');
         } else {
-            $("#plant-message").text("plants will die").addClass("plant-die-animation");
+            $(".plants").removeClass("plants-goal-met").addClass("plants-goal-not-met");
         }
 
-        // Display a message with the previous day's consumption
-        alert("You finished the day. Your total water consumption for the day was " + previousConsumption + " ml. ");
+        // Display a message with the previous day's consumption using the custom modal
+        $("#custom-alert-message").text("You finished the day. Your total water consumption for the day was " + previousConsumption + " ml.");
+        $("#custom-alert").css('display', 'block');
 
         // Close the congratulations modal if it's open
         $("#congratulations-modal").css('display', 'none');
     }
 }
+
+
+// Close the custom alert modal when clicking its close button
+$("#custom-alert .custom-close-btn").on("click", function() {
+    $("#custom-alert").css('display', 'none');
+});
+
 
 
 

@@ -922,3 +922,52 @@ button {
 .plant-die-animation {
   animation: plantDie 1s forwards;
 }
+
+.custom-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 1000;
+}
+
+.custom-modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.custom-close-btn {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+}
+
+#daily-summary {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#plant-status-image {
+  width: 100px;  /* Adjust as needed */
+  height: auto;
+  margin-top: 10px;
+}
+
+.plants-goal-met {
+  /* Add styles for when the goal is met */
+  background-color: green; /* Example */
+}
+
+.plants-goal-not-met {
+  /* Add styles for when the goal is not met */
+  background-color: red; /* Example */
+}
