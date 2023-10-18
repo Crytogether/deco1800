@@ -9,9 +9,18 @@ body {
     padding: 0;
 }
 
-map{
+.main-content{
     display: flex;
     justify-content: center;
+}
+
+#map {
+    width: 80vw;
+    height: 80vh;
+    border: none;
+    border-radius: 10%;
+    /* box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 5px; */
+    z-index: 500;
 }
 
 .record-bar{
@@ -115,15 +124,6 @@ map{
     display: block; /* Show the message when there's an error */
 }
 
-#map {
-    width: 80vw;
-    height: 80vh;
-    background-color: #f1f1f1;
-    border: 1px solid #ccc;
-    box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px;
-    z-index: 500;
-    justify-content: center;
-}
 
 /* Customize the Leaflet controls */
 .leaflet-control {
@@ -152,35 +152,38 @@ map{
     border-radius: 5px;
 }
 
-.footer {
-    background-color: #dda25e; /* Light gray background */
-    padding: 20px; /* Padding around the content */
-    display: flex; /* Flex container to align items horizontally */
-    justify-content: center; /* Center align the items */
-    align-items: center; /* Vertically center align the items */
-    border-top: 1px solid #dee2e6; /* A border at the top to separate it from the section above */
-    bottom: 0;
-    width: 100%;
-    z-index: 500; /* Set to a value lower than the z-index of .modal */
-}
-
 .footer-content{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
     background-color: #dda25e;
-    padding: 10px 40px;
+    padding: 20px;
 }
 
 .bottleimg {
-    width: 30px; 
-    height: auto;
+    width: 40px; 
+    height: 40px;
 }
 
-.footer > button {
-    padding: 10px 20px; 
-    font-size: 16px;
-}
+#BUTTON_ID_HERE {
+    background: linear-gradient(45deg, #4CAF50, #2f8f57);
+    color: white;
+    width: 70px;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+    font-weight: 600;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    padding: 10px;
+    padding-left: 10px;
+  }
+  
+  #BUTTON_ID_HERE {
+    background: linear-gradient(45deg, #2f8f57, #4CAF50);
+    transform: translateY(1px);
+  }
 
 .modal {
     position: fixed;

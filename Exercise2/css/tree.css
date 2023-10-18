@@ -58,17 +58,7 @@ body {
   width: 100%;
   height: auto;
 }
-.plant {
-  border: 1px solid #000;
-  padding: 20px;
-  margin: 10px;
-  width: 30%;
-  box-sizing: border-box;
-}
-.plant img {
-  width: 100%;
-  height: auto;
-}
+
 .notice {
   background-color: #f8f9fa;
   border: 1px solid #e9ecef;
