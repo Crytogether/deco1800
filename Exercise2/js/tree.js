@@ -180,30 +180,36 @@ function resetWaterConsumption() {
     var confirmReset = confirm("Are you sure you want to finish the day and reset your water consumption?");
     
     if (confirmReset) {
+        userGoal = 0;
         // Store the consumed water before resetting
         var previousConsumption = cumulativeWaterConsumption;
+        cumulativeWaterConsumption = 0;
 
         // Update the displayed goal and consumed water
         $("#goal-amount-display").text(userGoal + " ml");
         $("#water-amount").text(cumulativeWaterConsumption + " ml");
 
-        // Check if the user met their goal
+        // Determine the message based on whether the goal was met
+        var message = "You finished the day. Your total water consumption for the day was " + previousConsumption + " ml. ";
         if (previousConsumption >= userGoal) {
-            $(".plants").removeClass("plants-goal-not-met").addClass("plants-goal-met");
-            $("#congrats-message").text("Congratulations! You've reached your goal of " + userGoal + " ml of water consumption.");
-            $("#congratulations-modal").css('display', 'block');
-        } else {
-            $(".plants").removeClass("plants-goal-met").addClass("plants-goal-not-met");
-        }
+        message += "Plant lives!";
+        $(".plant").removeClass("dead").addClass("alive");
+    }   else {
+        message += "Plant dies.";
+        $(".plant").removeClass("alive").addClass("dead");
+    }
 
-        // Display a message with the previous day's consumption using the custom modal
-        $("#custom-alert-message").text("You finished the day. Your total water consumption for the day was " + previousConsumption + " ml.");
-        $("#custom-alert").css('display', 'block');
+    // Display the message in the .plant-message div
+    $(".plant-message").text(message);
+
+        // Display the message
+        alert(message);
 
         // Close the congratulations modal if it's open
         $("#congratulations-modal").css('display', 'none');
     }
 }
+
 
 
 // Close the custom alert modal when clicking its close button

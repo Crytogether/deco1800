@@ -956,18 +956,19 @@ button {
   margin-top: 20px;
 }
 
-#plant-status-image {
-  width: 100px;  /* Adjust as needed */
-  height: auto;
-  margin-top: 10px;
+
+
+.plant.alive {
+  background-color: green;
+  /* other styles for a living plant */
 }
 
-.plants-goal-met {
-  /* Add styles for when the goal is met */
-  background-color: green; /* Example */
+.plant.dead {
+  background-color: brown;
+  /* other styles for a dead plant */
 }
 
-.plants-goal-not-met {
-  /* Add styles for when the goal is not met */
-  background-color: red; /* Example */
+.custom-confirm {
+  display: none;
+  /* Add other styles like positioning, background-color, etc. */
 }
