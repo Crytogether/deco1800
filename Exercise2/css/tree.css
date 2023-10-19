@@ -930,8 +930,13 @@ button {
   /* Add other styles like positioning, background-color, etc. */
 }
 
+/* Quiz styles */
 .question-img,
 .question-answer{
   display: flex;
   justify-content: center;
+}
+
+.backplants-button > button{
+  width: 100vw;
 }
