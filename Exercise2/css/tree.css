@@ -1,21 +1,14 @@
 html,body {
   margin: 0;
   padding: 0;
-  display: flex;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   background-color: #fefae0;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  /* flex-wrap: wrap; */
+  /* justify-content: space-around;*/
   font-family: Arial, sans-serif;
 }
 
-body {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-body {
+/* body {
   font-family: Arial, sans-serif;
   margin: 0;
   display: flex;
@@ -23,7 +16,7 @@ body {
   justify-content: space-between;
   align-content: flex-start;
   background: url('path/to/your/lighter_green_image.jpg') repeat; /* Replace with your image path */
-}
+
 
 :root{
 --green: #606c38;
@@ -35,11 +28,6 @@ body {
 --lightgreen: #e9edc9;
 --lightyellow: #faedcd;
 --lightbrown: #d4a373;
-}
-
-.play-button{
-  margin-right: 50px;
-  align-items: center;
 }
 
 /* .plant {
@@ -55,7 +43,7 @@ body {
   height: auto;
 }  */
 
-.notice {
+/* .notice {
   background-color: #f8f9fa;
   border: 1px solid #e9ecef;
   padding: 10px;
@@ -64,7 +52,7 @@ body {
   margin: 10px;
   width: 100%;
   box-sizing: border-box;
-}
+} */
 
 .water-consumption {
     background-color: #ccd5ae; /* Semi-transparent blue background */
@@ -177,10 +165,10 @@ body {
 }
 
 .plant {
-  padding: 20px;
-  margin: 10px;
-  width: 100%;
-  box-sizing: border-box;
+  /* padding: 20px; */
+  /* margin: 10px; */
+  width: 200px; 
+  /* box-sizing: border-box; */
   background-color: #ccd5ae;
   transition: background-color 0.3s ease;
   border-radius: 15px;
@@ -215,15 +203,15 @@ body {
 
 /* Style the buttons */
 button {
-    padding: 10px 20px;
-    margin: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #dda25e;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #dda25e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
   }
   
 button:hover {
@@ -231,106 +219,106 @@ button:hover {
 }
 
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-    padding-top: 60px;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  padding-top: 60px;
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    box-sizing: border-box;
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  box-sizing: border-box;
 }
 
 .close-btn {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .close-btn:hover,
 .close-btn:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 #BUTTON_ID_HERE {
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #007BFF;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #007BFF;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 #BUTTON_ID_HERE:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 /* Modal styles */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding-top: 60px;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-top: 60px;
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    max-width: 600px;
-    border-radius: 10px;
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  max-width: 600px;
+  border-radius: 10px;
 }
 
 .modal-content img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 10px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 /* Close button */
 .modal-content input[type="button"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
 }
 
 .modal-content input[type="button"]:hover {
-    background-color: #45a049;
+  background-color: #45a049;
 }
 
 /* Additional styling as needed */
 
 /* CSS for the light-up effect */
 .light-up {
-    background-color: #606c38; /* Adjust the background color to your preference */
+  background-color: #606c38; /* Adjust the background color to your preference */
 }
   
 .container {
@@ -579,54 +567,54 @@ button:hover {
 }
 
 .modal-content {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #ffffff;
-    margin: 10% auto;
-    padding: 40px;
-    border: 1px solid #ccc;
-    width: 300px;
-    text-align: center;
-    border-radius: 15px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-    position: relative;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #ffffff;
+  margin: 10% auto;
+  padding: 40px;
+  border: 1px solid #ccc;
+  width: 300px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 
 .close {
-    color: #aaa;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.2s;
+  color: #aaa;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
 }
 
 .close:hover {
-    color: #777;
+  color: #777;
 }
 
 #timeOptions {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
 }
 
 .time-option {
-    background-color: #2e8b57;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    margin: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.1s;
+  background-color: #2e8b57;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
 }
 
 .time-option:hover {
-    background-color: #1c5a38;
-    transform: scale(1.05);
+  background-color: #1c5a38;
+  transform: scale(1.05);
 }
 
 #message {
@@ -641,64 +629,64 @@ button:hover {
 
 /* Style for the "Change Background Gradient by Time" button */
 button {
-    padding: 10px;
-    margin: 10px;
-    font-size: 16px;
+  padding: 10px;
+  margin: 10px;
+  font-size: 16px;
 }
 
 /* Style for the dropdown button */
 .dropbtn {
-    padding: 10px;
-    font-size: 16px;
+  padding: 10px;
+  font-size: 16px;
 }
 
 /* Style for the dropdown container (hidden by default) */
 .dropdown {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 /* Style for the dropdown content */
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
 /* Style for the links inside the dropdown */
 .dropdown-content a {
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
 }
 
 /* Style for the links on hover */
 .dropdown-content a:hover {
-    background-color: #f1f1f1;
+  background-color: #f1f1f1;
 }
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
-    display: block;
+  display: block;
 }
 
 
 /* Add styles for the modal */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-    padding-top: 60px;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  padding-top: 60px;
   }
   
   .modal-content {
