@@ -170,7 +170,8 @@ html,body {
   width: 25%;
   /* box-sizing: border-box; */
   background-color: #ccd5ae;
-  transition: background-color 0.3s ease;
+  transform-style: preserve-3d;
+  transition: background-color 0.3s ease, transform 3s;
   border-radius: 15px;
   height: 350px;
   overflow: hidden;
@@ -179,6 +180,10 @@ html,body {
   /*align-items: center;*/
   /*justify-content: space-between;*/
   border-color: var(--darkgreen);
+}
+
+.plant .flipped {
+  transform: rotateY(180deg);
 }
 
 .plant img {
@@ -192,6 +197,10 @@ html,body {
   text-align: center;   /* Center align the text */
   max-height: 30%;      /* Dedicate around 30% of container's height to text */
   overflow: hidden;     /* Clip any overflowing text */
+}
+
+.plant-desc {
+  display: none;
 }
 
 /*.plant::before {*/
