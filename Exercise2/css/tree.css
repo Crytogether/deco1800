@@ -159,7 +159,7 @@ html,body {
 .plant-flip-cards{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+  row-gap: 15px;
   align-items: center;
   justify-items: center;
 }
@@ -167,7 +167,6 @@ html,body {
 .plant {
   /* padding: 20px; */
   /* margin: 10px; */
-  width: 25%;
   /* box-sizing: border-box; */
   background-color: #ccd5ae;
   transform-style: preserve-3d;
@@ -179,7 +178,10 @@ html,body {
   /*flex-direction: column;*/
   /*align-items: center;*/
   /*justify-content: space-between;*/
-  border-color: var(--darkgreen);
+  /*border-color: var(--darkgreen);*/
+  border: 1px solid var(--darkgreen);
+  width: 50%;
+  /*clear: both; !* Ensures the plant div always starts on a new line *!*/
 }
 
 .plant .flipped {
@@ -187,8 +189,8 @@ html,body {
 }
 
 .plant img {
-  max-width: 100%;       /* Ensure image doesn't overflow the container width */
-  max-height: calc(70% - 40px);  /* Dedicate around 70% of container's height to image */
+  width: 100%;       /* Ensure image doesn't overflow the container width */
+  height: 50%;  /* Dedicate around 70% of container's height to image */
   object-fit: cover;     /* Ensures the image covers the full width/height specified without distorting its aspect ratio */
   margin-bottom: 10px;   /* Margin to give space between image and text */
 }
@@ -812,19 +814,19 @@ button {
   white-space: nowrap;  /* Prevents the text inside the button from breaking into multiple lines */
 }
 
-.plant {
-  border: 1px solid #000;
-  padding: 20px;
-  margin: 10px;
-  width: 30%;
-  box-sizing: border-box;
-  clear: both; /* Ensures the plant div always starts on a new line */
-}
+/*.plant {*/
+/*  border: 1px solid #000;*/
+/*  padding: 20px;*/
+/*  margin: 10px;*/
+/*  width: 30%;*/
+/*  box-sizing: border-box;*/
+/*  clear: both; !* Ensures the plant div always starts on a new line *!*/
+/*}*/
 
-.plant img {
-  width: 100%;
-  height: auto;
-}
+/*.plant img {*/
+/*  width: 100%;*/
+/*  height: auto;*/
+/*}*/
 
 
 .draggable-plant {
