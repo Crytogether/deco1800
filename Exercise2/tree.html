@@ -5,7 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/tree.css">
         <title>Plant Gallery</title>
-        
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="js/tree.js"></script>
+        <script src="js/common.js"></script>
     </head>
 <body>
     <div class="water-consumption">
@@ -71,7 +73,6 @@
     <div id="optionsContainer"></div>
     <button onclick="resetQuiz()">Back to Plants</button>
     <div id="plant-message"></div>
-
 </div>
 </div>
     <div id="checkModal" class="modal">
@@ -87,20 +88,6 @@
                 <input type="button" value="Close" onclick="closePopup()">
             </div>
         </div>
-        
-        
-        <div class="container">
-            
-            <button id="showWaterLevelButton" onclick="showWaterLevelDropdown()">Water Level</button>
-            <select id="waterLevel" onchange="changeBackgroundColor(this.value)" style="display: none;">
-                <option value="1">0-600ml</option>
-                <option value="2">600-9000ml</option>
-                <option value="3">900-1400ml</option>
-                <option value="4">1400-3000ml</option>
-            </select>
-            
-            
-          </div>
           <div id="questionModal" class="modal">
             <div class="modal-content">
               <span class="close" onclick="closeModal()">&times;</span>
@@ -114,63 +101,68 @@
             <button id="confirm-yes">Yes</button>
             <button id="confirm-no">No</button>
         </div>
+        <div class="waterlevel-dropmenu">
+            <div class="container">
+                <button id="showWaterLevelButton" onclick="showWaterLevelDropdown()">Water Level</button>
+                <select id="waterLevel" onchange="changeBackgroundColor(this.value)" style="display: none;">
+                    <option value="1">0-600ml</option>
+                    <option value="2">600-9000ml</option>
+                    <option value="3">900-1400ml</option>
+                    <option value="4">1400-3000ml</option>
+                </select>
+            </div>
+        </div>    
+        <div class="plant-flip-cards">
+            <div class="plant" data-common-name="Chinese Amerlia">
+                <img src="./images/plants/chinese amerlia.jpeg" alt="Chinese Amerlia">
+                <p>Chinese Amerlia Description</p>
+            </div>
+            <div class="plant" data-common-name="Mexican Abelia">
+                <img src="./images/plants/Mexican Abelia.jpeg" alt="Mexican Abelia">
+                <p>Mexican Abelia Description</p>
+            </div>
+            <div class="plant" data-common-name="Abelia x grandiflora">
+                <img src="./images/plants/Abelia x grandiflora.jpeg" alt="Abelia x grandiflora">
+                <p>Abelia x grandiflora Description</p>
+            </div>
+            <div class="plant" data-common-name="Golden Abelia">
+                <img src="./images/plants/golden abelia 1 .jpeg" alt="Golden Abelia">
+                <p>Golden Abelia Description</p>
+            </div>
+            <div class="plant" data-common-name="Goldsport">
+                <img src="./images/plants/Goldsport.jpeg" alt="Goldsport">
+                <p>Goldsport Description</p>
+            </div>
+            <div class="plant" data-common-name="Okra">
+                <img src="./images/plants/download.jpeg" alt="Unknown Plant 6">
+                <p>Unknown Plant 6 Description</p>
+            </div>
+            <div class="plant" data-common-name="Okra">
+                <img src="./images/plants/okra.jpeg" alt="Okra">
+                <p>Okra Description</p>
+            </div>
+            <div class="plant" data-common-name="Abelmoschus manihot">
+                <img src="./images/plants/Abelmoschus manihot.jpeg" alt="Abelmoschus manihot">
+                <p>Abelmoschus manihot Description</p>
+            </div>
+            <div class="plant" data-common-name="Palm Leaf Abika">
+                <img src="./images/plants/Palm Leaf Abika.jpeg" alt="Palm Leaf Abika">
+                <p>Palm Leaf Abika Description</p>
+            </div>
+            <div class="plant" data-common-name="Musk Mallow">
+                <img src="./images/plants/Musk Mallow.jpeg" alt="Musk Mallow">
+                <p>Musk Mallow Description</p>
+            </div>
+            <div class="plant" data-common-name="Abelia">
+                <img src="./images/plants/abelia.jpeg" alt="Abelia">
+                <p>Abelia Description</p>
+            </div>
+            <div class="plant" data-common-name="Abelmoschus rugosus 'Evergreen'">
+                <img src="./images/plants/Abelmoschus rugosus 'Evergreen'.jpeg" alt="Abelmoschus rugosus 'Evergreen'">
+                <p>Abelmoschus rugosus 'Evergreen' Description</p>
+            </div>
+        </div>
         
-
-          
-        
-        
-
-         
-        <div class="plant" data-common-name="Chinese Amerlia">
-            <img src="./images/plants/chinese amerlia.jpeg" alt="Chinese Amerlia">
-            <p>Chinese Amerlia Description</p>
-        </div>
-        <div class="plant" data-common-name="Mexican Abelia">
-            <img src="./images/plants/Mexican Abelia.jpeg" alt="Mexican Abelia">
-            <p>Mexican Abelia Description</p>
-        </div>
-        <div class="plant" data-common-name="Abelia x grandiflora">
-            <img src="./images/plants/Abelia x grandiflora.jpeg" alt="Abelia x grandiflora">
-            <p>Abelia x grandiflora Description</p>
-        </div>
-        <div class="plant" data-common-name="Golden Abelia">
-            <img src="./images/plants/golden abelia 1 .jpeg" alt="Golden Abelia">
-            <p>Golden Abelia Description</p>
-        </div>
-        <div class="plant" data-common-name="Goldsport">
-            <img src="./images/plants/Goldsport.jpeg" alt="Goldsport">
-            <p>Goldsport Description</p>
-        </div>
-        <div class="plant" data-common-name="Okra">
-            <img src="./images/plants/download.jpeg" alt="Unknown Plant 6">
-            <p>Unknown Plant 6 Description</p>
-        </div>
-        <div class="plant" data-common-name="Okra">
-            <img src="./images/plants/okra.jpeg" alt="Okra">
-            <p>Okra Description</p>
-        </div>
-        <div class="plant" data-common-name="Abelmoschus manihot">
-            <img src="./images/plants/Abelmoschus manihot.jpeg" alt="Abelmoschus manihot">
-            <p>Abelmoschus manihot Description</p>
-        </div>
-        <div class="plant" data-common-name="Palm Leaf Abika">
-            <img src="./images/plants/Palm Leaf Abika.jpeg" alt="Palm Leaf Abika">
-            <p>Palm Leaf Abika Description</p>
-        </div>
-        <div class="plant" data-common-name="Musk Mallow">
-            <img src="./images/plants/Musk Mallow.jpeg" alt="Musk Mallow">
-            <p>Musk Mallow Description</p>
-        </div>
-        <div class="plant" data-common-name="Abelia">
-            <img src="./images/plants/abelia.jpeg" alt="Abelia">
-            <p>Abelia Description</p>
-        </div>
-        <div class="plant" data-common-name="Abelmoschus rugosus 'Evergreen'">
-            <img src="./images/plants/Abelmoschus rugosus 'Evergreen'.jpeg" alt="Abelmoschus rugosus 'Evergreen'">
-            <p>Abelmoschus rugosus 'Evergreen' Description</p>
-        </div>
-        
-
     <div id="water-consumption-modal" class="modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
@@ -221,6 +213,6 @@
 			  </div>
         <img class="mapimg" src="./images/icon/map.png" alt="map" onclick="window.location.href='index.html'">
     </footer> -->
-</body>
+    </body>
 </html>
 

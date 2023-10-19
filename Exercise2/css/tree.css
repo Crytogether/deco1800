@@ -37,27 +37,23 @@ body {
 --lightbrown: #d4a373;
 }
 
-.header{
-  background-color: #dda25e;
-  width: 100%;
-}
-
 .play-button{
   margin-right: 50px;
   align-items: center;
 }
 
-.plant {
+/* .plant {
   border: 1px solid #000;
   padding: 20px;
   margin: 10px;
   width: 30%;
   box-sizing: border-box;
-}
+} 
+
 .plant img {
   width: 100%;
   height: auto;
-}
+}  */
 
 .notice {
   background-color: #f8f9fa;
@@ -136,12 +132,12 @@ body {
 
 .button-group {
   display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-top: 250px;  /* 根据需要调整间距 */
-    bottom: 10px;  /* 根据需要调整距离底部的距离 */
-    left: 0;  /* 确保组是左对齐的 */
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 250px;  /* 根据需要调整间距 */
+  bottom: 10px;  /* 根据需要调整距离底部的距离 */
+  left: 0;  /* 确保组是左对齐的 */
 }
 
 .button-group button {
@@ -158,34 +154,63 @@ body {
 
 .button-group img {
   max-width: 100%; /* 使图片不超出按钮尺寸 */
-    height: auto; /* 保持图像的宽高比 */
+  height: auto; /* 保持图像的宽高比 */
 }
 
-.notice {
-    background-color: #f8f9fa;
-    border: 1px solid #e9ecef;
-    padding: 10px;
-    text-align: center;
-    font-size: 1.2em;
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 20px;
+/* .notice {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.2em;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+} */
+
+.plant-flip-cards{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  align-items: center;
+  justify-items: center;
 }
 
 .plant {
-    border: 2px solid #606c38; /* Change the border color to a nice green */
-    padding: 20px;
-    margin: 10px;
-    width: 30%;
-    box-sizing: border-box;
-    background-color: #ccd5ae;
-    transition: background-color 0.3s ease;
-    border-radius: 15px; /* Add rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  padding: 20px;
+  margin: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #ccd5ae;
+  transition: background-color 0.3s ease;
+  border-radius: 15px;
+  height: 350px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-color: var(--darkgreen);
 }
 
-.plant:hover {
-    background-color: #f0f0f0;
+.plant img {
+  max-width: 100%;       /* Ensure image doesn't overflow the container width */
+  max-height: calc(70% - 40px);  /* Dedicate around 70% of container's height to image */
+  object-fit: cover;     /* Ensures the image covers the full width/height specified without distorting its aspect ratio */
+  margin-bottom: 10px;   /* Margin to give space between image and text */
+}
+
+.plant p {
+  text-align: center;   /* Center align the text */
+  max-height: 30%;      /* Dedicate around 30% of container's height to text */
+  overflow: hidden;     /* Clip any overflowing text */
+}
+
+/* Styling when the plant is visible */
+.plant.visible {
+  transform: scale(1);
+  opacity: 1;
+  box-shadow: 3px 3px 15px rgba(0,0,0,0.2); /* Adjust shadow as needed */
 }
 
 /* Style the buttons */
@@ -203,23 +228,6 @@ button {
   
 button:hover {
   background-color: #dda25e;
-}
-  
-
-.plant img {
-    width: 100%;
-    height: auto;
-}
-
-.footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: suto;
-    box-sizing: border-box;
-    background-color: #dda25e;
-    padding: 10px;
 }
 
 .modal {
@@ -350,12 +358,6 @@ button:hover {
 
 /* ... existing styles ... */
 
-.footer-buttons button {
-  margin: 0 10px;
-  padding: 10px 20px;
-  font-size: 16px;
-}
-  
 .plant::before {
   content: "";
   position: absolute;
@@ -373,44 +375,6 @@ button:hover {
   50% { background-position: right 0%; }
   100% { background-position: left 0%; }
 }
-
-
-
-/* Styling when the plant is visible */
-.plant.visible {
-  transform: scale(1);
-  opacity: 1;
-  box-shadow: 3px 3px 15px rgba(0,0,0,0.2); /* Adjust shadow as needed */
-}
-
-
-.plant {
-  transition: height 0.5s; /* Smooth transition for height changes */
-  height: 350px;          /* Initial height adjusted */
-  overflow: hidden;       /* To hide overflowing content */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  padding: 10px;
-  border: 2px solid black;
-  margin: 10px 0;
-  display: flex;          /* Added to align the content */
-  flex-direction: column; /* Organize content in a column */
-  align-items: center;    /* Horizontally align content */
-  justify-content: space-between; /* Distribute space evenly between the image and text */
-}
-
-.plant img {
-  max-width: 100%;       /* Ensure image doesn't overflow the container width */
-  max-height: calc(70% - 40px);  /* Dedicate around 70% of container's height to image */
-  object-fit: cover;     /* Ensures the image covers the full width/height specified without distorting its aspect ratio */
-  margin-bottom: 10px;   /* Margin to give space between image and text */
-}
-
-.plant p {
-  text-align: center;   /* Center align the text */
-  max-height: 30%;      /* Dedicate around 30% of container's height to text */
-  overflow: hidden;     /* Clip any overflowing text */
-}
-
 
 
 /* Different classes for the backgrounds with gradients and height changes */
@@ -498,9 +462,6 @@ button:hover {
 #waterLevel option:hover {
   background: #e6e8f0;  /* Slightly darker on hover */
 }
-
-
-
 
 
 /* .gradient-morning {
@@ -832,9 +793,10 @@ button {
   font-weight: bold;
 }
 
-.mapimg{
-  height: 30px;
-  width: 30px;
+.waterlevel-dropmenu{
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .container {
@@ -853,6 +815,7 @@ button {
 .container button {
   white-space: nowrap;  /* Prevents the text inside the button from breaking into multiple lines */
 }
+
 .plant {
   border: 1px solid #000;
   padding: 20px;
