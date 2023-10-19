@@ -194,6 +194,23 @@ html,body {
   overflow: hidden;     /* Clip any overflowing text */
 }
 
+.plant::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0%; /* Initial water level */
+  background: linear-gradient(to top, #1E90FF, transparent); /* Water gradient */
+  animation: ripple 5s infinite; /* Ripple effect */
+  z-index: -1;
+}
+
+/* Default Plant Styles */
+.plant {
+  transition: all 1s ease-in-out;
+}
+
 /* Styling when the plant is visible */
 .plant.visible {
   transform: scale(1);
@@ -344,20 +361,6 @@ button:hover {
   cursor: pointer;
 }
 
-/* ... existing styles ... */
-
-.plant::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 0%; /* Initial water level */
-  background: linear-gradient(to top, #1E90FF, transparent); /* Water gradient */
-  animation: ripple 5s infinite; /* Ripple effect */
-  z-index: -1;
-}
-
 @keyframes ripple {
   0% { background-position: left 0%; }
   50% { background-position: right 0%; }
@@ -468,10 +471,7 @@ button:hover {
     background: linear-gradient(to bottom, #000022, #020025);
 } */
 
-/* Default Plant Styles */
-.plant {
-  transition: all 1s ease-in-out;
-}
+
 
 /* Morning */
 .gradient-morning .plant {
@@ -728,17 +728,17 @@ button {
 
   /* Modal styles */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-    padding-top: 60px;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  padding-top: 60px;
   }
   
   .modal-content {
@@ -907,8 +907,6 @@ button {
   margin-top: 20px;
 }
 
-
-
 .plant.alive {
   background-color: green;
   /* other styles for a living plant */
@@ -922,4 +920,10 @@ button {
 .custom-confirm {
   display: none;
   /* Add other styles like positioning, background-color, etc. */
+}
+
+.question-img,
+.question-answer{
+  display: flex;
+  justify-content: center;
 }
