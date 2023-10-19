@@ -252,16 +252,7 @@ function addOption() {
   }
   
   
-  
-  document.addEventListener('click', function(event) {
-    const dropdown = document.getElementById('waterLevel');
-    const button = document.getElementById('showWaterLevelButton');
-    
-    // If the click is outside the dropdown and not on the button, hide the dropdown
-    if (event.target !== dropdown && event.target !== button) {
-        dropdown.style.display = 'none';
-    }
-});
+
 
 function showWaterLevelDropdown() {
     const dropdown = document.getElementById("waterLevel");
@@ -515,6 +506,8 @@ function resetQuiz() {
     plants.forEach(plant => plant.style.display = "block");
 
     document.getElementById("quizContainer").style.display = "none";
+    document.getElementById("waterLevel").style.display = "block";
+
     document.getElementById("questionContainer").innerHTML = "";
     document.getElementById("optionsContainer").innerHTML = "";
 }
@@ -525,6 +518,7 @@ function startQuiz() {
     let plants = document.querySelectorAll(".plant");
     plants.forEach(plant => plant.style.display = "none");
     document.getElementById("quizContainer").style.display = "block";
+    document.getElementById('waterLevel').style.display = 'none';
     displayQuestion();
 }
 

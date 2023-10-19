@@ -29,12 +29,10 @@
             </button>
             <button onclick="startQuiz()" class="hideBtn">
                 <img src="./images/icon/quiz.png" alt="Start Quiz">
-
             </button>
             <button id="timeSelectorButton">
                 <img src="./images/icon/select-time.png" alt="Time Selector">
             </button>
-
         </div>
         <div id="daily-summary">
             <p id="daily-message"></p>
@@ -71,7 +69,6 @@
     <button onclick="resetQuiz()">Back to Plants</button>
     <div id="plant-message"></div>
 </div>
-</div>
     <div id="checkModal" class="modal">
         <div class="modal-content">
           <span class="close" onclick="closeCheckModal()">&times;</span>
@@ -99,8 +96,8 @@
         </div>
         <div class="waterlevel-dropmenu">
             <div class="container">
-                <button id="showWaterLevelButton" onclick="showWaterLevelDropdown()">Water Level</button>
-                <select id="waterLevel" onchange="changeBackgroundColor(this.value)" style="display: none;">
+<!--                <button id="showWaterLevelButton" onclick="showWaterLevelDropdown()">Water Level</button>-->
+                <select id="waterLevel" onchange="changeBackgroundColor(this.value)">
                     <option value="1">0-600ml</option>
                     <option value="2">600-9000ml</option>
                     <option value="3">900-1400ml</option>
@@ -110,8 +107,9 @@
         </div>    
         <div class="plant-flip-cards">
             <div class="plant" data-common-name="Chinese Amerlia">
-                <img src="./images/plants/chinese amerlia.jpeg" alt="Chinese Amerlia">
-                <p>Chinese Amerlia</p>
+                <img class="plant-img" src="./images/plants/chinese amerlia.jpeg" alt="Chinese Amerlia">
+                <p class="plant-name">Chinese Amerlia</p>
+                <p class="plant-desc">back text</p>
             </div>
             <div class="plant" data-common-name="Mexican Abelia">
                 <img src="./images/plants/Mexican Abelia.jpeg" alt="Mexican Abelia">

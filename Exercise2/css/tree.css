@@ -167,17 +167,17 @@ html,body {
 .plant {
   /* padding: 20px; */
   /* margin: 10px; */
-  width: 200px; 
+  width: 25%;
   /* box-sizing: border-box; */
   background-color: #ccd5ae;
   transition: background-color 0.3s ease;
   border-radius: 15px;
   height: 350px;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  /*align-items: center;*/
+  /*justify-content: space-between;*/
   border-color: var(--darkgreen);
 }
 
@@ -194,22 +194,22 @@ html,body {
   overflow: hidden;     /* Clip any overflowing text */
 }
 
-.plant::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 0%; /* Initial water level */
-  background: linear-gradient(to top, #1E90FF, transparent); /* Water gradient */
-  animation: ripple 5s infinite; /* Ripple effect */
-  z-index: -1;
-}
+/*.plant::before {*/
+/*  content: "";*/
+/*  position: absolute;*/
+/*  bottom: 0;*/
+/*  left: 0;*/
+/*  right: 0;*/
+/*  height: 0%; !* Initial water level *!*/
+/*  background: linear-gradient(to top, #1E90FF, transparent); !* Water gradient *!*/
+/*  animation: ripple 5s infinite; !* Ripple effect *!*/
+/*  z-index: -1;*/
+/*}*/
 
 /* Default Plant Styles */
-.plant {
-  transition: all 1s ease-in-out;
-}
+/*.plant {*/
+/*  transition: all 1s ease-in-out;*/
+/*}*/
 
 /* Styling when the plant is visible */
 .plant.visible {
@@ -425,7 +425,6 @@ button:hover {
 }
 
 #waterLevel {
-  display: none;
   width: 200px;
   padding: 10px 15px;
   border: none;
