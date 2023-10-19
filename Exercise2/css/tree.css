@@ -417,23 +417,23 @@ button:hover {
   height: 350px;  /* Adjust plant container height for this water level */
 }
 
-#showWaterLevelButton {
-  background: linear-gradient(45deg, #4CAF50, #2f8f57);
-  color: white;
-  padding: 12px 24px;
-  border: none;
-  cursor: pointer;
-  border-radius: 25px;
-  font-weight: 600;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease 0s;
-}
+/*#showWaterLevelButton {*/
+/*  background: linear-gradient(45deg, #4CAF50, #2f8f57);*/
+/*  color: white;*/
+/*  padding: 12px 24px;*/
+/*  border: none;*/
+/*  cursor: pointer;*/
+/*  border-radius: 25px;*/
+/*  font-weight: 600;*/
+/*  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);*/
+/*  transition: all 0.3s ease 0s;*/
+/*}*/
 
-#showWaterLevelButton:hover {
-  background: linear-gradient(45deg, #2f8f57, #4CAF50);
-  box-shadow: 0px 15px 20px rgba(76, 175, 80, 0.4);
-  transform: translateY(-7px);
-}
+/*#showWaterLevelButton:hover {*/
+/*  background: linear-gradient(45deg, #2f8f57, #4CAF50);*/
+/*  box-shadow: 0px 15px 20px rgba(76, 175, 80, 0.4);*/
+/*  transform: translateY(-7px);*/
+/*}*/
 
 #waterLevel {
   width: 200px;
@@ -443,26 +443,26 @@ button:hover {
   margin-top: 10px;
   font-size: 16px;
   background: linear-gradient(45deg, #e0eafc, #cfd8fc);
-  box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.2), 0 9px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 8px 5px 0 rgba(0, 0, 0, 0.2), 0 9px 20px 0 rgba(0, 0, 0, 0.19);
   appearance: none;
   cursor: pointer;
 }
 
 #waterLevel:focus {
   outline: none;
-  box-shadow: 0 0 5px #4CAF50, 0 8px 10px 0 rgba(0, 0, 0, 0.2), 0 9px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 0 5px #426d45, 0 8px 10px 0 rgba(0, 0, 0, 0.2), 0 9px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #waterLevel option {
   padding: 10px;
   background: #f7f8fc;  /* Light background color */
-  cursor: pointer;
+  /*cursor: pointer;*/
   border-radius: 5px;
 }
 
-#waterLevel option:hover {
-  background: #e6e8f0;  /* Slightly darker on hover */
-}
+/*#waterLevel option:hover {*/
+/*  background: #cc9619;  !* Slightly darker on hover *!*/
+/*}*/
 
 
 /* .gradient-morning {
