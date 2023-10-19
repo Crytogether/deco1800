@@ -881,7 +881,8 @@ button {
 }
 
 .plant-die-animation {
-  animation: plantDie 1s forwards;
+  animation: plantDie 1s backwards
+  background-color rgba(228, 12, 12, 0.7)
 }
 
 .custom-modal {
@@ -941,4 +942,44 @@ button {
 
 .backplants-button > button{
   width: 100vw;
+}
+
+
+/* Basic styling for the modal */
+#congratulations-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+#congratulations-modal .modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); /* Adding some shadow for a bit of depth */
+}
+
+/* Close Button */
+#congratulations-modal .close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#congratulations-modal .close-btn:hover,
+#congratulations-modal .close-btn:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
