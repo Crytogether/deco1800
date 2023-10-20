@@ -156,6 +156,12 @@ html,body {
   margin-bottom: 20px;
 } */
 
+.plant-desc {
+  transform: rotateY(180deg);
+  /* ... other styles ... */
+}
+
+
 .plant-flip-cards{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
@@ -184,9 +190,12 @@ html,body {
   /*clear: both; !* Ensures the plant div always starts on a new line *!*/
 }
 
-.plant .flipped {
+.plant-desc {
   transform: rotateY(180deg);
+  /* ... other styles ... */
 }
+
+
 
 .plant img {
   width: 100%;       /* Ensure image doesn't overflow the container width */
@@ -943,7 +952,6 @@ button {
 .backplants-button > button{
   width: 100vw;
 }
-
 
 /* Basic styling for the modal */
 #congratulations-modal {

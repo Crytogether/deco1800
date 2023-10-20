@@ -51,6 +51,12 @@ $(document).ready(function () {
 //   });
 // }
 
+$(document).ready(function() {
+    $('.plant').click(function() {
+        $(this).toggleClass('flipped');
+    });
+});
+
 
 function updatePlantDetails(records) {
   console.log(records);
@@ -62,7 +68,8 @@ function updatePlantDetails(records) {
           var commonName = records[index]['Common Name'];
 
           plantElement.find('img').on('click', function() {
-              plantElement.find('p').text(commonName + " in " + records[index]["Climate Zones"]);
+            plantElement.find('.plant-desc').text(commonName + " in " + records[index]["Climate Zones"]);
+
               displayInfo(commonName, records);
           });
 
