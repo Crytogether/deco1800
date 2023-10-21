@@ -244,10 +244,7 @@ function resetWaterConsumption() {
 }
 
 
-// Close the custom alert modal when clicking its close button
-$("#custom-alert .custom-close-btn").on("click", function () {
-  $("#custom-alert").css('display', 'none');
-});
+
 
 
 function closeWaterModal() {
@@ -389,89 +386,97 @@ $(document).ready(function () {
 
 
 $(document).ready(function () {
-  console.log("Document ready!");
-
-  let hasPrompted = false;
-
-  $("#timeSelectorButton").hover(function () {
-    console.log("Button hovered over!");
-
-    if (!hasPrompted) {
-      console.log("Calling changeBackgroundByTime function.");
-      changeBackgroundByTime();
-      hasPrompted = true;
-    }
-  }, function () {
-    console.log("Hover ended.");
-    hasPrompted = false;
+    console.log("Document ready!");
+  
+    let hasPrompted = false;
+  
+    $("#timeSelectorButton").click(function () {
+      console.log("Button clicked!");
+  
+      if (!hasPrompted) {
+        console.log("Calling changeBackgroundByTime function.");
+        changeBackgroundByTime();
+        hasPrompted = true;
+      }
+    });
+  
+    // Reset hasPrompted to false when modal is closed
+    $('.close').click(function() {
+      hasPrompted = false;
+    });
+  
+    $(window).click(function(event) {
+      let modal = document.getElementById('timeSelectionModal');
+      if (event.target === modal) {
+        hasPrompted = false;
+      }
+    });
   });
-});
-
-
-function changeBackgroundByTime() {
-  let modal = document.getElementById('timeSelectionModal');
-  let span = document.getElementsByClassName("close")[0];
-
-  // Display the modal
-  modal.style.display = "block";
-
-  // When the user clicks on <span> (x), close the modal
-  span.onclick = function () {
-    modal.style.display = "none";
-  }
-
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function (event) {
-    if (event.target === modal) {
+  
+  function changeBackgroundByTime() {
+    let modal = document.getElementById('timeSelectionModal');
+    let span = document.getElementsByClassName("close")[0];
+  
+    // Display the modal
+    modal.style.display = "block";
+  
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
       modal.style.display = "none";
     }
-  }
-
-  $('.time-option').on('click', function () {
-    let userInput = $(this).data('time');
-    modal.style.display = "none"; // Close the modal when an option is chosen
-
-    let gradientClass;
-    let message;
-
-    switch (parseInt(userInput)) {
-      case 1:
-        gradientClass = 'gradient-morning';
-        message = 'At 12am-6am, the plants are resting and rejuvenating for the day ahead.';
-        break;
-      case 2:
-        gradientClass = 'gradient-afternoon';
-        message = 'At 6am-12pm, the plants are waking up and stretching towards the sun.';
-        break;
-      case 3:
-        gradientClass = 'gradient-evening';
-        message = 'At 12pm-6pm, the plants are basking in the midday sun and swaying with the wind.';
-        break;
-      case 4:
-        gradientClass = 'gradient-night';
-        message = 'At 6pm-12am, the plants are beginning to settle and prepare for the night.';
-        break;
-      default:
-        break;
+  
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
     }
-
-    // Remove previous gradient classes
-    $("body").removeClass("gradient-morning gradient-afternoon gradient-evening gradient-night");
-
-    // Add the appropriate gradient class
-    $("body").addClass(gradientClass);
-
-    // Remove any existing message
-    $('#message').remove();
-
-    // Create a new message div
-    let messageDiv = $('<div id="message"></div>').text(message);
-
-    // Insert the message at the beginning of the body
-    $('body').prepend(messageDiv);
-  });
-}
-
+  
+    $('.time-option').on('click', function () {
+      let userInput = $(this).data('time');
+      modal.style.display = "none"; // Close the modal when an option is chosen
+  
+      let gradientClass;
+      let message;
+  
+      switch (parseInt(userInput)) {
+        case 1:
+          gradientClass = 'gradient-morning';
+          message = 'At 12am-6am, the plants are resting and rejuvenating for the day ahead.';
+          break;
+        case 2:
+          gradientClass = 'gradient-afternoon';
+          message = 'At 6am-12pm, the plants are waking up and stretching towards the sun.';
+          break;
+        case 3:
+          gradientClass = 'gradient-evening';
+          message = 'At 12pm-6pm, the plants are basking in the midday sun and swaying with the wind.';
+          break;
+        case 4:
+          gradientClass = 'gradient-night';
+          message = 'At 6pm-12am, the plants are beginning to settle and prepare for the night.';
+          break;
+        default:
+          break;
+      }
+  
+      // Remove previous gradient classes
+      $("body").removeClass("gradient-morning gradient-afternoon gradient-evening gradient-night");
+  
+      // Add the appropriate gradient class
+      $("body").addClass(gradientClass);
+  
+      // Remove any existing message
+      $('#message').remove();
+  
+      // Create a new message div
+      let messageDiv = $('<div id="message"></div>').text(message);
+  
+      // Insert the message at the beginning of the body
+      $('body').prepend(messageDiv);
+    });
+  }
+  
 
 // function toggleDropdown() {
 //   const dropdown = document.getElementById('continentDropdown');
