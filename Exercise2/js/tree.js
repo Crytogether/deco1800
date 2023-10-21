@@ -533,6 +533,8 @@ function resetQuiz() {
 
 
 function startQuiz() {
+  const backgroundImage = document.querySelector('.background-image');
+  backgroundImage.style.display = 'none';
   let plants = document.querySelectorAll(".plant");
   plants.forEach(plant => plant.style.display = "none");
   document.getElementById("quizContainer").style.display = "block";

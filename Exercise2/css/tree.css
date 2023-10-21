@@ -8,6 +8,7 @@ html,body {
   font-family: Arial, sans-serif;
   position: relative; 
   padding-bottom: 100px; 
+  height: 100%;
 }
 
 /* body {
@@ -980,10 +981,12 @@ button {
 .question-answer{
   display: flex;
   justify-content: center;
+  z-index: 1;
 }
 
 .backplants-button > button{
   width: 100vw;
+  z-index: 1;
 }
 
 /* Basic styling for the modal */
