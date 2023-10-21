@@ -6,6 +6,8 @@ html,body {
   /* flex-wrap: wrap; */
   /* justify-content: space-around;*/
   font-family: Arial, sans-serif;
+  position: relative; 
+  padding-bottom: 100px; 
 }
 
 /* body {
@@ -16,6 +18,17 @@ html,body {
   justify-content: space-between;
   align-content: flex-start;
   background: url('path/to/your/lighter_green_image.jpg') repeat; /* Replace with your image path */
+
+.background-image {
+  position: absolute; /* 绝对定位以固定在底部 */
+  bottom: 0;
+  left: 0;
+  width: 100%; /* 使图片占据整个宽度 */
+  height: 600px; /* 调整为您的图片高度 */
+  background: url('../images/bottom.png') no-repeat center bottom; 
+  background-size: cover; /* 使图片覆盖整个 .background-image 元素 */
+  z-index: 0; /* 使其位于其他内容下方 */
+}
 
 
 :root{
@@ -55,38 +68,36 @@ html,body {
 } */
 
 .water-consumption {
-    background-color: #ccd5ae; /* Semi-transparent blue background */
-    padding: 20px;
-    box-sizing: border-box;
-    text-align: center;
-    margin-bottom: 20px;
-    width: 100%; /* Adjust width as needed */
-    margin: 0 auto; /* Center the bubble */
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    height: 300px;
-    position: relative;
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+  background-image: url('../images/top.png'); /* 使用你的图像路径替换 */
+  background-size: cover; /* 图像将覆盖整个容器 */
+  background-repeat: no-repeat; /* 确保图像不会重复 */
+  background-position: center; /* 让图像居中 */
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  height: auto;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  flex-wrap: wrap;
 }
 
-.left-section {
-  position: absolute;
-  top: 0;
-  left: 0;
+.left-section, .right-section {
   display: flex;
   align-items: center;
-  margin-top: 5px;
+  margin: 0 20px; /* adding some margin for spacing between them */
 }
 
-.right-section {
-  position: absolute;
-  top: 0;
-  right: 0;
+/* Style for the new .top-section */
+.top-section {
   display: flex;
-  align-items: center;
-  margin-top: 5px;
-  margin-right: 5px;
+  justify-content: center; /* horizontally center the child divs */
+  align-items: center;     /* vertically center the child divs */
+  width: 100%;             /* occupy full width of the parent */
+  margin-top: 10px;        /* space at the top */
 }
 
 .left-section img, .right-section img {
@@ -96,53 +107,74 @@ html,body {
 }
 
 .water-btn {
-  width: 180px; /* 根据你的需求调整大小 */
-  height: 180px;
-  border-radius: 50%; /* 使其成为一个圆形 */
-  background-color: rgba(0, 125, 48, 0.3); /* 半透明的白色背景，你可以根据需要调整 */
-  border: none; /* 移除边框 */
-  padding: 0;
+  border: 2px solid #fdfdfd;
+  background-color: #26543a;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  top: 40%;      
-  left: 50%;     
-  transform: translate(-50%, -50%);
-  cursor: pointer;
+  overflow: hidden;
+  margin-left: 20px; /* adjust as per your requirement */
+  margin-right: 200px; /* adjust as per your requirement */
+}
+
+.button-group img {
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* for horizontal centering */
+  gap: 10px;
 }
 
 .watering {
   max-width: 100px;  /* 图片的最大宽度 */
   max-height: 100px;  /* 图片的最大高度 */
   height: auto;
-}
-
-.button-group {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin-top: 250px;  /* 根据需要调整间距 */
-  bottom: 10px;  /* 根据需要调整距离底部的距离 */
-  left: 0;  /* 确保组是左对齐的 */
+  margin: 0;
+  padding: 0;
 }
 
 .button-group button {
-  width: 40px; /* 根据你的图标实际尺寸调整 */
-  height: 40px; /* 根据你的图标实际尺寸调整 */
-  border: none; /* 移除边框 */
-  padding: 0; /* 移除内边距 */
-  margin: 0 5px; /* 为按钮添加左右的外边距，确保它们之间有一些间隔 */
-  background: none; /* 移除背景色 */
-  display: flex; /* 使用 Flexbox 使内容居中 */
-  align-items: center; /* 垂直居中按钮内的内容 */
-  justify-content: center; /* 水平居中按钮内的内容 */
+  width: 70px; /* 调整宽度和高度以适应边框和间距 */
+  height: 70px; 
+  border: 2px solid #3d9b66; /* 这会添加一个绿色的边框，您可以根据需要更改颜色 */
+  border-radius: 50%; /* 使按钮成为一个完美的圆形 */
+  padding: 0;
+  margin-top: 55px;
+  background-color: white; /* 添加一个白色背景，可以根据需要更改 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 100px;
+  margin-right: 100px;
+  position: relative;
 }
 
-.button-group img {
-  max-width: 100%; /* 使图片不超出按钮尺寸 */
-  height: auto; /* 保持图像的宽高比 */
+.bottom-wrapper {
+  display: flex;
+  justify-content: center; /* horizontally center the child elements */
+  align-items: center; /* vertically center the child elements */
+  width: 100%;
+  margin-top: 20px;
+}
+
+.tooltip-text {
+  position: absolute; /* 使用绝对定位来放置文字说明 */
+  bottom: -40px; /* 调整这个值可以改变文字说明相对于按钮的位置 */
+  left: 50%; 
+  transform: translateX(-50%); /* 让文字说明在按钮中心 */
+  padding: 5px 10px; /* 内边距 */
+  background-color: #ffffff; /* 气泡的背景颜色 */
+  color: #0d0000; /* 文字颜色 */
+  border-radius: 15px; /* 圆角效果 */
+  white-space: nowrap; /* 防止文字换行 */
 }
 
 /* .notice {
@@ -631,10 +663,11 @@ button:hover {
   transition: background-color 0.2s, transform 0.1s;
 }
 
-.time-option:hover {
+/*.time-option:hover {
   background-color: #1c5a38;
   transform: scale(1.05);
 }
+*/
 
 #message {
   width: 100%;

@@ -190,7 +190,7 @@ function recordWaterConsumption() {
   cumulativeWaterConsumption += waterConsumption;
 
   // Update the water consumption display
-  $("#water-amount").text(cumulativeWaterConsumption + " ml");
+  $("#water-amount").text("You have drink " + cumulativeWaterConsumption + " ml");
 
   // Check if cumulative consumption exceeds the goal
   if (cumulativeWaterConsumption >= userGoal) {

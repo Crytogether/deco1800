@@ -6,33 +6,42 @@
     <link rel="stylesheet" href="css/tree.css">
     <title>Plant Gallery</title>
 </head>
-<body>
-    <div class="water-consumption">
-        <!-- /* the water-amount on the left top */ -->
-        <div class="left-section">
-            <img src="./images/icon/water-amount.png" alt="Water Icon">
-            <span id="water-amount">0 ml</span>
-        </div>
-        <!-- /* the water-amount on the right top */ -->
-        <div class="right-section">
-            <img src="./images/icon/goal.png" alt="Goal Icon">
-            <span id="goal-amount-display">0 ml</span>
-        </div>
-        <!--/* the botton the set goal and water user have drink */ -->
-        <button class="water-btn" onclick="openWaterModal()">
-            <img id="logo" class="watering" src="./images/icon/water-bottle.png" alt="Logo">
-        </button>
 
-        <div class="button-group">
-            <button onclick="resetWaterConsumption()">
-                <img src="./images/icon/finish-the-day.png" alt="Finish Day">
+<body>
+    <div class="background-image"></div>
+    <div class="water-consumption">
+        <div class="top-section">
+            <!-- /* the water-amount */ -->
+            <div class="left-section">
+                <img src="./images/icon/water-amount.png" alt="Water Icon">
+                <span id="water-amount">0 ml</span>
+            </div>
+            <!-- /* the goal-amount */ -->
+            <div class="right-section">
+                <img src="./images/icon/goal.png" alt="Goal Icon">
+                <span id="goal-amount-display">0 ml</span>
+            </div>
+        </div>
+        <div class="bottom-wrapper">
+            <!--/* the botton the set goal and water user have drink */ -->
+            <button class="water-btn" onclick="openWaterModal()">
+            <img id="logo" class="watering" src="./images/icon/water-bottle.png" alt="Logo">
             </button>
-            <button onclick="startQuiz()" class="hideBtn">
-                <img src="./images/icon/quiz.png" alt="Start Quiz">
-            </button>
-            <button id="timeSelectorButton">
-                <img src="./images/icon/select-time.png" alt="Time Selector">
-            </button>
+
+            <div class="button-group">
+                <button onclick="resetWaterConsumption()">
+                    <img src="./images/icon/finish-the-day.png" alt="Finish Day">
+                    <span class="tooltip-text">Finish The Day</span>
+                </button>
+                <button onclick="startQuiz()" class="hideBtn">
+                    <img src="./images/icon/quiz.png" alt="Start Quiz">
+                    <span class="tooltip-text">Start Quiz</span>
+                </button>
+                <button id="timeSelectorButton">
+                    <img src="./images/icon/select-time.png" alt="Time Selector">
+                    <span class="tooltip-text">Choose time</span>
+                </button>
+        </div>
         </div>
         <div id="daily-summary">
             <p id="daily-message"></p>
