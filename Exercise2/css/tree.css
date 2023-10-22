@@ -9,6 +9,7 @@ html,body {
   position: relative; 
   padding-bottom: 100px; 
   height: 100%;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* body {
@@ -86,10 +87,17 @@ html,body {
   flex-wrap: wrap;
 }
 
+
+
 .left-section, .right-section {
   display: flex;
   align-items: center;
   margin: 0 20px; /* adding some margin for spacing between them */
+  padding: 10px;           /* 添加内边距 */
+  border-radius: 10px;     /* 添加圆角 */
+  background-color: #8ef4fb; /* 背景颜色，可以根据您的需要进行调整 */
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1); /* 可选：为方框增加一点阴影效果 */
+
 }
 
 /* Style for the new .top-section */
@@ -176,6 +184,7 @@ html,body {
   color: #0d0000; /* 文字颜色 */
   border-radius: 15px; /* 圆角效果 */
   white-space: nowrap; /* 防止文字换行 */
+  font-family: 'Poppins', sans-serif;
 }
 
 /* .notice {
@@ -218,7 +227,7 @@ html,body {
   /*align-items: center;*/
   /*justify-content: space-between;*/
   /*border-color: var(--darkgreen);*/
-  border: 1px solid var(--darkgreen);
+  /*border: 1px solid var(--darkgreen);*/
   width: 50%;
   /*clear: both; !* Ensures the plant div always starts on a new line *!*/
 }
