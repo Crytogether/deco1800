@@ -6,9 +6,13 @@ html,body {
     background-color: #ccd5ae;
   }
 
-body
-{
+body {
   font-family: Arial, sans-serif;
+}
+
+.welcome-img {
+  max-width: 40%;
+  margin-bottom: 5px;
 }
 
 :root{
@@ -37,7 +41,7 @@ p {
 
 .flex-welcome-content {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
