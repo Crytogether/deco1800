@@ -263,15 +263,16 @@ $(document).ready(function() {
 function showWaterLevelDropdown() {
   const dropdown = document.getElementById("waterLevel");
   dropdown.style.display = "inline-block";
+  console.log("hehrehrehrh")
   dropdown.focus(); // This will open the dropdown options
 }
 
-$(document).ready(function() {
-    $('#waterLevelDropdown').on('change', function() {
-        var selectedLevel = $(this).val();
-        changeBackgroundColor(selectedLevel);
-    });
-});
+// $(document).ready(function() {
+//     $('#waterLevelDropdown').on('change', function() {
+//         var selectedLevel = $(this).val();
+//         changeBackgroundColor(selectedLevel);
+//     });
+// });
 
 
 function changeBackgroundColor(level) {
@@ -320,6 +321,7 @@ function changeBackgroundColor(level) {
 
 
 function adjustPlantsByWaterLevel(level) {
+  console.log(level)
     // Hide all plants initially
     $(".plant").hide();
   
@@ -402,7 +404,7 @@ $(document).ready(function () {
     $(document).click(function(event) {
         if ($(event.target).closest("#timeSelectionModal").length === 0 && 
             !$(event.target).hasClass("time-option")) {
-            modal.style.display = "none";
+            // modal.style.display = "none";
         }
     });
   
