@@ -37,8 +37,10 @@
                 <button onclick="resetWaterConsumption()">
                     <img src="./images/icon/finish-the-day.png" alt="Finish Day">
                     <span class="tooltip-text">Finish The Day</span>
+                    <audio id="audioElement4" src="soundtrack/success.mp3"></audio>
                 </button>
                 <button onclick="startQuiz()" class="hideBtn">
+                    <audio id="audioElement" src="soundtrack/quiz.mp3"></audio>
                 <audio id="quiz-button-sound" src="./images/copper-bell-ding-2-172686.mp3" preload="auto"></audio>
                     <img src="./images/icon/quiz.png" alt="Start Quiz">
                     <span class="tooltip-text">Start Quiz</span>
@@ -47,6 +49,7 @@
                 <button id="timeSelectorButton">
                     <img src="./images/icon/select-time.png" alt="Time Selector">
                     <span class="tooltip-text">Choose time</span>
+                    <audio id="audioElement3" src="soundtrack/pick.mp3"></audio>
                 </button>
         </div>
         </div>
@@ -227,6 +230,7 @@
             <h2>Enter Water Consumption</h2>
             <input type="number" id="water-amount-input" placeholder="Enter water consumption in ml">
             <button onclick="recordWaterConsumption()">Record</button>
+            <audio id="audioElement2" src="soundtrack/water sounds.mp3"></audio>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

@@ -158,8 +158,8 @@ function recordWaterConsumption() {
     $("#congratulations-modal").css('display', 'none');
   });
 
-
-  
+  const audio = document.getElementById('audioElement2');
+    audio.play();
   closeWaterModal();
 }
 
@@ -383,6 +383,9 @@ function changeBackgroundByTime() {
         
         $('body').prepend(messageDiv);
       });
+      const audio = document.getElementById('audioElement3');
+    audio.play();
+  closeWaterModal();
     }
   
 
@@ -430,6 +433,9 @@ function startQuiz() {
   document.getElementById("quizContainer").style.display = "block";
   document.getElementById('waterLevel').style.display = 'none';
   displayQuestion();
+
+  const audio = document.getElementById('audioElement');
+    audio.play();
 }
 
 function displayQuestion() {
@@ -523,12 +529,8 @@ function resetWaterConsumption() {
      
      // Reset userGoal here if needed
      userGoal = 0;
+     const audio = document.getElementById('audioElement4');
+        audio.play();
+    closeWaterModal();
   }
 
-  //
-  document.getElementById('quiz-button-sound').addEventListener('click', function() {
-    var sound = document.getElementById('buttonSound');
-    sound.play();
-});
-
-  
