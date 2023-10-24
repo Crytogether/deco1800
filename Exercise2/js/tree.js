@@ -17,39 +17,6 @@ $(document).ready(function () {
   });
 });
 
-// function iterateRecords(results) {
-//   console.log(results);
-//
-//     var myMap = L.map("map").setView([-21, 148], 4);//????
-//
-//   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-//     maxZoom: 18,
-//     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-//   }).addTo(myMap);
-//
-//   var predefinedLocations = [
-//     [-20.551152, 147.800274],
-//     [-27.637345, 152.800598],
-//     [-27.628068, 152.836003],
-//     [-22.741356, 150.656204],
-//     [-26.751539, 148.737363],
-//     // ... (more predefined locations)
-//   ];
-//
-//   $.each(results.result.records, function (recordID, recordValue) {
-//     var locationIndex = recordID % predefinedLocations.length;
-//
-//     var marker = L.marker(predefinedLocations[locationIndex]).addTo(myMap);
-//
-//     var popupText = "<strong>" + recordValue["Common Name"] + " in " + recordValue["Climate Zones"] + "</strong><br>" + recordValue["Water Needs"] + recordValue["Image Location"];
-//     marker.bindPopup(popupText);
-//
-//     // Add a click event to the marker to display information for the corresponding common name
-//     marker.on('click', function () {
-//       displayInfo(recordValue["Common Name"], results.result.records);
-//     });
-//   });
-// }
 
 $(document).ready(function() {
     $('.plant').click(function() {
@@ -190,7 +157,7 @@ function recordWaterConsumption() {
   cumulativeWaterConsumption += waterConsumption;
 
   // Update the water consumption display
-  $("#water-amount").text("You have drink " + cumulativeWaterConsumption + " ml");
+  $("#water-amount").text("You have drank " + cumulativeWaterConsumption + " ml");
 
   // Check if cumulative consumption exceeds the goal
   if (cumulativeWaterConsumption >= userGoal) {
@@ -258,24 +225,10 @@ function closeWaterModal() {
 }
 
 
-function lightUpPlant(plantIndex) {
-  $(".plant:nth-child(" + plantIndex + ")").addClass('light-up');
-}
+// function lightUpPlant(plantIndex) {
+//   $(".plant:nth-child(" + plantIndex + ")").addClass('light-up');
+// }
 
-
-function addOption() {
-  var selectElement = document.getElementById('mySelect');
-
-  // Create a new option element
-  var option = document.createElement('option');
-
-  // Set option attributes
-  option.value = '3';  // Set a unique value for the new option
-  option.text = 'New Option';  // Set the text for the new option
-
-  // Append the option to the select element
-  selectElement.appendChild(option);
-}
 
 
 function showWaterLevelDropdown() {
@@ -328,6 +281,7 @@ function changeBackgroundColor(level) {
     $(".plant:visible").addClass(colorClass);
   }
 }
+
 
 function adjustPlantsByWaterLevel(level) {
     // Hide all plants initially
@@ -413,15 +367,17 @@ $(document).ready(function () {
       hasPrompted = false;
     });
   
-    $(window).click(function(event) {
-      let modal = document.getElementById('timeSelectionModal');
-      if (event.target === modal) {
-        hasPrompted = false;
-      }
+    $(document).click(function(event) {
+        if ($(event.target).closest("#timeSelectionModal").length === 0 && 
+            !$(event.target).hasClass("time-option")) {
+            modal.style.display = "none";
+        }
     });
+  
   });
   
-  function changeBackgroundByTime() {
+
+function changeBackgroundByTime() {
     let modal = document.getElementById('timeSelectionModal');
     let span = document.getElementsByClassName("close")[0];
   
@@ -441,84 +397,52 @@ $(document).ready(function () {
     }
   
     $('.time-option').on('click', function () {
-      let userInput = $(this).data('time');
-      modal.style.display = "none"; // Close the modal when an option is chosen
-  
-      let gradientClass;
-      let message;
-  
-      switch (parseInt(userInput)) {
-        case 1:
-          gradientClass = 'gradient-morning';
-          message = 'At 12am-6am, the plants are resting and rejuvenating for the day ahead.';
-          break;
-        case 2:
-          gradientClass = 'gradient-afternoon';
-          message = 'At 6am-12pm, the plants are waking up and stretching towards the sun.';
-          break;
-        case 3:
-          gradientClass = 'gradient-evening';
-          message = 'At 12pm-6pm, the plants are basking in the midday sun and swaying with the wind.';
-          break;
-        case 4:
-          gradientClass = 'gradient-night';
-          message = 'At 6pm-12am, the plants are beginning to settle and prepare for the night.';
-          break;
-        default:
-          break;
-      }
-  
-      // Remove previous gradient classes
-      $("body").removeClass("gradient-morning gradient-afternoon gradient-evening gradient-night");
-  
-      // Add the appropriate gradient class
-      $("body").addClass(gradientClass);
-  
-      // Remove any existing message
-      $('#message').remove();
-  
-      // Create a new message div
-      let messageDiv = $('<div id="message"></div>').text(message);
-  
-      // Insert the message at the beginning of the body
-      $('body').prepend(messageDiv);
-    });
-  }
+        let userInput = $(this).data('time');
+        modal.style.display = "none"; // Close the modal when an option is chosen
+    
+        let gradientClass;
+        let message;
+    
+        switch (parseInt(userInput)) {
+          case 1:
+            gradientClass = 'gradient-morning';
+            message = 'At 12am-6am, the plants are resting and rejuvenating for the day ahead.';
+            break;
+          case 2:
+            gradientClass = 'gradient-afternoon';
+            message = 'At 6am-12pm, the plants are waking up and stretching towards the sun.';
+            break;
+          case 3:
+            gradientClass = 'gradient-evening';
+            message = 'At 12pm-6pm, the plants are basking in the midday sun and swaying with the wind.';
+            break;
+          case 4:
+            gradientClass = 'gradient-night';
+            message = 'At 6pm-12am, the plants are beginning to settle and prepare for the night.';
+            break;
+          default:
+            break;
+        }
+    
+        // Remove previous gradient classes
+        $("body").removeClass("gradient-morning gradient-afternoon gradient-evening gradient-night");
+    
+        // Add the appropriate gradient class
+        $("body").addClass(gradientClass);
+    
+        // Remove any existing message
+        $('#message').remove();
+    
+        // Create a new message div
+        let messageDiv = $('<div id="message"></div>').text(message);
+    
+        // Insert the message at the beginning of the body
+        $('body').prepend(messageDiv);
+      });
+    }
   
 
-// function toggleDropdown() {
-//   const dropdown = document.getElementById('continentDropdown');
-//   dropdown.classList.toggle('show');
-// }
 
-// function getClimateZones(continent) {
-//   let climateZonesText = '';
-//
-//   if (continent === 'North America') {
-//     openCheckModal();
-//     return;
-//   }
-//
-//   const climateZones = getClimateZonesByContinent(continent);
-//
-//   if (climateZones && climateZones.length > 0) {
-//     climateZonesText = `<a href="#climateZonesInfo" onclick="displayInfo('${continent}', '${climateZones.join(', ')}')">View Climate Zones</a>`;
-//   } else {
-//     console.error('Could not determine climate zones for the selected continent.');
-//   }
-//
-//   // Display the climate zones to the user
-//   displayClimateZones(continent, climateZonesText);
-//   toggleDropdown(); // Close the dropdown after selection
-// }
-
-// Function to open the "Check" modal
-// function openCheckModal() {
-//   const checkModal = document.getElementById('checkModal');
-//   checkModal.style.display = 'block';
-// }
-
-// Function to close the "Check" modal
 function closeCheckModal() {
   const checkModal = document.getElementById('checkModal');
   checkModal.style.display = 'none';
