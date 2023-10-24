@@ -85,6 +85,8 @@ html,body {
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
   position: relative;
   flex-wrap: wrap;
+
+  position: relative;
 }
 
 
@@ -1036,3 +1038,16 @@ button {
   text-decoration: none;
   cursor: pointer;
 }
+
+
+#waterLevelDescription {
+  position: absolute;
+  bottom: 0;           /* Pin to the top */
+  left: 100;           /* Optional: Align to the left. Adjust as necessary */
+  /* z-index: 10;       Ensure it's above other content */
+  background-color: rgba(255, 255, 255, 0.8); /* Optional: Make it slightly opaque white to stand out. Adjust as necessary */
+  padding: 10px;     /* Optional: Add some padding for better visuals */
+
+  
+}
+

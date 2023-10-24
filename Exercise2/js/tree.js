@@ -210,7 +210,7 @@ function recordWaterConsumption() {
 
 function resetWaterConsumption() {
   // Show a confirmation dialog before resetting
-  var confirmReset = confirm("Are you sure you want to finish the day and reset your water consumption?");
+  var confirmReset = confirm("Are you sure you want to finish the day and reset your water consumed today??");
 
   if (confirmReset) {
     userGoal = 0;
@@ -227,6 +227,7 @@ function resetWaterConsumption() {
     if (previousConsumption >= userGoal) {
       message += "Plant lives!";
       $(".plant").removeClass("dead").addClass("alive");
+      explanatoryText = "Because you have achieved you drinking goals, now the plants will live!!! ";
     } else {
       message += "Plant dies.";
       $(".plant").removeClass("alive").addClass("dead");
@@ -241,6 +242,11 @@ function resetWaterConsumption() {
     // Close the congratulations modal if it's open
     $("#congratulations-modal").css('display', 'none');
   }
+
+   // Update the placeholder content with the explanatoryText
+   $("#waterLevelDescription").text(explanatoryText);
+
+
 }
 
 
@@ -324,49 +330,51 @@ function changeBackgroundColor(level) {
 }
 
 function adjustPlantsByWaterLevel(level) {
-  // Hide all plants initially
-  $(".plant").hide();
-
-  let plantsToShow = [];
-  let heightFactor = 1; // Default full height
-
-  switch (level) {
-    case '1':
-      plantsToShow = $(".plant:lt(3)");
-      heightFactor = 0.5; // 50% height
-      break;
-    case '2':
-      plantsToShow = $(".plant:lt(6)");
-      heightFactor = 0.75; // 75% height
-      break;
-    case '3':
-      plantsToShow = $(".plant:lt(9)");
-      heightFactor = 1; // 100% height
-      break;
-    case '4':
-      plantsToShow = $(".plant:lt(12)");
-      heightFactor = 1.25; // 125% height (well-watered, so they grow taller!)
-      break;
-    default:
-      plantsToShow = $();
-      break;
-  }
-
-
-  // Display and animate the plants
-  plantsToShow.show().each(function () {
-    const originalHeight = $(this).data('original-height');
-
-    // If the original height isn't set, set it now
-    if (!originalHeight) {
-      $(this).data('original-height', $(this).height());
+    // Hide all plants initially
+    $(".plant").hide();
+  
+    let plantsToShow = [];
+    let heightFactor = 1; // Default full height
+    let explanatoryText = ""; // This will store the explanatory text for the selected water level
+  
+    switch (level) {
+      case '1':
+        plantsToShow = $(".plant:lt(3)");
+        heightFactor = 0.5; // 50% height
+        explanatoryText = "These plants will surive if you drink 0-600ml";
+        break;
+      case '2':
+        plantsToShow = $(".plant:lt(6)");
+        heightFactor = 0.75; // 75% height
+        explanatoryText = "These plants will surive if you drink 600-900ml";
+        break;
+      case '3':
+        plantsToShow = $(".plant:lt(9)");
+        heightFactor = 1; // 100% height
+        explanatoryText = "These plants will surive if you drink 900-1400ml.";
+        break;
+      case '4':
+        plantsToShow = $(".plant:lt(12)");
+        heightFactor = 1.25; // 125% height
+        explanatoryText = "These plants will surive if you drink 1400-3000ml";
+        break;
+      default:
+        plantsToShow = $();
+        explanatoryText = "Invalid water level selected.";
+        break;
     }
+  
+    // Show the plants based on the selected water level
+    plantsToShow.show();
+  
+    // Adjust the height of the plants (assuming you want to actually change their height on the page)
+    plantsToShow.css("transform", `scaleY(${heightFactor})`);
+  
+    // Update the placeholder content with the explanatoryText
+    $("#waterLevelDescription").text(explanatoryText);
 
-    $(this).animate({
-      height: originalHeight * heightFactor
-    }, 500); // Duration of animation is 500ms
-  });
 }
+  
 
 function showWaterLevelModal() {
   document.getElementById('waterLevelModal').style.display = "block";
@@ -587,7 +595,7 @@ function drop(event, targetName) {
 
     correctAnswersCount++;
     if (correctAnswersCount === 3) {
-      messageBox.textContent = "Congratulations! Now you understand these plants better!";
+      messageBox.textContent = "Congratulations! You now understand these plants better!";
       correctAnswersCount = 0; // Reset the count for the next quiz
     }
   } else {

@@ -52,6 +52,10 @@
             <p id="daily-message"></p>
         </div>
         <div id="message-display"></div>
+            <div id="waterLevelDescription">
+
+        </div>
+
 
 
     </div>
@@ -110,18 +114,21 @@
             <button id="confirm-yes">Yes</button>
             <button id="confirm-no">No</button>
         </div>
+
         <div class="waterlevel-dropmenu">
             <div class="container">
-<!--                <button id="showWaterLevelButton" onclick="showWaterLevelDropdown()">Water Level</button>-->
-                <select id="waterLevel" onchange="changeBackgroundColor(this.value)">
-                    <option value="" disabled selected>Water Level</option>
-                    <option value="1">0-600ml</option>
-                    <option value="2">600-900ml</option>
-                    <option value="3">900-1400ml</option>
-                    <option value="4">1400-3000ml</option>
+            <!--                <button id="showWaterLevelButton" onclick="showWaterLevelDropdown()">Water Level</button>-->
+                <select id="waterLevel" onchange="adjustPlantsByWaterLevel(this.value);">
+                    <option value="" disabled selected>Daily water consumption</option>
+                    <option value="1">if your average water drinking is 0-600ml </option>
+                    <option value="2">if your average water drinking is 600-900ml</option>
+                    <option value="3">if your average water drinking is 900-1400ml</option>
+                    <option value="4">if your average water drinking is 1400-3000ml </option>
                 </select>
+
             </div>
         </div>    
+        <div id="explanatoryText"></div>
         <div class="plant-flip-cards">
             <div class="plant" data-common-name="Chinese Amerlia">
                 <img class="plant-img" src="./images/plants/chinese amerlia.jpeg" alt="Chinese Amerlia">
