@@ -11,8 +11,7 @@ $(document).ready(function () {
     cache: true,
     success: function (results) {
       updatePlantDetails(results.result.records);
-      // iterateRecords(results);
-      // displayInfo(results.result.records);  // New function to display information
+      
     }
   });
 });
@@ -53,19 +52,11 @@ function updatePlantDetails(records) {
 
 
 function displayInfo(record) {
-  // return 'Common Name:' + record['Common Name'] +
-  //     'Climate Zones:' + record['Climate Zones'] +
-  //     'Water Needs:' + record['Water Needs'] +
-  //     'Soil Type:' + record['Soil Type'] +
-  //     'Height Ranges:' + record['Height Ranges'] +
-  //     'Spread Ranges' + record['Spread Ranges'] +
-  //     'Flower Colour:' + record['Flower colour'] +
-  //     'Foliage Colour:' + record['Foliage Colour'];
-
+  
 
   if(records.length > 0) {
       var infoContainer = $('#info-container');
-      var record = records[0];  // Getting the first record
+      var record = records[0]; 
 
       var infoParagraph = $('<p></p>');
       infoParagraph.html(
@@ -77,7 +68,7 @@ function displayInfo(record) {
           "<strong>Spread Ranges :</strong> " + record['Spread Ranges'] + "<br>" +
           "<strong>Flower Colour:</strong> " + record['Flower colour'] + "<br>" +
           "<strong>Foliage Colour:</strong> " + record['Foliage Colour'] + "<br>" +
-          "<img src='" + record['Image Location'] + "' alt='" + record['Common Name'] + " image' />" // Assuming there's an 'Image Location' field
+          "<img src='" + record['Image Location'] + "' alt='" + record['Common Name'] + " image' />" 
       );
       infoContainer.append(infoParagraph);
   } else {
@@ -86,24 +77,22 @@ function displayInfo(record) {
 }
 
 $(document).ready(function () {
-  // Rest of your existing code...
+  
 
-  // Open the water consumption modal on click
   $("#logo").on("click", function () {
     openWaterModal();
   });
 
-  // Function to open the water consumption modal
+  
   function openWaterModal() {
     $("#water-consumption-modal").css('display', 'block');
   }
 
-  // Close the water consumption modal when clicking the close button
   $(".close-btn").on("click", function () {
     closeWaterModal();
   });
 
-  // Function to close the water consumption modal
+
   function closeWaterModal() {
     $("#water-consumption-modal").css('display', 'none');
   }
@@ -137,10 +126,10 @@ function setWaterGoal() {
   if (!isNaN(goalAmount) && goalAmount > 0) {
     userGoal = goalAmount;  // Store the user's goal
 
-    // Update the displayed goal
+    
     $("#goal-amount-display").text("Your goal is set to: " + userGoal + " ml");
 
-    // Hide the goal setting section and display the water consumption recording section
+   
     $("#goal-setting-section").css('display', 'none');
     $("#water-recording-section").css('display', 'block');
   } else {
@@ -153,13 +142,13 @@ var cumulativeWaterConsumption = 0;
 function recordWaterConsumption() {
   var waterConsumption = parseInt($("#water-amount-input").val(), 10);
 
-  // Update the cumulative water consumption
+  
   cumulativeWaterConsumption += waterConsumption;
 
-  // Update the water consumption display
+ 
   $("#water-amount").text("You have drank " + cumulativeWaterConsumption + " ml");
 
-  // Check if cumulative consumption exceeds the goal
+ 
   if (cumulativeWaterConsumption >= userGoal) {
     $("#congrats-message").text("Congratulations! You've reached your goal of " + userGoal + " ml of water consumption.");
     $("#congratulations-modal").css('display', 'block');
@@ -170,7 +159,7 @@ function recordWaterConsumption() {
   });
 
 
-  // Close the modal after recording
+  
   closeWaterModal();
 }
 
@@ -192,15 +181,10 @@ function showWaterLevelDropdown() {
   const dropdown = document.getElementById("waterLevel");
   dropdown.style.display = "inline-block";
   console.log("hehrehrehrh")
-  dropdown.focus(); // This will open the dropdown options
+  dropdown.focus(); 
 }
 
-// $(document).ready(function() {
-//     $('#waterLevelDropdown').on('change', function() {
-//         var selectedLevel = $(this).val();
-//         changeBackgroundColor(selectedLevel);
-//     });
-// });
+
 
 
 function changeBackgroundColor(level) {
@@ -212,33 +196,32 @@ function changeBackgroundColor(level) {
   switch (level) {
     case '1':
       colorClass = 'background-option-1';
-      // Show the first 3 plants
+    
       $(".plant:lt(3)").show().addClass(colorClass);
       break;
     case '2':
       colorClass = 'background-option-2';
-      // Show the first 6 plants
+   
       $(".plant:lt(6)").show().addClass(colorClass);
       break;
     case '3':
       colorClass = 'background-option-3';
-      // Show the first 9 plants
+  
       $(".plant:lt(9)").show().addClass(colorClass);
       break;
     case '4':
       colorClass = 'background-option-4';
-      // Show the first 12 plants
+     
       $(".plant:lt(12)").show().addClass(colorClass);
       break;
     default:
       colorClass = '';
-      // If no valid level is provided, you can choose to show all plants or none.
-      // The line below shows none. If you want to show all, replace with $(".plant").show();
+     
       $(".plant").hide();
       break;
   }
 
-  // Clear out any previous background color classes to ensure consistency
+  
   $(".plant").removeClass("background-option-1 background-option-2 background-option-3 background-option-4");
 
   // Add the background color to the displayed plants
@@ -284,13 +267,13 @@ function adjustPlantsByWaterLevel(level) {
         break;
     }
   
-    // Show the plants based on the selected water level
+   
     plantsToShow.show();
   
     // Adjust the height of the plants (assuming you want to actually change their height on the page)
     plantsToShow.css("transform", `scaleY(${heightFactor})`);
   
-    // Update the placeholder content with the explanatoryText
+    
     $("#waterLevelDescription").text(explanatoryText);
 
 }
@@ -303,7 +286,6 @@ function closeWaterLevelModal() {
 }
 
 
-// Call this once on page load to ensure each plant has its original height stored
 $(document).ready(function () {
   $(".plant").each(function () {
     $(this).data('original-height', $(this).height());
@@ -332,7 +314,6 @@ $(document).ready(function () {
     $(document).click(function(event) {
         if ($(event.target).closest("#timeSelectionModal").length === 0 && 
             !$(event.target).hasClass("time-option")) {
-            // modal.style.display = "none";
         }
     });
   
@@ -343,15 +324,15 @@ function changeBackgroundByTime() {
     let modal = document.getElementById('timeSelectionModal');
     let span = document.getElementsByClassName("close")[0];
   
-    // Display the modal
+  
     modal.style.display = "block";
   
-    // When the user clicks on <span> (x), close the modal
+    
     span.onclick = function () {
       modal.style.display = "none";
     }
   
-    // When the user clicks anywhere outside of the modal, close it
+
     $(window).on('click', function(event) {
         if (event.target === modal) {
           modal.style.display = "none";
@@ -387,19 +368,19 @@ function changeBackgroundByTime() {
             break;
         }
     
-        // Remove previous gradient classes
+      
         $("body").removeClass("gradient-morning gradient-afternoon gradient-evening gradient-night");
     
-        // Add the appropriate gradient class
+      
         $("body").addClass(gradientClass);
     
-        // Remove any existing message
+        
         $('#message').remove();
     
-        // Create a new message div
+       
         let messageDiv = $('<div id="message"></div>').text(message);
     
-        // Insert the message at the beginning of the body
+        
         $('body').prepend(messageDiv);
       });
     }
@@ -483,12 +464,12 @@ function drop(event, targetName) {
   let draggedName = event.dataTransfer.getData("text");
   let draggedElementId = event.dataTransfer.getData("element-id");
   let draggedElement = document.getElementById(draggedElementId);
-  let dropTarget = event.target.closest('.droppable'); // Ensure we're referencing the .droppable div
+  let dropTarget = event.target.closest('.droppable'); 
   let messageBox = document.getElementById("messageBox");
 
   if (draggedName === targetName) {
     messageBox.textContent = "Correct! It is " + targetName + ".";
-    dropTarget.innerHTML = ""; // Clear the name
+    dropTarget.innerHTML = ""; 
     dropTarget.appendChild(draggedElement); // Append the dragged element to the target box
     draggedElement.querySelector('img').style.width = "100%"; // Make the image fit the box
 
@@ -503,11 +484,11 @@ function drop(event, targetName) {
 }
 
 function resetWaterConsumption() {
-    // Show a confirmation dialog before resetting
+   
     var confirmReset = confirm("Are you sure you want to finish the day and reset your water consumed today??");
   
     if (confirmReset) {
-      // Store the consumed water before resetting
+    
       var previousConsumption = cumulativeWaterConsumption;
       cumulativeWaterConsumption = 0;
   
@@ -527,13 +508,13 @@ function resetWaterConsumption() {
         explanatoryText = "Because you have not achieved you drinking goals so the plant dies! ";
       }
   
-      // Display the message in the .plant-message div
+      
       $(".plant-message").text(message);
   
-      // Display the message
+      
       alert(message);
   
-      // Close the congratulations modal if it's open
+      
       $("#congratulations-modal").css('display', 'none');
     }
   

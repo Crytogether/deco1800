@@ -1,10 +1,9 @@
 html,body {
     margin: 0;
     padding: 0;
-    /* min-height: 100vh; */
+ 
     background-color: #fefae0;
-    /* flex-wrap: wrap; */
-    /* justify-content: space-around;*/
+
     font-family: Arial, sans-serif;
     position: relative; 
     padding-bottom: 100px; 
@@ -12,24 +11,16 @@ html,body {
     font-family: 'Poppins', sans-serif;
   }
   
-  /* body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: flex-start;
-    background: url('path/to/your/lighter_green_image.jpg') repeat; /* Replace with your image path */
-  
+ 
   .background-image {
-    position: absolute; /* 绝对定位以固定在底部 */
+    position: absolute; 
     bottom: 0;
     left: 0;
-    width: 100%; /* 使图片占据整个宽度 */
-    height: 600px; /* 调整为您的图片高度 */
+    width: 100%; 
+    height: 600px; 
     background: url('../images/bottom.png') no-repeat center bottom; 
-    background-size: cover; /* 使图片覆盖整个 .background-image 元素 */
-    z-index: 0; /* 使其位于其他内容下方 */
+    background-size: cover; 
+    z-index: 0; 
   }
   
   
@@ -44,34 +35,11 @@ html,body {
   --lightyellow: #faedcd;
   --lightbrown: #d4a373;
   }
-  
-  /* .plant {
-    border: 1px solid #000;
-    padding: 20px;
-    margin: 10px;
-    width: 30%;
-    box-sizing: border-box;
-  } 
-  
-  .plant img {
-    width: 100%;
-    height: auto;
-  }  */
-  
-  /* .notice {
-    background-color: #f8f9fa;
-    border: 1px solid #e9ecef;
-    padding: 10px;
-    text-align: center;
-    font-size: 1.2em;
-    margin: 10px;
-    width: 100%;
-    box-sizing: border-box;
-  } */
+
   
   .water-consumption {
-    background-image: url('../images/top.png'); /* 使用你的图像路径替换 */
-    background-size: cover; /* 图像将覆盖整个容器 */
+    background-image: url('../images/top.png'); 
+    background-size: cover; 
     background-repeat: no-repeat; /* 确保图像不会重复 */
     background-position: center; /* 让图像居中 */
     padding: 20px;
@@ -95,20 +63,20 @@ html,body {
     display: flex;
     align-items: center;
     margin: 0 20px; /* adding some margin for spacing between them */
-    padding: 10px;           /* 添加内边距 */
-    border-radius: 10px;     /* 添加圆角 */
-    background-color: #8ef4fb; /* 背景颜色，可以根据您的需要进行调整 */
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1); /* 可选：为方框增加一点阴影效果 */
+    padding: 10px;           
+    border-radius: 10px;     
+    background-color: #8ef4fb; 
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
   
   }
   
   /* Style for the new .top-section */
   .top-section {
     display: flex;
-    justify-content: center; /* horizontally center the child divs */
+    justify-content: center; 
     align-items: center;     /* vertically center the child divs */
-    width: 100%;             /* occupy full width of the parent */
-    margin-top: 10px;        /* space at the top */
+    width: 100%;             
+    margin-top: 10px;       
   }
   
   .left-section img, .right-section img {
@@ -127,8 +95,8 @@ html,body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    margin-left: 20px; /* adjust as per your requirement */
-    margin-right: 200px; /* adjust as per your requirement */
+    margin-left: 20px; 
+    margin-right: 200px; 
   }
   
   .button-group img {
@@ -140,69 +108,59 @@ html,body {
   .button-group {
     display: flex;
     flex-direction: row;
-    justify-content: center; /* for horizontal centering */
+    justify-content: center; 
     gap: 10px;
   }
   
   .watering {
-    max-width: 100px;  /* 图片的最大宽度 */
-    max-height: 100px;  /* 图片的最大高度 */
+    max-width: 100px;
+    max-height: 100px;
     height: auto;
     margin: 0;
     padding: 0;
-  }
-  
-  .button-group button {
-    width: 70px; /* 调整宽度和高度以适应边框和间距 */
-    height: 70px; 
-    border: 2px solid #3d9b66; /* 这会添加一个绿色的边框，您可以根据需要更改颜色 */
-    border-radius: 50%; /* 使按钮成为一个完美的圆形 */
+}
+
+.button-group button {
+    width: 70px;
+    height: 70px;
+    border: 2px solid #3d9b66;
+    border-radius: 50%;
     padding: 0;
     margin-top: 55px;
-    background-color: white; /* 添加一个白色背景，可以根据需要更改 */
+    background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-left: 100px;
     margin-right: 100px;
     position: relative;
-  }
-  
-  .bottom-wrapper {
+}
+
+.bottom-wrapper {
     display: flex;
-    justify-content: center; /* horizontally center the child elements */
-    align-items: center; /* vertically center the child elements */
+    justify-content: center;
+    align-items: center;
     width: 100%;
     margin-top: 20px;
-  }
-  
-  .tooltip-text {
-    position: absolute; /* 使用绝对定位来放置文字说明 */
-    bottom: -40px; /* 调整这个值可以改变文字说明相对于按钮的位置 */
-    left: 50%; 
-    transform: translateX(-50%); /* 让文字说明在按钮中心 */
-    padding: 5px 10px; /* 内边距 */
-    background-color: #ffffff; /* 气泡的背景颜色 */
-    color: #0d0000; /* 文字颜色 */
-    border-radius: 15px; /* 圆角效果 */
-    white-space: nowrap; /* 防止文字换行 */
+}
+
+.tooltip-text {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 10px;
+    background-color: #ffffff;
+    color: #0d0000;
+    border-radius: 15px;
+    white-space: nowrap;
     font-family: 'Poppins', sans-serif;
-  }
-  
-  /* .notice {
-    background-color: #f8f9fa;
-    border: 1px solid #e9ecef;
-    padding: 10px;
-    text-align: center;
-    font-size: 1.2em;
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-  } */
-  
+}
+
+
   .plant-desc {
     transform: rotateY(180deg);
-    /* ... other styles ... */
+    
   }
   
   
@@ -215,67 +173,38 @@ html,body {
   }
   
   .plant {
-    /* padding: 20px; */
-    /* margin: 10px; */
-    /* box-sizing: border-box; */
     background-color: #ccd5ae;
     transform-style: preserve-3d;
     transition: background-color 0.3s ease, transform 3s;
     border-radius: 15px;
     height: 350px;
     overflow: hidden;
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*align-items: center;*/
-    /*justify-content: space-between;*/
-    /*border-color: var(--darkgreen);*/
-    /*border: 1px solid var(--darkgreen);*/
     width: 50%;
-    /*clear: both; !* Ensures the plant div always starts on a new line *!*/
-  }
-  
-  .plant-desc {
+}
+
+.plant-desc {
     transform: rotateY(180deg);
-    /* ... other styles ... */
-  }
-  
-  
-  
-  .plant img {
-    width: 100%;       /* Ensure image doesn't overflow the container width */
-    height: 50%;  /* Dedicate around 70% of container's height to image */
-    object-fit: cover;     /* Ensures the image covers the full width/height specified without distorting its aspect ratio */
-    margin-bottom: 10px;   /* Margin to give space between image and text */
-  }
-  
-  .plant p {
-    text-align: center;   /* Center align the text */
-    max-height: 30%;      /* Dedicate around 30% of container's height to text */
-    overflow: hidden;     /* Clip any overflowing text */
-  }
-  
-  .plant-desc {
+}
+
+.plant img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.plant p {
+    text-align: center;
+    max-height: 30%;
+    overflow: hidden;
+}
+
+.plant-desc {
     display: none;
-  }
+}
+
   
-  /*.plant::before {*/
-  /*  content: "";*/
-  /*  position: absolute;*/
-  /*  bottom: 0;*/
-  /*  left: 0;*/
-  /*  right: 0;*/
-  /*  height: 0%; !* Initial water level *!*/
-  /*  background: linear-gradient(to top, #1E90FF, transparent); !* Water gradient *!*/
-  /*  animation: ripple 5s infinite; !* Ripple effect *!*/
-  /*  z-index: -1;*/
-  /*}*/
-  
-  /* Default Plant Styles */
-  /*.plant {*/
-  /*  transition: all 1s ease-in-out;*/
-  /*}*/
-  
-  /* Styling when the plant is visible */
+
   .plant.visible {
     transform: scale(1);
     opacity: 1;
@@ -395,11 +324,9 @@ html,body {
     background-color: #45a049;
   }
   
-  /* Additional styling as needed */
   
-  /* CSS for the light-up effect */
   .light-up {
-    background-color: #606c38; /* Adjust the background color to your preference */
+    background-color: #606c38; 
   }
     
   .container {
@@ -432,24 +359,21 @@ html,body {
   }
   
   
-  /* Different classes for the backgrounds with gradients and height changes */
   
-  /* Representing a low water level with cooler, more subdued colors */
   .background-option-1 {
     background: linear-gradient(to bottom, #D5E4F2, #A2BFD6);
   }
   
   .plant.background-option-1 {
-    height: 200px;  /* Adjust plant container height for this water level */
+    height: 200px;  
   }
   
-  /* A bit more color, representing a slightly higher water level */
   .background-option-2 {
     background: linear-gradient(to bottom, #FFDFBA, #FFC793);
   }
   
   .plant.background-option-2 {
-    height: 250px;  /* Adjust plant container height for this water level */
+    height: 250px;  
   }
   
   /* A fresh and vibrant color for a well-watered plant */
@@ -458,10 +382,10 @@ html,body {
   }
   
   .plant.background-option-3 {
-    height: 300px;  /* Adjust plant container height for this water level */
+    height: 300px;  
   }
   
-  /* A rich and intense color representing the highest water level */
+
   .background-option-4 {
     background: linear-gradient(to bottom, #FFA6C8, #FF6FA3);
   }
@@ -502,31 +426,31 @@ html,body {
   
   /* Morning */
   .gradient-morning .plant {
-    transform: translateY(-10px) scale(1.05); /* Plants slightly rise and grow */
+    transform: translateY(-10px) scale(1.05); 
   }
 
   .gradient-morning {
-    background-color: #f6f688; /* Dark background color */
-    color: #151313; /* Light text color */
+    background-color: #f6f688; 
+    color: #151313; 
   }
 
 
   .gradient-afternoon {
-    background-color: hsl(61, 98%, 59%); /* Dark background color */
-    color: #090808; /* Light text color */
+    background-color: hsl(61, 98%, 59%); 
+    color: #090808; 
   }
 
 
   .gradient-evening {
-    background-color: hsl(24, 85%, 53%); /* Dark background color */
-    color: #120d0d; /* Light text color */
+    background-color: hsl(24, 85%, 53%); 
+    color: #120d0d; 
   }
   
   
   
   .gradient-afternoon .plant {
-    animation: wiggle 1s infinite; /* Just the wiggle animation */
-    transform-origin: bottom center; /* Ensures the wiggle pivots from the bottom */
+    animation: wiggle 1s infinite; 
+    transform-origin: bottom center; 
   }
   
   
@@ -554,23 +478,23 @@ html,body {
   
   /* Evening */
   .gradient-evening .plant {
-    transform: scale(0.95); /* Plants shrink slightly */
-    filter: brightness(80%); /* Plants darken a bit */
+    transform: scale(0.95); 
+    filter: brightness(80%); 
   }
   
   .gradient-night {
-    background-color: #121212; /* Dark background color */
-    color: #e0e0e0; /* Light text color */
+    background-color: #121212; 
+    color: #e0e0e0; 
   }
   
   .gradient-night .plant {
     transform: scale(0.9); /* Plants are smaller */
-    filter: grayscale(100%); /* Plants are desaturated */
+    filter: grayscale(100%); 
   }
   
-  /* Adjusting other elements for the night theme */
+
   .gradient-night a, .gradient-night .button, .gradient-night .tooltip-text {
-    color: #b087e3; /* Light purple color for links, buttons, and tooltips */
+    color: #b087e3;
   }
   
   #message {
@@ -584,7 +508,7 @@ html,body {
     opacity: 0;
   }
   
-  /* Ensuring our message is readable on all backgrounds */
+ 
   .gradient-morning #message, .gradient-afternoon #message, .gradient-evening #message, .gradient-night #message {
     opacity: 1;
   }
@@ -684,42 +608,35 @@ html,body {
     transition: background-color 0.2s, transform 0.1s;
   }
   
-  /*.time-option:hover {
-    background-color: #1c5a38;
-    transform: scale(1.05);
-  }
-  */
-  
+ 
   #message {
     width: 100%;
     background: rgba(255, 255, 255, 0.8); /* semi-transparent white background */
     text-align: center;
     padding: 10px;
-    z-index: 1000; /* to ensure it's above other content */
+    z-index: 1000; 
   }
   
   
   
-  /* Style for the "Change Background Gradient by Time" button */
   button {
     padding: 10px;
     margin: 10px;
     font-size: 16px;
   }
   
-  /* Style for the dropdown button */
+  
   .dropbtn {
     padding: 10px;
     font-size: 16px;
   }
   
-  /* Style for the dropdown container (hidden by default) */
   .dropdown {
     position: relative;
     display: inline-block;
   }
   
-  /* Style for the dropdown content */
+
   .dropdown-content {
     display: none;
     position: absolute;
@@ -784,7 +701,7 @@ html,body {
       cursor: pointer;
     }
     
-    /* Add styles for the congratulations message */
+    
   #congratulations {
       color: green;
       font-weight: bold;
@@ -799,7 +716,7 @@ html,body {
       display: none;
     }
   
-    /* Modal styles */
+   
   .modal {
     display: none;
     position: fixed;
@@ -862,35 +779,21 @@ html,body {
   
   .container {
     display: flex;
-    align-items: center;  /* Vertically aligns items to the center */
-    justify-content: space-between;  /* Spaces the buttons evenly */
-    flex-wrap: nowrap;  /* Prevents items from wrapping to the next line */
-  }
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+#waterLevel {
+    display: inline-block;
+}
+
+.container button {
+    white-space: nowrap;
+}
+
   
-  /* Override the display for the select dropdown */
-  #waterLevel {
-    display: inline-block; /* Allows it to be on the same line as other inline or inline-block elements */
-  }
-  
-  /* Ensures any button within the container doesn't expand to full width */
-  .container button {
-    white-space: nowrap;  /* Prevents the text inside the button from breaking into multiple lines */
-  }
-  
-  /*.plant {*/
-  /*  border: 1px solid #000;*/
-  /*  padding: 20px;*/
-  /*  margin: 10px;*/
-  /*  width: 30%;*/
-  /*  box-sizing: border-box;*/
-  /*  clear: both; !* Ensures the plant div always starts on a new line *!*/
-  /*}*/
-  
-  /*.plant img {*/
-  /*  width: 100%;*/
-  /*  height: auto;*/
-  /*}*/
-  
+ 
   
   .draggable-plant {
     display: inline-block;
@@ -946,39 +849,37 @@ html,body {
     /* Text properties */
     text-shadow: 2px 2px 3px rgba(0, 128, 0, 0.3);
     
-    /* Shadow and radius */
     box-shadow: 0 4px 15px 0 rgba(0, 128, 0, 0.3); /* deeper greenish shadow */
     border-radius: 10px;
   
-    /* Animation */
     animation: breathe 2s infinite alternate;
   
-    /* Transition */
+
     transition: all 0.3s ease-in-out;
   }
   
   
-  /* When the plant is dead */
+ 
   .plant.dead {
-    transform: scale(0.8); /* Plants are even smaller */
-    filter: grayscale(100%) brightness(60%); /* Plants are desaturated and darker */
-    opacity: 0.7; /* Plants are slightly transparent to show they're withering */
-  }
-  
-  /* Dead theme for the entire main page when plants are dead */
-  .dead-theme {
-    background-color: #2a2a2a; /* Dark gray background color */
-    color: #c0c0c0; /* Light gray text color */
-  }
-  
-  .dead-theme a, .dead-theme .button, .dead-theme .tooltip-text {
-    color: #e57373; /* Light red color for links, buttons, and tooltips to indicate danger or warning */
-  }
-  
-  .dead-theme .modal, .dead-theme .dropdown, .dead-theme .navbar {
-    background-color: #3b3b3b; /* Slightly lighter gray background for modals, dropdowns, and navigation bars */
-    border-color: #4a4a4a; /* Border color for these components */
-  }
+    transform: scale(0.8);
+    filter: grayscale(100%) brightness(60%);
+    opacity: 0.7;
+}
+
+.dead-theme {
+    background-color: #2a2a2a;
+    color: #c0c0c0;
+}
+
+.dead-theme a, .dead-theme .button, .dead-theme .tooltip-text {
+    color: #e57373;
+}
+
+.dead-theme .modal, .dead-theme .dropdown, .dead-theme .navbar {
+    background-color: #3b3b3b;
+    border-color: #4a4a4a;
+}
+
   
   
   .custom-modal {
@@ -1085,10 +986,9 @@ html,body {
   #waterLevelDescription {
     position: absolute;
     bottom: 0;           /* Pin to the top */
-    left: 100;           /* Optional: Align to the left. Adjust as necessary */
-    /* z-index: 10;       Ensure it's above other content */
-    background-color: rgba(255, 255, 255, 0.8); /* Optional: Make it slightly opaque white to stand out. Adjust as necessary */
-    padding: 10px;     /* Optional: Add some padding for better visuals */
+    left: 100;           
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 10px;     
   
     
   }
