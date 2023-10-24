@@ -504,6 +504,25 @@ html,body {
   .gradient-morning .plant {
     transform: translateY(-10px) scale(1.05); /* Plants slightly rise and grow */
   }
+
+  .gradient-morning {
+    background-color: #f6f688; /* Dark background color */
+    color: #151313; /* Light text color */
+  }
+
+
+  .gradient-afternoon {
+    background-color: hsl(61, 98%, 59%); /* Dark background color */
+    color: #090808; /* Light text color */
+  }
+
+
+  .gradient-evening {
+    background-color: hsl(24, 85%, 53%); /* Dark background color */
+    color: #120d0d; /* Light text color */
+  }
+  
+  
   
   .gradient-afternoon .plant {
     animation: wiggle 1s infinite; /* Just the wiggle animation */
