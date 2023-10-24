@@ -30,7 +30,6 @@ html,body {
   background: url('../images/bottom.png') no-repeat center bottom; 
   background-size: cover; /* 使图片覆盖整个 .background-image 元素 */
   z-index: 0; /* 使其位于其他内容下方 */
-  display: none;
 }
 
 
@@ -474,8 +473,7 @@ button:hover {
 
 
 #waterLevel {
-  z-index: 9;
-  width: 250px;
+  width: 200px;
   padding: 10px 15px;
   border: none;
   border-radius: 25px;
@@ -733,7 +731,7 @@ button {
 .modal {
   display: none;
   position: fixed;
-  z-index: 10;
+  z-index: 1;
   left: 0;
   top: 0;
   width: 100%;

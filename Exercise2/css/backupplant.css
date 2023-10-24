@@ -473,6 +473,7 @@ html,body {
   
   
   #waterLevel {
+    z-index: 9;
     width: 200px;
     padding: 10px 15px;
     border: none;
