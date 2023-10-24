@@ -197,6 +197,7 @@ function resetWaterConsumption() {
       } else {
         message += "Plant dies.";
         $(".plant").removeClass("alive").addClass("dead");
+        explanatoryText = "Because you have not achieved you drinking goals so the plant dies! ";
       }
   
       // Display the message in the .plant-message div
@@ -217,7 +218,6 @@ function resetWaterConsumption() {
   }
   
 
-
 function closeWaterModal() {
   $("#water-consumption-modal").css('display', 'none');
 }
@@ -225,10 +225,9 @@ function closeWaterModal() {
 
 
 
-$(document).ready(function() {
+$(window).on('load', function() {
     showWaterLevelDropdown();
 });
-
 
 function showWaterLevelDropdown() {
   const dropdown = document.getElementById("waterLevel");

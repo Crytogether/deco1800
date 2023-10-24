@@ -918,25 +918,48 @@ button {
   font-weight: bold;
 }
 
-/* Animation for when plants live */
-@keyframes plantLive {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+/* When the plant is alive */
+.plant.alive {
+  background-color: #88E1A0; /* vibrant green */
+  color: #266150; /* dark green */
+  box-shadow: 0 4px 15px 0 rgba(0, 128, 0, 0.3); /* deeper greenish shadow */
+
+  /* Animation: Plant breathing effect (optional) */
+  animation: breathe 2s infinite alternate;
 }
 
-.plant-live-animation {
-  animation: plantLive 1s forwards;
+@keyframes breathe {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
 }
 
-/* Animation for when plants die */
-@keyframes plantDie {
-  0% { opacity: 0; transform: translateY(-20px); }
-  100% { opacity: 1; transform: translateY(0); }
+/* When the plant is dead */
+.plant.dead {
+  background-color: #FF8080; /* vibrant red */
+  color: #912d2b; /* dark red */
+  box-shadow: 0 4px 15px 0 rgba(128, 0, 0, 0.3); /* deeper reddish shadow */
+
+  /* Animation: Plant wilting effect (optional) */
+  animation: wilt 2s infinite alternate;
 }
 
-.plant-die-animation {
-  animation: plantDie 1s backwards
-  background-color rgba(228, 12, 12, 0.7)
+@keyframes wilt {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(10px);
+  }
+}
+
+/* Interaction on hover */
+.plant:hover {
+  transform: scale(1.1); /* slightly increase size */
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3); /* deep shadow */
 }
 
 .custom-modal {
