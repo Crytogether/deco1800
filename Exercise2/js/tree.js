@@ -175,48 +175,7 @@ function recordWaterConsumption() {
 }
 
 
-function resetWaterConsumption() {
-    // Show a confirmation dialog before resetting
-    var confirmReset = confirm("Are you sure you want to finish the day and reset your water consumed today??");
-  
-    if (confirmReset) {
-      // Store the consumed water before resetting
-      var previousConsumption = cumulativeWaterConsumption;
-      cumulativeWaterConsumption = 0;
-  
-      // Update the displayed goal and consumed water
-      $("#goal-amount-display").text(userGoal + " ml");
-      $("#water-amount").text(cumulativeWaterConsumption + " ml");
-  
-      // Determine the message based on whether the goal was met
-      var message = "You finished the day. Your total water consumption for the day was " + previousConsumption + " ml. ";
-      if (previousConsumption >= userGoal) {
-        message += "Plant lives!";
-        $(".plant").removeClass("dead").addClass("alive");
-        explanatoryText = "Because you have achieved you drinking goals, now the plants will live!!! ";
-      } else {
-        message += "Plant dies.";
-        $(".plant").removeClass("alive").addClass("dead");
-        explanatoryText = "Because you have not achieved you drinking goals so the plant dies! ";
-      }
-  
-      // Display the message in the .plant-message div
-      $(".plant-message").text(message);
-  
-      // Display the message
-      alert(message);
-  
-      // Close the congratulations modal if it's open
-      $("#congratulations-modal").css('display', 'none');
-    }
-  
-     // Update the placeholder content with the explanatoryText
-     $("#waterLevelDescription").text(explanatoryText);
-     
-     // Reset userGoal here if needed
-     userGoal = 0;
-  }
-  
+
 
 function closeWaterModal() {
   $("#water-consumption-modal").css('display', 'none');
@@ -540,3 +499,46 @@ function drop(event, targetName) {
     messageBox.textContent = "Wrong match. Try again.";
   }
 }
+
+function resetWaterConsumption() {
+    // Show a confirmation dialog before resetting
+    var confirmReset = confirm("Are you sure you want to finish the day and reset your water consumed today??");
+  
+    if (confirmReset) {
+      // Store the consumed water before resetting
+      var previousConsumption = cumulativeWaterConsumption;
+      cumulativeWaterConsumption = 0;
+  
+      // Update the displayed goal and consumed water
+      $("#goal-amount-display").text(userGoal + " ml");
+      $("#water-amount").text(cumulativeWaterConsumption + " ml");
+  
+      // Determine the message based on whether the goal was met
+      var message = "You finished the day. Your total water consumption for the day was " + previousConsumption + " ml. ";
+      if (previousConsumption >= userGoal) {
+        message += "Plant lives!";
+        $(".plant").removeClass("dead").addClass("alive");
+        explanatoryText = "Because you have achieved you drinking goals, now the plants will live!!! ";
+      } else {
+        message += "Plant dies.";
+        $(".plant").removeClass("alive").addClass("dead");
+        explanatoryText = "Because you have not achieved you drinking goals so the plant dies! ";
+      }
+  
+      // Display the message in the .plant-message div
+      $(".plant-message").text(message);
+  
+      // Display the message
+      alert(message);
+  
+      // Close the congratulations modal if it's open
+      $("#congratulations-modal").css('display', 'none');
+    }
+  
+     // Update the placeholder content with the explanatoryText
+     $("#waterLevelDescription").text(explanatoryText);
+     
+     // Reset userGoal here if needed
+     userGoal = 0;
+  }
+  
