@@ -1,10 +1,7 @@
 html,body {
   margin: 0;
   padding: 0;
-  /* min-height: 100vh; */
   background-color: #fefae0;
-  /* flex-wrap: wrap; */
-  /* justify-content: space-around;*/
   font-family: Arial, sans-serif;
   position: relative; 
   padding-bottom: 100px; 
@@ -12,24 +9,15 @@ html,body {
   font-family: 'Poppins', sans-serif;
 }
 
-/* body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: flex-start;
-  background: url('path/to/your/lighter_green_image.jpg') repeat; /* Replace with your image path */
-
 .background-image {
-  position: absolute; /* 绝对定位以固定在底部 */
+  position: absolute; 
   bottom: 0;
   left: 0;
-  width: 100%; /* 使图片占据整个宽度 */
-  height: 600px; /* 调整为您的图片高度 */
+  width: 100%; 
+  height: 600px; 
   background: url('../images/bottom.png') no-repeat center bottom; 
-  background-size: cover; /* 使图片覆盖整个 .background-image 元素 */
-  z-index: 0; /* 使其位于其他内容下方 */
+  background-size: cover; 
+  z-index: 0; 
 }
 
 
@@ -45,35 +33,12 @@ html,body {
 --lightbrown: #d4a373;
 }
 
-/* .plant {
-  border: 1px solid #000;
-  padding: 20px;
-  margin: 10px;
-  width: 30%;
-  box-sizing: border-box;
-} 
-
-.plant img {
-  width: 100%;
-  height: auto;
-}  */
-
-/* .notice {
-  background-color: #f8f9fa;
-  border: 1px solid #e9ecef;
-  padding: 10px;
-  text-align: center;
-  font-size: 1.2em;
-  margin: 10px;
-  width: 100%;
-  box-sizing: border-box;
-} */
 
 .water-consumption {
-  background-image: url('../images/top.png'); /* 使用你的图像路径替换 */
-  background-size: cover; /* 图像将覆盖整个容器 */
-  background-repeat: no-repeat; /* 确保图像不会重复 */
-  background-position: center; /* 让图像居中 */
+  background-image: url('../images/top.png'); 
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center; 
   padding: 20px;
   box-sizing: border-box;
   display: flex;
@@ -95,10 +60,10 @@ html,body {
   display: flex;
   align-items: center;
   margin: 0 20px; /* adding some margin for spacing between them */
-  padding: 10px;           /* 添加内边距 */
-  border-radius: 10px;     /* 添加圆角 */
-  background-color: #8ef4fb; /* 背景颜色，可以根据您的需要进行调整 */
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1); /* 可选：为方框增加一点阴影效果 */
+  padding: 10px;           
+  border-radius: 10px;     
+  background-color: #8ef4fb; 
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1); 
 
 }
 
@@ -145,21 +110,21 @@ html,body {
 }
 
 .watering {
-  max-width: 100px;  /* 图片的最大宽度 */
-  max-height: 100px;  /* 图片的最大高度 */
+  max-width: 100px;  
+  max-height: 100px;  
   height: auto;
   margin: 0;
   padding: 0;
 }
 
 .button-group button {
-  width: 70px; /* 调整宽度和高度以适应边框和间距 */
+  width: 70px; 
   height: 70px; 
-  border: 2px solid #3d9b66; /* 这会添加一个绿色的边框，您可以根据需要更改颜色 */
-  border-radius: 50%; /* 使按钮成为一个完美的圆形 */
+  border: 2px solid #3d9b66; 
+  border-radius: 50%; 
   padding: 0;
   margin-top: 55px;
-  background-color: white; /* 添加一个白色背景，可以根据需要更改 */
+  background-color: white; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -177,32 +142,22 @@ html,body {
 }
 
 .tooltip-text {
-  position: absolute; /* 使用绝对定位来放置文字说明 */
-  bottom: -40px; /* 调整这个值可以改变文字说明相对于按钮的位置 */
+  position: absolute; 
+  bottom: -40px; 
   left: 50%; 
-  transform: translateX(-50%); /* 让文字说明在按钮中心 */
-  padding: 5px 10px; /* 内边距 */
-  background-color: #ffffff; /* 气泡的背景颜色 */
-  color: #0d0000; /* 文字颜色 */
-  border-radius: 15px; /* 圆角效果 */
-  white-space: nowrap; /* 防止文字换行 */
+  transform: translateX(-50%); 
+  padding: 5px 10px; 
+  background-color: #ffffff; 
+  color: #0d0000; 
+  border-radius: 15px; 
+  white-space: nowrap; 
   font-family: 'Poppins', sans-serif;
 }
 
-/* .notice {
-  background-color: #f8f9fa;
-  border: 1px solid #e9ecef;
-  padding: 10px;
-  text-align: center;
-  font-size: 1.2em;
-  width: 100%;
-  box-sizing: border-box;
-  margin-bottom: 20px;
-} */
+
 
 .plant-desc {
   transform: rotateY(180deg);
-  /* ... other styles ... */
 }
 
 
@@ -215,28 +170,17 @@ html,body {
 }
 
 .plant {
-  /* padding: 20px; */
-  /* margin: 10px; */
-  /* box-sizing: border-box; */
   background-color: #ccd5ae;
   transform-style: preserve-3d;
   transition: background-color 0.3s ease, transform 3s;
   border-radius: 15px;
   height: 350px;
   overflow: hidden;
-  /*display: flex;*/
-  /*flex-direction: column;*/
-  /*align-items: center;*/
-  /*justify-content: space-between;*/
-  /*border-color: var(--darkgreen);*/
-  /*border: 1px solid var(--darkgreen);*/
   width: 50%;
-  /*clear: both; !* Ensures the plant div always starts on a new line *!*/
 }
 
 .plant-desc {
   transform: rotateY(180deg);
-  /* ... other styles ... */
 }
 
 
@@ -378,16 +322,12 @@ button:hover {
   background-color: #45a049;
 }
 
-/* Additional styling as needed */
 
 /* CSS for the light-up effect */
 .light-up {
   background-color: #606c38; /* Adjust the background color to your preference */
 }
-  
-.container {
-  margin: 20px;
-}
+
 
 label {
   font-weight: bold;
@@ -413,10 +353,6 @@ button:hover {
   50% { background-position: right 0%; }
   100% { background-position: left 0%; }
 }
-
-
-
-
 
 .background-option-1 {
   background: linear-gradient(to bottom, #D5E4F2, #A2BFD6);
@@ -455,7 +391,6 @@ button:hover {
 
 
 #waterLevel {
-  width: 200px;
   padding: 10px 15px;
   border: none;
   border-radius: 25px;
@@ -646,11 +581,6 @@ button:hover {
   transition: background-color 0.2s, transform 0.1s;
 }
 
-/*.time-option:hover {
-  background-color: #1c5a38;
-  transform: scale(1.05);
-}
-*/
 
 #message {
   width: 100%;
@@ -776,15 +706,15 @@ button {
   padding-top: 60px;
   }
   
-  .modal-content {
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-height: 80%;
-    overflow-y: auto;
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-height: 80%;
+  overflow-y: auto;
 }
 
 .close {
@@ -816,22 +746,12 @@ button {
   font-weight: bold;
 }
 
-.waterlevel-dropmenu{
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
 .container {
   display: flex;
   align-items: center;  /* Vertically aligns items to the center */
   justify-content: space-between;  /* Spaces the buttons evenly */
   flex-wrap: nowrap;  /* Prevents items from wrapping to the next line */
-}
-
-/* Override the display for the select dropdown */
-#waterLevel {
-  display: inline-block; /* Allows it to be on the same line as other inline or inline-block elements */
+  margin: 20px;
 }
 
 /* Ensures any button within the container doesn't expand to full width */
@@ -1034,10 +954,7 @@ button {
   position: absolute;
   bottom: 0;           /* Pin to the top */
   left: 100;           /* Optional: Align to the left. Adjust as necessary */
-  /* z-index: 10;       Ensure it's above other content */
   background-color: rgba(255, 255, 255, 0.8); /* Optional: Make it slightly opaque white to stand out. Adjust as necessary */
   padding: 10px;     /* Optional: Add some padding for better visuals */
-
-  
 }
 

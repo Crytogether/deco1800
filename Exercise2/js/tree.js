@@ -524,4 +524,11 @@ function resetWaterConsumption() {
      // Reset userGoal here if needed
      userGoal = 0;
   }
+
+  //
+  document.getElementById('quiz-button-sound').addEventListener('click', function() {
+    var sound = document.getElementById('buttonSound');
+    sound.play();
+});
+
   

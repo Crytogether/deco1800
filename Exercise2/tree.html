@@ -39,6 +39,7 @@
                     <span class="tooltip-text">Finish The Day</span>
                 </button>
                 <button onclick="startQuiz()" class="hideBtn">
+                <audio id="quiz-button-sound" src="./images/copper-bell-ding-2-172686.mp3" preload="auto"></audio>
                     <img src="./images/icon/quiz.png" alt="Start Quiz">
                     <span class="tooltip-text">Start Quiz</span>
                 </button>
@@ -115,7 +116,6 @@
 
         <div class="waterlevel-dropmenu">
             <div class="container">
-            
                 <select id="waterLevel" onchange="adjustPlantsByWaterLevel(this.value);">
                     <option value="" disabled selected>Daily water consumption</option>
                     <option value="1">if your average water drinking is 0-600ml </option>
