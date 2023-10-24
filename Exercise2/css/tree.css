@@ -471,23 +471,7 @@ button:hover {
   height: 350px;  /* Adjust plant container height for this water level */
 }
 
-/*#showWaterLevelButton {*/
-/*  background: linear-gradient(45deg, #4CAF50, #2f8f57);*/
-/*  color: white;*/
-/*  padding: 12px 24px;*/
-/*  border: none;*/
-/*  cursor: pointer;*/
-/*  border-radius: 25px;*/
-/*  font-weight: 600;*/
-/*  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);*/
-/*  transition: all 0.3s ease 0s;*/
-/*}*/
 
-/*#showWaterLevelButton:hover {*/
-/*  background: linear-gradient(45deg, #2f8f57, #4CAF50);*/
-/*  box-shadow: 0px 15px 20px rgba(76, 175, 80, 0.4);*/
-/*  transform: translateY(-7px);*/
-/*}*/
 
 #waterLevel {
   z-index: 9;
@@ -510,31 +494,10 @@ button:hover {
 
 #waterLevel option {
   padding: 10px;
-  background: #f7f8fc;  /* Light background color */
-  /*cursor: pointer;*/
+  background: #f7f8fc;  
   border-radius: 5px;
 }
 
-/*#waterLevel option:hover {*/
-/*  background: #cc9619;  !* Slightly darker on hover *!*/
-/*}*/
-
-
-/* .gradient-morning {
-    background: linear-gradient(to bottom, #FDFD96, #FFE47A);
-}
-
-.gradient-afternoon {
-    background: linear-gradient(to bottom, #FFD700, #FF6347);
-}
-
-.gradient-evening {
-    background: linear-gradient(to bottom, #FF4500, #FFA500);
-}
-
-.gradient-night {
-    background: linear-gradient(to bottom, #000022, #020025);
-} */
 
 
 
@@ -543,16 +506,33 @@ button:hover {
   transform: translateY(-10px) scale(1.05); /* Plants slightly rise and grow */
 }
 
-/* Afternoon */
 .gradient-afternoon .plant {
-  animation: wiggle 1s infinite; /* Plants wiggle a bit */
+  animation: wiggle 1s infinite; /* Just the wiggle animation */
+  transform-origin: bottom center; /* Ensures the wiggle pivots from the bottom */
 }
 
-@keyframes wiggle {
-  0% { transform: rotate(-5deg); }
-  50% { transform: rotate(5deg); }
-  100% { transform: rotate(-5deg); }
+
+
+@keyframes wiggleAndColorChange {
+  0% {
+    transform: rotate(-5deg);
+    background-color: #88E1A0;
+  }
+  50% {
+    transform: rotate(5deg);
+    background-color: #70C090;
+  }
+  100% {
+    transform: rotate(-5deg);
+    background-color: #88E1A0;
+  }
 }
+
+.gradient-afternoon .plant {
+  animation: wiggleAndColorChange 1s infinite;
+  transform-origin: bottom center;
+}
+
 
 /* Evening */
 .gradient-evening .plant {
@@ -560,10 +540,19 @@ button:hover {
   filter: brightness(80%); /* Plants darken a bit */
 }
 
-/* Night */
+.gradient-night {
+  background-color: #121212; /* Dark background color */
+  color: #e0e0e0; /* Light text color */
+}
+
 .gradient-night .plant {
   transform: scale(0.9); /* Plants are smaller */
   filter: grayscale(100%); /* Plants are desaturated */
+}
+
+/* Adjusting other elements for the night theme */
+.gradient-night a, .gradient-night .button, .gradient-night .tooltip-text {
+  color: #b087e3; /* Light purple color for links, buttons, and tooltips */
 }
 
 #message {
@@ -921,48 +910,58 @@ button {
 }
 
 /* When the plant is alive */
+@keyframes breathe {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
 .plant.alive {
   background-color: #88E1A0; /* vibrant green */
   color: #266150; /* dark green */
+  
+  /* Border with gradient */
+  border: 3px solid;
+  border-image-source: linear-gradient(to right, #7DDA8D, #266150);
+  border-image-slice: 1;
+  
+  /* Text properties */
+  text-shadow: 2px 2px 3px rgba(0, 128, 0, 0.3);
+  
+  /* Shadow and radius */
   box-shadow: 0 4px 15px 0 rgba(0, 128, 0, 0.3); /* deeper greenish shadow */
+  border-radius: 10px;
 
-  /* Animation: Plant breathing effect (optional) */
+  /* Animation */
   animation: breathe 2s infinite alternate;
+
+  /* Transition */
+  transition: all 0.3s ease-in-out;
 }
 
-@keyframes breathe {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.05);
-  }
-}
 
 /* When the plant is dead */
 .plant.dead {
-  background-color: #FF8080; /* vibrant red */
-  color: #912d2b; /* dark red */
-  box-shadow: 0 4px 15px 0 rgba(128, 0, 0, 0.3); /* deeper reddish shadow */
-
-  /* Animation: Plant wilting effect (optional) */
-  animation: wilt 2s infinite alternate;
+  transform: scale(0.8); /* Plants are even smaller */
+  filter: grayscale(100%) brightness(60%); /* Plants are desaturated and darker */
+  opacity: 0.7; /* Plants are slightly transparent to show they're withering */
 }
 
-@keyframes wilt {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(10px);
-  }
+/* Dead theme for the entire main page when plants are dead */
+.dead-theme {
+  background-color: #2a2a2a; /* Dark gray background color */
+  color: #c0c0c0; /* Light gray text color */
 }
 
-/* Interaction on hover */
-.plant:hover {
-  transform: scale(1.1); /* slightly increase size */
-  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3); /* deep shadow */
+.dead-theme a, .dead-theme .button, .dead-theme .tooltip-text {
+  color: #e57373; /* Light red color for links, buttons, and tooltips to indicate danger or warning */
 }
+
+.dead-theme .modal, .dead-theme .dropdown, .dead-theme .navbar {
+  background-color: #3b3b3b; /* Slightly lighter gray background for modals, dropdowns, and navigation bars */
+  border-color: #4a4a4a; /* Border color for these components */
+}
+
 
 .custom-modal {
   display: none;
