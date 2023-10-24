@@ -224,11 +224,40 @@ function closeWaterModal() {
   $("#water-consumption-modal").css('display', 'none');
 }
 
+// document.addEventListener("DOMContentLoaded", function() {
+//     // Ensure the DOM is fully loaded before attaching event listeners
 
-// function lightUpPlant(plantIndex) {
-//   $(".plant:nth-child(" + plantIndex + ")").addClass('light-up');
-// }
+//     const waterLevelDropdown = document.getElementById("waterLevel");
 
+//     if (waterLevelDropdown) {  // Check if the dropdown exists
+//         waterLevelDropdown.addEventListener("change", function() {
+//             adjustPlantsByWaterLevel(this.value);
+//         });
+//     }
+// });
+
+// $(document).ready(function() {
+//     // Attach a change event listener to the dropdown with the id 'waterLevel'
+//     $('#waterLevel').change(function() {
+//         adjustPlantsByWaterLevel($(this).val());
+//     });
+// });
+
+// document.querySelector('.waterlevel-dropmenu').addEventListener('click', function(event) {
+//     // Ensure the clicked element is not the select itself to avoid interference with its default behavior
+//     if (event.target.id !== 'waterLevel') {
+//         const dropdown = document.getElementById("waterLevel");
+//         dropdown.disabled = false; // Remove the disabled attribute
+//         dropdown.focus();  // This will open the dropdown options if the browser allows
+//     }
+// });
+
+
+
+
+$(document).ready(function() {
+    showWaterLevelDropdown();
+});
 
 
 function showWaterLevelDropdown() {
@@ -236,6 +265,13 @@ function showWaterLevelDropdown() {
   dropdown.style.display = "inline-block";
   dropdown.focus(); // This will open the dropdown options
 }
+
+$(document).ready(function() {
+    $('#waterLevelDropdown').on('change', function() {
+        var selectedLevel = $(this).val();
+        changeBackgroundColor(selectedLevel);
+    });
+});
 
 
 function changeBackgroundColor(level) {
@@ -330,9 +366,7 @@ function adjustPlantsByWaterLevel(level) {
 }
   
 
-function showWaterLevelModal() {
-  document.getElementById('waterLevelModal').style.display = "block";
-}
+
 
 function closeWaterLevelModal() {
   document.getElementById('waterLevelModal').style.display = "none";
@@ -448,6 +482,7 @@ function closeCheckModal() {
 }
 
 
+
 let correctAnswersCount = 0;
 
 
@@ -461,6 +496,16 @@ function resetQuiz() {
   document.getElementById("questionContainer").innerHTML = "";
   document.getElementById("optionsContainer").innerHTML = "";
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Get the button that has the 'onclick' attribute set to 'startQuiz()'
+    let buttonWithOnclick = document.querySelector("button[onclick='startQuiz()']");
+    
+    // If the button exists, add the event listener
+    if (buttonWithOnclick) {
+        buttonWithOnclick.addEventListener("click", startQuiz);
+    }
+});
 
 
 function startQuiz() {
