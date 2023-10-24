@@ -511,7 +511,7 @@ function resetWaterConsumption() {
       } else {
         message += "Plant dies.";
         $(".plant").removeClass("alive").addClass("dead");
-        explanatoryText = "Because you have not achieved you drinking goals so the plant dies! ";
+        explanatoryText = "Because you have not achieved you drinking goals so the plant dies! Come back tomorrow and try harder in meeting your goal ";
       }
   
       
