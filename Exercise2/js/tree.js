@@ -350,16 +350,14 @@ $(document).ready(function () {
 $(document).ready(function () {
     console.log("Document ready!");
   
-    let hasPrompted = false;
+   
   
     $("#timeSelectorButton").click(function () {
       console.log("Button clicked!");
-  
-      if (!hasPrompted) {
-        console.log("Calling changeBackgroundByTime function.");
+      console.log("Calling changeBackgroundByTime function.");
         changeBackgroundByTime();
-        hasPrompted = true;
-      }
+  
+     
     });
   
     // Reset hasPrompted to false when modal is closed
@@ -390,11 +388,12 @@ function changeBackgroundByTime() {
     }
   
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-      if (event.target === modal) {
-        modal.style.display = "none";
-      }
-    }
+    $(window).on('click', function(event) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+      
   
     $('.time-option').on('click', function () {
         let userInput = $(this).data('time');
